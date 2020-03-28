@@ -1,15 +1,15 @@
 body {
-  background-color: #111;
+  background-color: #0e0e0e;
   font-family: sans-serif;
-  color: #f4dda0;
+  color: #eee;
 }
 
 .content {
-  max-width: 1300px;
+  max-width: 1100px;
   margin: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-top: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-top: 20px;
   background: #161616;
 }
 
@@ -33,10 +33,6 @@ p {
 
 h1, h2, h3 {
   color: #fcebb8
-}
-
-.manual-title {
-  padding-top: 30px
 }
 
 strong {
@@ -89,5 +85,13 @@ a.out-contents-link2 {
 }
 
 #main-head, #subtitle {
-  color: #f7f4eb
+  color: #eee;
+}
+
+#subtitle {
+  font-size: 1.3em;
+}
+
+#manual {
+  padding-top: 20px;
 }
