@@ -18,6 +18,7 @@ body {
   padding-top: 10px;
 }
 
+
 .table-of-contents {
   display: flex;
 }
@@ -84,12 +85,42 @@ a.out-contents-link2 {
   color: #f7e843;
 }
 
+.title-box {
+  margin: auto;
+  width: 55%;
+  padding-left: 45px;
+
+
+}
+
+.title-text {
+  float: left;
+  padding-left: 25px;
+}
+
+#tmb-icon {
+  float: left;
+  margin-top: 20px;
+
+}
+
+
 #main-head, #subtitle {
   color: #eee;
+  text-align: left;
+}
+
+#main-head {
+  margin-bottom: -4px;
 }
 
 #subtitle {
-  font-size: 1.3em;
+  margin-bottom: 25px;
+}
+
+
+#subtitle {
+  font-size: 1.2em;
 }
 
 #manual {
