@@ -69,7 +69,7 @@
 <p>Welcome to Tauon Music Box.</p>
 
 <p>Tauon is a playlist oriented music player that makes that assumption that folders are albums.
-  (You may find the words "album" and "folder" used interchangeably withing the interface and documentation)</p>
+  (You may find the words "album" and "folder" used interchangeably within the interface and documentation)</p>
 
 <p>While some features and interface elements may not be immediately intuitive, I hope
   that once you are a familiar, you will find that Tauon is pleasant, fun and fast to use!</p>
@@ -84,6 +84,7 @@
     <a href="#playlsts+queue" class="contents-link">The playlist list</a><br>
     <a href="#artist list" class="contents-link">Artist list</a><br>
     <a href="#folder navigator" class="contents-link">Folder navigator</a><br>
+    <a href="#search" class="contents-link">Search</a><br>
     <a href="#mini" class="contents-link">Mini-mode</a><br>
     <a href="#backends" class="contents-link">Audio backends</a><br>
     </p>
@@ -251,11 +252,10 @@ Left click the album art to cycle through any available images.</p>
 
 <h3 id="playlsts+queue" class="manual-title">Playlists + Queue (Left side panel)</h3>
 
-<p>As you create more playlists, there won't be enough room for them all on the top panel. This "Playlists + Queue" view lists all your playlists.</p>
-
 <img src="t04.jpg" alt="Screenshot of the playlist list">
+<p>This "Playlists + Queue" view lists all of your playlists. These tabs behave similar to the top panel tabs. You can choose to <em><strong>unpin</strong></em> a tab from the top panel from
+  the tab right click context menu.</p>
 
-<p>These tabs behave similar to the top panel tabs. There is a <em>toggle switch</em> to the left of the playlist title that allows you to <em><strong>unpin</strong></em> a tab from the top panel.</p>
 
 <div class="tip">
 <p><strong>Tip:</strong> Just keep tabs <em>Pined</em> when you want quick access to them.</p>
@@ -294,7 +294,7 @@ the folder of the playing track to the selected folder on disk. The folder will 
 
 <p>This search complies different types of results from all playlists. It will automatically activate when you start typing.</p>
 
-<p>Clicking an Artist, Genre or Folder result will create a new playlist of the result. Clicking a Track or Album result will play it.</p>
+<p>Clicking an Artist, Genre or Folder result will create a new playlist of that result. Clicking a Track or Album result will play it.</p>
 <p> <strong><em>Right clicking</em></strong> any result will simply <strong>locate</strong> the result instead of playing or creating a new playlist. </p>
 <p><kbd>Ctrl</kbd> + clicking will add the result to the current playlist without closing the search screen</p>
 
@@ -302,8 +302,8 @@ the folder of the playing track to the selected folder on disk. The folder will 
 
 <p>The find box locates tracks within the currently viewed playlist.</p>
 
-<p>To use the find box, press <kbd>Ctrl</kbd> + <kbd>F</kbd> and type search terms, then use UP and DOWN arrow keys to jump
-  to next and previous results in the playlist.</p>
+<p>To use the find box, press <kbd>Ctrl</kbd> + <kbd>F</kbd> and type search terms, then use UP or DOWN arrow keys to jump
+  to the next or previous results in the playlist.</p>
 
 <div class="tip">
 <p><strong>Tip:</strong> You can press <kbd>Shift</kbd> + <kbd>Enter</kbd> to create a new playlist of all matching results.</p>
@@ -311,6 +311,9 @@ the folder of the playing track to the selected folder on disk. The folder will 
 <p>This can be useful for example, finding artists in features or filenames that may not be picked up by the global search.<br>
   Since this also searches the filename, you can use this to create a playlist of tracks of a single file type, for example searching <code>.ogg</code>
 </p>
+
+<p><strong>Tip:</strong> If a playlist was created using a search, you can re-run the search / reload the playlist by right clicking the playlist tab and clicking "Regenerate". You can also add the keyword "auto"
+to the generator string to have the playlist reload automatically. See <a href="https://github.com/Taiko2k/TauonMusicBox/wiki/Generator-Codes" class="out-contents-link">Generator Codes</a><br> for details.</p>
 </div>
 
 
