@@ -136,15 +136,15 @@
 <p>The top panel contains the playlist tabs. Click a playlist tab to switch the tracklist view to that playlist. You can also <strong>mouse wheel scroll</strong> to cycle through them.</p>
 
 <div class="tip">
-<p><strong>Hint:</strong> Playback from any original started playlist will still continue.</p>
+<p><strong>Hint:</strong> Playback from any originally started playlist will still continue.</p>
 </div>
 
 <p>You can create a <strong>new empty playlist</strong> by clicking MENU, then clicking "New Playlist".</p>
 
-<p>You can <strong>delete</strong> a playlist by <strong>middle mouse clicking</strong> on the playlist tab you want to delete.</p>
+<p>You can <strong>delete</strong> a playlist by <strong>middle mouse clicking</strong> on the tab of the playlist you want to delete.</p>
 
 <p>You can <strong>drag tracks</strong> from the main tracklist and drop them onto a playlist tab to add them to the end of that playlist. Also, if you drag and drop tracks to the right of all the playlist tabs,
-this will create a new playlist of those tracks.</p>
+this will create a new playlist including those tracks.</p>
 
 <p>You can <strong>drag playlist tabs</strong> to re-arrange them. Hold <kbd>Shift</kbd> to merge one playlist onto the end of another.
   Hold <kbd>Ctrl</kbd> while dragging to the right of all the tabs to create a duplicate of that playlist.</p>
@@ -161,31 +161,31 @@ this will create a new playlist of those tracks.</p>
   <li><strong>Play button</strong>.
     <div class="tip">
     <p><strong>Feature:</strong> <em>Right click</em> the play button to <em><strong>go to playing</strong></em>. This will locate the currently playing track in the tracklist.
-    The playlist will be switched if nessesary, <strong>however</strong> if there is another matching track in the currently viewed playlist, it will be located and set to be the playing track instead.
+    The playlist will be switched if necessary, <strong>however</strong> if there is another matching track in the currently viewed playlist, it will be located and set to be the playing track instead.
   (This is useful for example, if you were playing a single track from a shuffled playlist, and you then wanted to continue playback from the full album that resides in another playlist.)</p>
     </div>
   </li>
 <li><strong>Pause button</strong>.</li>
-<li><strong>Stop button</strong>. You can right click this to activate auto-stop, which will automatically stop when the end of the current track is reached.</li>
+<li><strong>Stop button</strong>. You can right click this to activate auto-stop, which will automatically stop playback when the end of the current track is reached.</li>
 <li><strong>Previous button</strong>.</li>
 <li><strong>Next button</strong>.</li>
 </ul>
 
 <div class="tip">
-<p><strong>Feature:</strong> Next and Previous normally play songs as they appear in the playlist.
+<p><strong>Feature:</strong> Next and Previous normally play songs in the order they appear in the playlist.
 However with shuffle mode on, Previous plays tracks from playback history.</p>
 </div>
 
 <p>Staring from the bottom right:</p>
 <ul>
   <li><strong>Playback time indicator</strong>. You can click this to cycle available display modes: Time elapsed, Time remaining, Elapsed + track length and Album elapsed + album length.</li>
-  <li><strong>Volume bar</strong>. You can right click to mute.</li>
+  <li><strong>Volume bar</strong>.</li>
   <li><strong>Playback menu</strong>.</li>
   <li><strong>Shuffle toggle</strong>. You can right click to access the shuffle menu.</li>
   <li><strong>Repeat toggle</strong>. You can right click to access the repeat menu.
   <div class="tip">
   <p><strong>Tip:</strong> If you want to shuffle tracks within a single album, activate both <em>Repeat Album</em> and standard shuffle.
-    (Maybe you're playing <a href="https://eluvium.bandcamp.com/album/shuffle-drones">this</a> album.) Or you could always just drag and drop to a new playlist and enable shuffle.</p>
+    (Maybe you're playing <a href="https://eluvium.bandcamp.com/album/shuffle-drones">this</a> album.) Or you could always just drag and drop tracks to a new playlist and then enable shuffle.</p>
   </div>
   </li>
 </ul>
@@ -197,10 +197,10 @@ However with shuffle mode on, Previous plays tracks from playback history.</p>
 <p>On the top half of the side panel is the <strong>album art display</strong>.
 Left click the album art to cycle through any available images.</p>
 <div class="tip">
-<p><strong>Tip:</strong> Holding <kbd>Shift</kbd> while mousing over the album art will tell you the image resolution.</p>
+<p><strong>Tip:</strong> Holding <kbd>Shift</kbd> while placing the mouse cursor over the album art will tell you the image resolution.</p>
 </div>
 
-<p>On the bottom half is track metadata. If you right click here, this will bring up the <strong>lyrics menu</strong>. Once the "Show lyrics" menu entry is clicked, the right side panel will
+<p>On the bottom half is track metadata. If you right click here, this will bring up the <strong>lyrics menu</strong>. If the "Show lyrics" entry in the menu is enabled, the right side panel will
   automatically switch to lyrics layout when lyrics are available.<p>
 
 <p>You can <strong>resize</strong> the panel by dragging the left edge.</p>
@@ -229,19 +229,25 @@ Left click the album art to cycle through any available images.</p>
 
 <h2 id=tracklist class="manual-title">The tracklist</h2>
 
-<h4>Re-arranging tracks</h4>
+<h4>Selecting and re-arranging tracks</h4>
 
-<p>As mentioned previously, you can drag tracks (or a group of tracks) to another
-  playlist by dragging and dropping. You can also <strong>drag to re-arrange</strong> tracks
-  within a playlist if you hold <kbd>Shift</kbd> then drag. (Note that moving a group doesn't require shift)</p>
+  <p>You can select a single track by clicking on it <strong>or</strong> you can select an album block by clicking its title in the tracklist.
+  You can also select a range by clicking the first track then holding <kbd>Shift</kbd> and clicking the last track.</p>
+
+  <p>You can move/add tracks in a playlist by drag and drop, or copy and paste.</p>
+
+  <div class="tip"><p><strong>Note:</strong> Using paste from the context menu will add tracks at the end of the album block of the selected track.
+    Using the <kbd>Ctrl</kbd> + <kbd>v</kbd> shortcut will add them to the end of the viewed playlist.</p></div>
+
+  <div class="tip"><p><strong>Note:</strong> Moving a single track requires holding <kbd>Shift</kbd> when dragging.</p></div>
 
 <h4>Scrolling</h4>
 
-<p>You can scroll using the mouse wheel.</p>
+  <p>You can scroll using the mouse wheel.</p>
 
-<p>There is also a <strong>scroll-bar</strong> hidden to the left of the playlist until you mouse over.
-  In the scroll bar you can hold down the mouse button above or below the grip to scroll quickly in that direction.
-  You can also <em>right click</em> to jump to an absolute position within the scroll field. </p>
+  <p>There is also a <strong>scroll-bar</strong> hidden to the left of the playlist until you mouse over.
+    In the scroll bar you can hold down the mouse button above or below the grip to scroll quickly in that direction.
+    You can also <em>right click</em> to jump to an absolute position within the scroll field. </p>
 
 
 
@@ -275,7 +281,7 @@ Left click the album art to cycle through any available images.</p>
 
 
 <p>If there are sub-folders in your collection, this will be presented in a tree style layout.
-  Note that this doesn't directly represent folders on your filesystem, but rather it tries to intelligently list only relevant nodes of the folder structure of tracks you already imported.</p>
+  Note that this doesn't directly represent folders on your filesystem, but rather tries to intelligently list only relevant nodes of the folder structure of tracks you already imported.</p>
 
 
 <div class="tip">
@@ -296,7 +302,7 @@ the folder of the playing track to the selected folder on disk. The folder will 
 
 <p>Clicking an Artist, Genre or Folder result will create a new playlist of that result. Clicking a Track or Album result will play it.</p>
 <p> <strong><em>Right clicking</em></strong> any result will simply <strong>locate</strong> the result instead of playing or creating a new playlist. </p>
-<p><kbd>Ctrl</kbd> + clicking will add the result to the current playlist without closing the search screen</p>
+<p><kbd>Ctrl</kbd> + clicking will add the result to the current playlist without closing the search screen.</p>
 
 <h2 id="find" class="manual-title">Quick find</h2>
 
@@ -304,6 +310,7 @@ the folder of the playing track to the selected folder on disk. The folder will 
 
 <p>To use the find box, press <kbd>Ctrl</kbd> + <kbd>F</kbd> and type search terms, then use UP or DOWN arrow keys to jump
   to the next or previous results in the playlist.</p>
+
 
 <div class="tip">
 <p><strong>Tip:</strong> You can press <kbd>Shift</kbd> + <kbd>Enter</kbd> to create a new playlist of all matching results.</p>
