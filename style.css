@@ -28,6 +28,11 @@ body {
   max-width: 300px;
 }
 
+.footer-text {
+  font-size: 0.76em;
+  color: #555;
+}
+
 p {
 
 }
