@@ -33,6 +33,14 @@ body {
   color: #555;
 }
 
+.news {
+  background-color: #111;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 15px;
+  font-size: 0.9em;
+}
+
 p {
 
 }
