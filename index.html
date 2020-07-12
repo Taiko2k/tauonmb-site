@@ -160,8 +160,8 @@
 
     <p>Tauon has no background file monitoring. To update, simply clear the playlist and re-import.</p>
 
-    <p>Alternatively, if the first folder you ever imported to a playlist was a top level folder,
-        you can activate "Rescan Folder" from the playlist tab context menu.</p>
+    <p>Alternatively, you can trigger a rescan any folders you've previously added by selecting "Rescan Folders"
+        from the playlist tab context menu.</p>
 
     <h2 id="top panel" class="manual-title">Playlist navigation</h2>
 
@@ -181,7 +181,7 @@
 
     <p>You can <strong>drag tracks</strong> from the main tracklist and drop them onto a playlist tab to add them to the
         end of that playlist. Also, if you drag and drop tracks to the right of all the playlist tabs,
-        this will create a new playlist including those tracks.</p>
+        this will create a new playlist of those tracks.</p>
 
     <p>You can <strong>drag playlist tabs</strong> to re-arrange them. Hold <kbd>Shift</kbd> to merge one playlist onto
         the end of another.
@@ -242,7 +242,7 @@
     <h2 id="right side panel" class="manual-title">The right side panel</h2>
 
     <p>On the top half of the side panel is the <strong>album art display</strong>.
-        Left click the album art to cycle through any available images.</p>
+        Click the album art to cycle through any available images.</p>
     <div class="tip">
         <p><strong>Tip:</strong> Holding <kbd>Shift</kbd> while placing the mouse cursor over the album art will tell
             you the image resolution.</p>
@@ -256,7 +256,7 @@
     <p>You can <strong>resize</strong> the panel by dragging the left edge.</p>
 
     <div class="tip">
-        <p><strong>Tip:</strong> Resize the panel far left for a large album art style layout.</p>
+        <p><strong>Tip:</strong> Resize the panel toward the left for a large album art style layout.</p>
         <img src="t02.png" alt="Side panel with full sized art" width="500">
         <p><small>Album on show here is <a href="https://music.midwestcollective.us/album/odyssey">https://music.midwestcollective.us/album/odyssey</a></small>
         </p>
@@ -268,8 +268,7 @@
 
     <h2 id="shortcuts" class="manual-title">Keyboard Shortcuts</h2>
 
-    <p>You can edit key-binds in the input.txt file. You can open this file from within Tauon by going to "Settings", "Function" tab, and pressing "Open keymap file".
-        Here's some of the important shortcuts and their defaults:
+    <p>Here's some of the important shortcuts and their defaults:
 
     <table>
         <tr>
@@ -310,6 +309,7 @@
 
     <p>For a more complete list, see <a href="https://github.com/Taiko2k/TauonMusicBox/wiki/Keyboard-Shortcuts" class="out-contents-link">here</a>.
 
+    <p>You can edit key-binds in the input.txt file. You can open this file from within Tauon by going to "Settings" > "Function" tab, and pressing "Open keymap file".</p>
 
     <h2 id="gallery" class="manual-title">Gallery view</h2>
 
@@ -321,7 +321,7 @@
 
     <p>You can also enter the gallery in a "keyboard control mode" by pressing <kbd>Tab</kbd></p>
 
-    <p>To play an album, just click it. This is a single click by default but you can change it to a double click in
+    <p>To play an album, just click it. This is a single click by default but you can change it to a double-click in
         settings if you want.</p>
 
 
@@ -334,7 +334,7 @@
         You can also select a range by clicking the first track then holding <kbd>Shift</kbd> and clicking the last
         track.</p>
 
-    <p>You can move/add tracks in a playlist by drag and drop, or copy and paste.</p>
+    <p>You can move/add tracks in a playlist by drag and drop or copy and paste.</p>
 
     <div class="tip"><p><strong>Note:</strong> Using paste from the context menu will add tracks at the end of the album
         block of the selected track.
@@ -347,7 +347,7 @@
 
     <p>You can scroll using the mouse wheel.</p>
 
-    <p>There is also a <strong>scroll-bar</strong> hidden to the left of the playlist until you mouse over.
+    <p>There is also a <strong>scroll-bar</strong> hidden to the left of the tracklist until you mouse over.
         In the scroll bar you can hold down the mouse button above or below the grip to scroll quickly in that
         direction.
         You can also <em>right click</em> to jump to an absolute position within the scroll field. </p>
@@ -419,11 +419,11 @@
         result will play it.</p>
     <p><strong><em>Right clicking</em></strong> any result will simply <strong>locate</strong> the result instead of
         playing or creating a new playlist. </p>
-    <p><kbd>Ctrl</kbd> + clicking will add the result to the current playlist without closing the search screen.</p>
+    <p><kbd>Ctrl</kbd> + clicking will add the result to the current playlist without closing the search.</p>
 
     <h2 id="find" class="manual-title">Quick find</h2>
 
-    <p>The find box locates tracks within the currently viewed playlist.</p>
+    <p>The find box locates tracks within the <strong>currently viewed</strong> playlist only.</p>
 
     <p>To use the find box, press <kbd>Ctrl</kbd> + <kbd>F</kbd> and type search terms, then use UP or DOWN arrow keys
         to jump
@@ -465,7 +465,8 @@
 
     <h2 id="backends" class="manual-title">Audio backends</h2>
 
-    <p>Tauon supports two different audio backends: <strong>BASS</strong> and <strong>GStreamer</strong>. You can switch between these in the Audio tab of settings.</p>
+    <p>Tauon supports two different audio backends: <strong>BASS</strong> and <strong>GStreamer</strong>. You can switch
+        between these in the "Audio" tab of settings.</p>
 
     <p>There are some differences to note:</p>
     <ul>
@@ -496,7 +497,7 @@
     <div class="tip">
     <p><strong>Note:</strong> This feature works with folders and zip archives. Items older than one hour are ignored.</p>
 
-    <p><strong>Feature:</strong> Items will be imported to the current playlist. <strong>However</strong> if you have a playlist named "Downloads", that playlist
+    <p><strong>Feature:</strong> Items will be imported to the currently viewed playlist. <strong>However</strong> if you have a playlist named "Downloads", that playlist
     will always be used instead.</p>
 
     <p><strong>Warning:</strong> Password protected archives are not supported.</p>
@@ -504,8 +505,8 @@
     <p><strong>Tip:</strong> 7z and RAR archives are also supported, but you may need to install some optional packages:
         <ul>
             <li>Snap: Included by default.</li>
-            <li>AUR: Install optional packages <code>unrar</code> and <code>p7zip</code>.</li>
-            <li>Flatpak: Install host packages <code>unrar</code> and <code>p7zip</code> (<code>p7zip-full</code> on Ubuntu). Grant permission to run
+            <li>AUR: Install optional packages <code>unrar</code> and/or <code>p7zip</code>.</li>
+            <li>Flatpak: Install host packages <code>unrar</code> and/or <code>p7zip</code> (<code>p7zip-full</code> on Ubuntu). Grant permission to run
             commands in host environment: <nobr><code>$ sudo flatpak override com.github.taiko2k.tauonmb --talk-name=org.freedesktop.Flatpak</code></nobr></li>
         </ul>
     </p>
