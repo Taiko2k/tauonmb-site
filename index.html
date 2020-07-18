@@ -106,13 +106,12 @@
         <div class="column">
             <p>
                 <a href="#importing tracks" class="contents-link">Importing tracks</a><br>
-                <a href="#bottom panel" class="contents-link">The different panels</a><br>
-                <a href="#gallery" class="contents-link">The gallery</a><br>
-                <a href="#tracklist" class="contents-link">The tracklist</a><br>
-                <a href="#playlsts+queue" class="contents-link">The playlist list</a><br>
-                <a href="#artist list" class="contents-link">Artist list</a><br>
-                <a href="#folder navigator" class="contents-link">Folder navigator</a><br>
                 <a href="#search" class="contents-link">Search</a><br>
+                <a href="#gallery" class="contents-link">The gallery</a><br>
+                <a href="#playlsts+queue" class="contents-link">The playlist list</a><br>
+                <a href="#artist list" class="contents-link">The artist list</a><br>
+                <a href="#folder navigator" class="contents-link">Folder navigator</a><br>
+
                 <a href="#mini" class="contents-link">Mini-mode</a><br>
                 <a href="#backends" class="contents-link">Audio backends</a><br>
                 <a href="#download-importing" class="contents-link">Download importing</a><br>
@@ -143,7 +142,16 @@
     <p>When you launch Tauon for the first time, you should be greeted with the main window that looks something like
         this:</p>
 
-    <img src="t01.png" alt="Emtpy main window" width="700">
+    <img src="t01.png" alt="Emtpy main window" width="700" usemap="#mainmap">
+
+    <map name="mainmap">
+      <area shape="rect" coords="0,24,476,375" href="#tracklist" alt="Main tracklist">
+      <area shape="rect" coords="0,376,699,413" href="#bottom panel" alt="Bottom panel">
+      <area shape="rect" coords="477,24,699,375" href="#right side panel" alt="Metadata panel">
+      <area shape="rect" coords="0,0,699,24" href="#top panel" alt="Top panel">
+    </map>
+
+    <p><small>Click a region in the screenshot above to go to that section of the manual</small></p>
 
     <h2 id="importing tracks" class="manual-title">Importing tracks</h2>
 
@@ -163,7 +171,7 @@
     <p>Alternatively, you can trigger a rescan any folders you've previously added by selecting "Rescan Folders"
         from the playlist tab context menu.</p>
 
-    <h2 id="top panel" class="manual-title">Playlist navigation</h2>
+    <h2 id="top panel" class="manual-title">The top panel + playlist navigation</h2>
 
     <img src="t03.jpg" alt="Screenshot of the top panel">
 
@@ -497,17 +505,17 @@
     <div class="tip">
     <p><strong>Note:</strong> This feature works with folders and zip archives. Items older than one hour are ignored.</p>
 
-    <p><strong>Feature:</strong> Items will be imported to the currently viewed playlist. <strong>However</strong> if you have a playlist named "Downloads", that playlist
-    will always be used instead.</p>
+    <p><strong>Feature:</strong> Items will be imported to the playlist you have flagged as the <i>downloads playlist</i>. You can do this
+        by right clicking a playlist tab and selecting "Misc..." > "Set as Downloads Playlist". Otherwise items will be imported to the <i>currently viewed</i> playlist.</p>
 
     <p><strong>Warning:</strong> Password protected archives are not supported.</p>
 
     <p><strong>Tip:</strong> 7z and RAR archives are also supported, but you may need to install some optional packages:
         <ul>
-            <li>Snap: Included by default.</li>
             <li>AUR: Install optional packages <code>unrar</code> and/or <code>p7zip</code>.</li>
             <li>Flatpak: Install host packages <code>unrar</code> and/or <code>p7zip</code> (<code>p7zip-full</code> on Ubuntu). Grant permission to run
             commands in host environment: <nobr><code>$ sudo flatpak override com.github.taiko2k.tauonmb --talk-name=org.freedesktop.Flatpak</code></nobr></li>
+            <li>Snap: Included by default.</li>
         </ul>
     </p>
 
