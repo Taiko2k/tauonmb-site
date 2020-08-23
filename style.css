@@ -111,6 +111,7 @@ a.out-contents-link2 {
   padding-left: 25px;
 }
 
+
 #tmb-icon {
   float: left;
   margin-top: 20px;
@@ -131,11 +132,14 @@ a.out-contents-link2 {
   margin-bottom: 25px;
 }
 
-
 #subtitle {
   font-size: 1.2em;
 }
 
 #manual {
   padding-top: 20px;
+}
+
+#main-screen {
+  padding-top: 7px;
 }
