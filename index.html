@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" href="favicon.ico">
@@ -122,6 +122,7 @@
                 <a href="#shortcuts" class="contents-link">Keyboard shortcuts</a><br>
                 <a href="#mini" class="contents-link">Mini-mode</a><br>
                 <a href="#download-importing" class="contents-link">Download importing</a><br>
+                <a href="#generators" class="contents-link">Generator playlists (Smart playlists)</a><br>
             </p>
         </div>
         <div class="column">
@@ -129,10 +130,8 @@
                 <a href="https://github.com/Taiko2k/TauonMusicBox/wiki/Lyrics" class="out-contents-link">Lyrics
                     (Advanced)</a><br>
                 <a href="https://github.com/Taiko2k/TauonMusicBox/wiki/Outbound-Broadcasting" class="out-contents-link">Broadcasting</a><br>
-                <a href="https://github.com/Taiko2k/TauonMusicBox/wiki/Generator-Codes" class="out-contents-link">Generators
-                    (Smart playlists)</a><br>
                 <a href="https://github.com/Taiko2k/TauonMusicBox/wiki/Transcoding-audio-files"
-                   class="out-contents-link">Transcoding</a><br>
+                   class="out-contents-link">Transcoding</a><br><br>
                 <a href="spotify.html" class="out-contents-link">Spotify</a><br>
                 <br>
                 <br>
@@ -425,7 +424,7 @@
 
     <h2 id="search" class="manual-title">Global search</h2>
 
-    <p>This search complies different types of results from all playlists. It will automatically activate when you start
+    <p>The global search complies different types of results from all playlists. It will automatically activate when you start
         typing.</p>
 
     <p>Clicking an Artist, Genre or Folder result will create a new playlist of that result. Clicking a Track or Album
@@ -440,7 +439,7 @@
 
     <p>To use the find box, press <kbd>Ctrl</kbd> + <kbd>F</kbd> and type search terms, then use UP or DOWN arrow keys
         to jump
-        to the next or previous results in the playlist.</p>
+        to the next or previous matching results in the playlist.</p>
 
 
     <div class="tip">
@@ -453,11 +452,6 @@
             type, for example searching <code>.ogg</code>
         </p>
 
-        <p><strong>Tip:</strong> If a playlist was created using a search, you can re-run the search / reload the
-            playlist by right clicking the playlist tab and clicking "Regenerate". You can also add the keyword "auto"
-            to the generator string to have the playlist reload automatically. See <a
-                    href="https://github.com/Taiko2k/TauonMusicBox/wiki/Generator-Codes" class="out-contents-link">Generator
-                Codes</a> for details.</p>
     </div>
 
 
@@ -507,6 +501,36 @@
     </p>
 
     </div>
+
+    <h2 id="generators">Generator playlists (Smart / filter playlists)</h2>
+
+    <p>Generator playlists allow you to create derivative playlists based on the content of another playlist. This is the
+    main way of creating a filtered view of a playlist.</p>
+
+    <p>You can quickly create a generated playlist from an existing playlist using the presets found under "Generate..." >
+    from the playlist tab context menu.</p>
+
+    <img src="t08.jpg" width="250px">
+
+    <p>Once a generated playlist has been created, you can reload it by pressing "Regenerate" from its tab context menu.</p>
+
+    <p>Whenever you create a new playlist using the <strong>global search</strong> or <strong>quick find</strong>, these
+        will also be generator playlists that can be reloaded using the "Regenerate" function.
+    </p>
+
+    <p>You can manually create and edit generator playlists by selecting "Misc..." > "Edit generator..." from the playlist tab context menu.
+        Generated playlists are made up of codes that you can use to create your own custom combination of searches, filters and sorters.
+        See <a href="https://github.com/Taiko2k/TauonMusicBox/wiki/Generator-Codes" class="out-contents-link">here</a> for more details.
+
+    <div class="tip">
+    <p><strong>Tip:</strong> By default, you need to press "Regenerate" in order to reload these playlists, but its possible to have this done automatically, either
+    globally by enabling the setting "Auto regenerate playlists", or for individual playlists by adding the generator code "auto".</p>
+
+    <p><strong>Tip:</strong> The general idea is that you import your music library to a single playlist that will be used as a source playlist,
+    then you can create and remove generated playlists to create filtered/sorted views of your music.</p>
+
+    </div>
+
 
     <h2 id="themes" class="manual-title">Themes</h2>
 
