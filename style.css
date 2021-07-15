@@ -2,6 +2,8 @@ body {
   background-color: #0e0e0e;
   font-family: sans-serif;
   color: #eee;
+
+
 }
 
 .content {
@@ -9,13 +11,14 @@ body {
   margin: auto;
   padding-left: 16px;
   padding-right: 16px;
-  margin-top: 20px;
+
   background: #161616;
 }
 
 .top-content {
   text-align: center;
   padding-top: 10px;
+
 }
 
 
@@ -101,7 +104,10 @@ a.out-contents-link2 {
 .title-box {
   margin: auto;
   width: 55%;
-  padding-left: 45px;
+  padding-left: 0px;
+  margin-bottom: -22px;
+  margin-top: -11px;
+  display: inline-block;
 
 
 }
@@ -109,6 +115,7 @@ a.out-contents-link2 {
 .title-text {
   float: left;
   padding-left: 25px;
+  padding-top: 35px;
 }
 
 
@@ -125,7 +132,7 @@ a.out-contents-link2 {
 }
 
 #main-head {
-  margin-bottom: -4px;
+  margin-bottom: 0px;
 }
 
 #subtitle {
