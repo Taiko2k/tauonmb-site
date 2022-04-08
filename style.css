@@ -150,3 +150,13 @@ a.out-contents-link2 {
 #main-screen {
   padding-top: 7px;
 }
+
+img {
+  max-width: 100%;
+}
+
+@media (min-width: 650px) {
+  .double-column {
+    columns: 2;
+  }
+}
