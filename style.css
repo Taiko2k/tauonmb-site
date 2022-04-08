@@ -154,3 +154,9 @@ a.out-contents-link2 {
 img {
   max-width: 100%;
 }
+
+@media (min-width: 650px) {
+  .double-column {
+    columns: 2;
+  }
+}
