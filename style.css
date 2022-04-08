@@ -155,8 +155,15 @@ img {
   max-width: 100%;
 }
 
+@media (max-width: 800px) {
+  code {
+    white-space: break-spaces;
+  }
+}
+
 @media (min-width: 650px) {
   .double-column {
     columns: 2;
   }
 }
+
