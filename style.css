@@ -150,3 +150,7 @@ a.out-contents-link2 {
 #main-screen {
   padding-top: 7px;
 }
+
+img {
+  max-width: 100%;
+}
