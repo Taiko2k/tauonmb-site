@@ -7,7 +7,7 @@ body {
 }
 
 .content {
-  max-width: 1100px;
+  max-width: 1050px;
   margin: auto;
   padding-left: 16px;
   padding-right: 16px;
@@ -103,7 +103,7 @@ a.out-contents-link2 {
 
 .title-box {
   margin: auto;
-  width: 55%;
+  width: 40%;
   padding-left: 0px;
   margin-bottom: -22px;
   margin-top: -11px;
@@ -166,4 +166,3 @@ img {
     columns: 2;
   }
 }
-
