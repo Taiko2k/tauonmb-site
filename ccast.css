@@ -3,9 +3,11 @@
 }
 
 .logo {
-  background-image: url(tmb-icon.svg);
+  background-image: url(loading.svg);
+  background-size: 40%;
+  
 }
 
 .progressBar {
-  background-color: rgb(238, 255, 65);
+  background-color: #d42abd;
 }
