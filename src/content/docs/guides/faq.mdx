@@ -1,0 +1,49 @@
+---
+title: FAQ
+description: Frequently Asked Questions about Tauon Music Box
+---
+
+
+**What platforms is Tauon for?**
+
+Tauon is primarily designed for the Linux desktop. Builds also exist for Windows and macOS.
+
+___
+
+**What audio engine does this app use?**
+
+It uses its own built in audio processor.
+
+___
+
+**Can this application handle large music collections?**
+
+Tauon is intended to work well with ***medium*** to large music libraries. However, if you have a *huge* number of tracks, you may notice longer load times and degraded UI performance in some elements such as search.
+
+There's no hard limit to the number of tracks you can import, but to give a ballpark number, it should handle at least up to ~50k tracks comfortably.
+
+___
+
+**What toolkit is this program using?**
+
+It's using a custom GPU accelerated UI written in Python built upon SDL3.
+
+___
+
+**Amazing. Are there any reasons I wouldn't want to use this player?**
+
+Maybe? Here are some reasons:
+
+ - You want a player that organises your music for you.
+ - You want an app that matches the visual style of your desktop environment. Tauon Music Box uses a custom user interface.
+ - You want a player that handles importing millions of tracks.
+ - You want a player that's ultra stable. Tauon can crash, maybe.
+ - You want primarily a cloud streaming based player. Tauon has some support for this but it may not be robust.
+
+___
+
+**Can I load music from network folders?**
+
+On Linux if you can mount the folder you can access it like any other filesystem. Network folders aren't supported on Windows.
+
+This isn't necessarily the ideal way of doing it however. It might be better to run a music network server designed specifically for music such as [Jellyfin](https://jellyfin.org/).

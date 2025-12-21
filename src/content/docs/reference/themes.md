@@ -1,0 +1,50 @@
+---
+title: Themes
+description: Customize Tauon's appearance with themes
+---
+
+Tauon Music Box supports custom themes to personalize your music player's appearance.
+
+## Using Themes
+
+### Cycle Through Themes
+
+Press `F2` to cycle through all available themes installed on your system.
+
+### Auto Theme Mode
+
+Press `F3` to toggle "Auto Theme" mode, which automatically adjusts the theme based on various conditions.
+
+## Installing Custom Themes
+
+To install a custom theme (`.ttheme` file):
+
+1. Locate your Tauon user data folder:
+   - Go to **MENU > Settings... > Functions**
+   - Click **"Open data folder"**
+
+2. Navigate to the `theme` folder inside the data folder
+
+3. Place your `.ttheme` file in this folder
+
+4. Restart Tauon or press `F2` to cycle to the new theme
+
+## Creating Custom Themes
+
+You can create your own themes to customize Tauon's appearance. For detailed information on creating themes, see the [Theming Guide](https://github.com/Taiko2k/TauonMusicBox/wiki/Theming) on GitHub.
+
+## Sharing Themes
+
+Want to share your custom themes or download themes created by others? Check out the [custom themes discussion thread](https://github.com/Taiko2k/TauonMusicBox/discussions/461) on GitHub.
+
+## Finding the User Data Folder
+
+If you need to access the user data folder:
+
+1. Open Tauon Music Box
+2. Click **MENU**
+3. Select **Settings...**
+4. Go to the **Functions** tab
+5. Click **"Open data folder"**
+
+The theme folder is located inside this directory.

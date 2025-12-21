@@ -1,0 +1,48 @@
+---
+title: Installing
+description: How to download and install Tauon
+---
+
+import { Tabs, TabItem, Card, LinkButton } from '@astrojs/starlight/components';
+
+
+
+<Tabs>
+  <TabItem label="Arch Linux" icon="linux">
+    <Card title="Install on Arch Linux">
+      Install on Arch based distros using Pacman:
+      ```bash
+      sudo pacman -Syu tauon-music-box
+      ```
+    </Card>
+  </TabItem>
+  <TabItem label="Flatpak" icon="linux">
+    <Card title="Install via Flatpak">
+      Install on most Linux distros using Flatpak
+      ```bash
+      flatpak install com.github.taiko2k.tauonmb
+      ```
+      :::tip
+      If your music is located outside of `~/Music` such as in `/mnt` you will need to grant explicit permission. For example:
+      ```bash
+      flatpak override com.github.taiko2k.tauonmb --filesystem=/mnt
+      ``` 
+      :::
+    </Card>
+  </TabItem>
+  <TabItem label="Windows" icon="seti:windows">
+    <Card title="Install on Windows">
+      Download an installer from the releases page:
+      <LinkButton href="https://github.com/Taiko2k/TauonMusicBox/releases" variant="minimal">Github Releases</LinkButton>
+    </Card>
+  </TabItem>
+  <TabItem label="macOS" icon="apple">
+    <Card title="Install on macOS">
+      Download a DMG build from the releases page:
+      <LinkButton href="https://github.com/Taiko2k/TauonMusicBox/releases" variant="minimal">Github Releases</LinkButton>
+      :::note
+      Builds are not signed and will incur a macOS security warning
+      :::
+    </Card>
+  </TabItem>
+</Tabs>
