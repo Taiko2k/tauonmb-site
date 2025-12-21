@@ -5,7 +5,7 @@ import starlightThemeGalaxy from 'starlight-theme-galaxy'
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://tauonmusicbox.rocks'
+    site: 'https://tauonmusicbox.rocks',
 	integrations: [
 		starlight({
 			plugins: [starlightThemeGalaxy()],
