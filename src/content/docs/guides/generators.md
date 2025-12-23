@@ -7,7 +7,7 @@ Generator playlists (also called smart or filter playlists) allow you to create 
 
 ![Generator menu](../../../assets/t08.jpg)
 
-## Creating Generator Playlists
+## Creating Preset Generator Playlists
 
 The quickest way to create a generated playlist is using a preset:
 
@@ -40,7 +40,7 @@ By default, you need to manually regenerate playlists. To enable automatic updat
 **Per Playlist:**
 - Edit the generator and add the code `auto`
 
-## Generator Creation
+## Manual Generator Creation
 
 You can create custom generator playlists with specific combinations of searches, filters, and sorters:
 
@@ -149,7 +149,7 @@ Entries in **Bold** are additional codes not shown in the in-app legend.
 |----------|:-------------:|------:|
 | Automatically update | auto | |
 
-## More examples:
+## Examples
 
 | Function | Code String |
 |----------|-------------|
