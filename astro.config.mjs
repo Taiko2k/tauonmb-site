@@ -42,8 +42,8 @@ export default defineConfig({
 					label: 'Reference',
 					items: [
 						{ label: 'Keyboard Shortcuts', slug: 'reference/keyboard-shortcuts' },
+					    { label: 'Gamepad Mappings', slug: 'reference/gamepad-mappings' },
 						{ label: 'Themes', slug: 'reference/themes' },
-						{ label: 'Advanced Features', slug: 'reference/advanced' },
 					],
 				},
 			],
