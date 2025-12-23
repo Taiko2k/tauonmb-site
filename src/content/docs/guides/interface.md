@@ -29,40 +29,19 @@ Playback from any originally started playlist will still continue from that play
 
 ![The bottom panel](../../../assets/t06.jpg)
 
-### Playback Controls (Left Side)
 
-- **Play button** - Start playback
-  - *Right click* to **go to playing** - Locates the currently playing track in the tracklist
-  
-- **Pause button** - Pause playback
+| Control | Description |
+| --- | --- |
+| **Play button** | Start playback (Right click to locate the playing track) |
+| **Pause button** | Pause playback |
+| **Stop button** | Stop playback (Right click to activate auto-stop) |
+| **Previous button** | Previous track (Right click toggles repeat) |
+| **Next button** | Next track (Right click toggles shuffle) |
+| **Playback time indicator** | Click to cycle display modes |
+| **Volume bar** | Adjust volume (Right click to mute) |
+| **Shuffle toggle** | Enable shuffle mode (Right click for menu) |
+| **Repeat toggle** | Enable repeat mode (Right click for menu) |
 
-- **Stop button** - Stop playback
-  - *Right click* to activate **auto-stop** (stops at the end of current track)
-
-- **Previous button** - Previous track
-  - *Right click* to toggle **repeat mode**
-  - With shuffle on, plays tracks from playback history
-
-- **Next button** - Next track
-  - *Right click* to toggle **shuffle mode**
-
-### Playback Controls (Right Side)
-
-- **Playback time indicator** - Click to cycle display modes:
-  - Time elapsed
-  - Time remaining
-  - Elapsed + track length
-  - Album elapsed + album length
-
-- **Volume bar** - Adjust playback volume
-
-- **Playback menu** - Additional playback options
-
-- **Shuffle toggle** - Enable/disable shuffle
-  - *Right click* for shuffle menu
-
-- **Repeat toggle** - Enable/disable repeat
-  - *Right click* for repeat menu with options like Repeat Album
 
 :::tip[Album Shuffle]
 Want to shuffle tracks within a single album? Activate both **Repeat Album** and standard shuffle!
