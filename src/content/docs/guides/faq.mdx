@@ -47,3 +47,21 @@ ___
 On Linux if you can mount the folder you can access it like any other filesystem. Network folders aren't supported on Windows.
 
 This isn't necessarily the ideal way of doing it however. It might be better to run a music network server designed specifically for music such as [Jellyfin](https://jellyfin.org/).
+
+___
+
+**Is high-res 24bit audio supported?**
+
+Codec support is as follows:
+
+| Codec | Preserve high resolution? | Preserve Samplerate? |
+| --- | --- | --- |
+| FLAC, WavPack | Yes, 24bit supported | Yes with "Avoid Resampling" on* |
+| MP3, OGG, OPUS | Only 16bit supported | Yes with "Avoid Resampling" on* |
+| WAV, M4A, ALAC, APE, TTA, WMA | Downscaled to 16bit | No, may use resampling |
+
+:::tip[Avoiding resampling on Linux]
+To get samplerates forwarded to your DAC, enable setting "*Avoid Resampling*" in Tauon under MENU > Settings > Audio. You will also need to enable dynamic samplerates in your Pipewire configuration, see [here](https://wiki.archlinux.org/title/PipeWire#Changing_the_allowed_sample_rate(s)) on how to do that. 
+
+The downside of enabling *Avoid Resampling* is that fades will no longer occur between tracks of differing samplerates
+:::
