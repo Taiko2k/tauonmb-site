@@ -1,0 +1,35 @@
+---
+title: App Data
+---
+
+## Locating the user data file directory
+
+If you'd like to access or backup Tauon's app data folder, you can locate it useing the "Open data folder" button under "MENU" > "Settings". Otherwise, here are some common paths:
+
+| Platform  | Path |
+| ------------- | ------------- |
+| Linux | `/home/<user>/.local/share/TauonMusicBox` |
+| Flatpak  | `/home/<user>/.var/app/com.github.taiko2k.tauonmb/data/TauonMusicBox`  |
+| Portable | `./user-data` |
+| Windows | `C:\Users\<user>\AppData\Local\Microsoft\Windows\INetCache\TauonMusicBox` |
+
+## Data files
+
+There are two important files in this directory:
+
+- `state.p` Contains playlists, track database information and settings.
+
+- `star.p` Contains track play time and love information independent of the main database. See [Keeping track of playcounts](https://github.com/Taiko2k/tauonmb/wiki/Keeping-track-of-playcounts).
+
+> **Tip:** If you want to backup or move installation, you can copy this user data folder. If you only care about keeping playcounts/loves/ratings, you only need to keep `star.p`.
+
+## Resetting the application
+
+### Partial reset
+
+Delete both the files `state.p` and `state.p.backup` and optionally `tauon.conf` (while app is closed). This will delete all playlists and reset most settings, but keeps track loves, play-counts and ratings.
+
+### Full reset
+
+Delete all the files and folders in this folder (while app is closed). All related player data will be lost unless backed up.
+
