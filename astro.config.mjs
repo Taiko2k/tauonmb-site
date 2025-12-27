@@ -36,6 +36,7 @@ export default defineConfig({
 						{ label: 'Mini Mode', slug: 'manual/mini-mode' },
 						{ label: 'Download Importing', slug: 'manual/download-importing' },
 						{ label: 'Smart Playlists', slug: 'manual/generators' },
+						{ label: 'Spotify', slug: 'manual/spotify' },
 					],
 				},
 				{

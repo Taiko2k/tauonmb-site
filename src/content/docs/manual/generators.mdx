@@ -3,6 +3,10 @@ title: Smart Playlists
 description: Create dynamic playlists with generators
 ---
 
+
+import { Steps } from '@astrojs/starlight/components';
+
+
 Generator playlists (also called smart or filter playlists) allow you to create derivative playlists based on the content of another playlist. This is the main way of creating a filtered view of a playlist.
 
 ![Generator menu](../../../assets/t08.jpg)
@@ -156,7 +160,7 @@ Entries in **Bold** are additional codes not shown in the in-app legend.
 | Search for Coldplay from playlist Default and show tracks that have a playcount of less than 2 | `s"Default" a"Coldplay" pc<2` 
 | Shuffle albums from every playlist | `a sf` |
 | Take 10 random tracks from the playlist Default | `s"Default" a st n10` |
-| Show loved tracks of artists Coldplay and Red Hot Chili Peppers in order of playcount from playlists Default and Downloads. <br> **Tip:** You can shorten the names and it will (probably) still return what you want. | `s"De" s"Do" a"Col" a"Red H" pt> l` |
+| Show loved tracks of artists Coldplay and Red Hot Chili Peppers in order of playcount from playlists Default and Downloads. **Tip:** You can shorten the names and it will (probably) still return what you want. | `s"De" s"Do" a"Col" a"Red H" pt> l` |
 
 :::note
 If you rename a targeted playlist, you will need to update any strings manually.
