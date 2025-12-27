@@ -3,6 +3,8 @@ title: Themes
 description: Customize Tauon's appearance with themes
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 Tauon Music Box supports custom themes to personalize your music player's appearance.
 
 ## Using Themes
@@ -19,15 +21,14 @@ Press `F3` to toggle "Auto Theme" mode, which automatically adjusts the theme ba
 
 To install a custom theme (`.ttheme` file):
 
-1. Locate your Tauon user data folder:
-   - Go to **MENU > Settings... > Functions**
-   - Click **"Open data folder"**
-
+<Steps>
+1. Locate your Tauon user data folder
+   1. Go to **MENU > Settings... > Functions**
+   2. Click **"Open data folder"**
 2. Navigate to the `theme` folder inside the data folder
-
 3. Place your `.ttheme` file in this folder
-
 4. Restart Tauon or press `F2` to cycle to the new theme
+</Steps>
 
 ## Creating Custom Themes
 
@@ -41,10 +42,12 @@ Want to share your custom themes or download themes created by others? Check out
 
 If you need to access the user data folder:
 
+<Steps>
 1. Open Tauon Music Box
 2. Click **MENU**
 3. Select **Settings...**
 4. Go to the **Functions** tab
 5. Click **"Open data folder"**
+</Steps>
 
 The theme folder is located inside this directory.

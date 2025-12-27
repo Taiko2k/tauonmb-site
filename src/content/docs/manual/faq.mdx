@@ -100,3 +100,40 @@ To get sample rates forwarded to your DAC, enable the setting "*Avoid Resampling
 
 The downside of enabling *Avoid Resampling* is that fades will no longer occur between tracks of differing sample rates
 :::
+
+
+## Troubleshooting FAQs
+
+
+**My music isn't detected any more! (Its in `/run` or `/mnt` and I'm using Flatpak)**
+
+Drag and drops to Flatpak applications are only transient, to make them permanent you need to grant file permissions.
+
+You can use the app [Flatseal](https://flathub.org/en/apps/com.github.tchx84.Flatseal) to do this.
+
+___
+
+**I'm using Flatpak with NVIDIA and the window just shows an empty border on launch**
+
+Try run `flatpak update`.
+
+
+___
+**I tried installing/updating the Flatpak but it gives error "Aborted due to failure..."**
+
+Try run: `sudo flatpak repair && flatpak repair --user && flatpak update`
+
+**I added new items to my home music folder, but they didn't then immediately show up in Tauon, why?**
+
+Tauon doesn't have background scanning. You need to either manually import items, or use the "Rescan Folders" function from a playlist tab context menu.
+
+___
+**Some of my albums don't have album art!**
+
+It *should* be detected if you have them. If you don't have thee it's up to you to manage your library and provide them. For convenience, while playing a particular album you can right click the album art viewport in the right side panel and select "Quick fetch cover art".
+___
+**Some of the thumbnails in the gallery aren't showing the correct cover image, how to I change it?**
+
+Right click the thumbnail, choose "Image...", then choose "Next".
+
+
