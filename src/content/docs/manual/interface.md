@@ -3,7 +3,6 @@ title: Interface Overview
 description: Comprehensive guide to Tauon's interface panels and controls
 ---
 
-This guide covers all the major interface elements in Tauon Music Box.
 
 ## The Top Panel
 
@@ -91,7 +90,7 @@ Toggle the left side panel by clicking the **top-left corner button**. *Right cl
 
 1. **Playlists + Queue** - Lists all playlists
 2. **Artist List** - Browse by artist
-3. **Folder Navigator** - Navigate your folder structure
+3. [**Folder Navigator**](./folder-navigator/) - Navigate your folder structure
 
 ### Playlists + Queue
 
@@ -100,23 +99,6 @@ Toggle the left side panel by clicking the **top-left corner button**. *Right cl
 Lists all of your playlists. These behave similar to the top panel tabs.
 
 You can **unpin** a playlist from the top panel using the tab's right click context menu. Keep tabs pinned when you want quick access to them.
-
-### Folder Navigator
-
-![Screenshot of the folder navigator](../../../assets/t05.jpg)
-
-Lists folders in the current playlist in a tree-style layout.
-
-- **Double click** a folder to play it
-- **Single click** to locate that folder in the playlist
-
-:::tip[Organizing Your Collection]
-If you have a large music collection, consider keeping it divided into separate sub-folders (e.g., by genre). This allows for easier navigation using the folder navigator.
-:::
-
-:::caution[Move Folder Feature]
-The context menu has a "Move playing folder here" option that performs a **physical** move of the folder on disk. The folder will be placed in a sub-folder named after the artist. Use with caution!
-:::
 
 ## The Main Tracklist
 

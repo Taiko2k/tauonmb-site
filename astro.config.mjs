@@ -28,10 +28,16 @@ export default defineConfig({
 					],
 				},
 				{
+					label: 'User Interface',
+					items: [
+						{ label: 'Main Panels', slug: 'manual/interface' },
+						{ label: 'Gallery View', slug: 'manual/gallery' },
+						{ label: 'Folder Navigator', slug: 'manual/folder-navigator' },
+					],
+				},
+				{
 					label: 'Features',
 					items: [
-						{ label: 'Interface Overview', slug: 'manual/interface' },
-						{ label: 'Gallery View', slug: 'manual/gallery' },
 						{ label: 'Search & Find', slug: 'manual/search' },
 						{ label: 'Mini Mode', slug: 'manual/mini-mode' },
 						{ label: 'Download Importing', slug: 'manual/download-importing' },
@@ -42,6 +48,7 @@ export default defineConfig({
 				{
 					label: 'Reference',
 					items: [
+						{ label: 'Tips & Tricks', slug: 'manual/tips-tricks' },
 						{ label: 'Keyboard Shortcuts', slug: 'manual/keyboard-shortcuts' },
 					    { label: 'Gamepad Mappings', slug: 'manual/gamepad-mappings' },
 						{ label: 'Themes', slug: 'manual/themes' },
