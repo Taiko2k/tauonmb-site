@@ -11,6 +11,10 @@ Tauon can monitor your downloads folder and make it easy to import new music wit
 
 When a new music archive or folder is detected in your downloads folder, a button appears that lets you immediately import that item.
 
+:::note
+Files older than one hour are ignored
+:::
+
 ## Setup
 
 To enable this feature, go to **MENU > Settings... > Functions** and enable:
@@ -24,18 +28,7 @@ Optional settings:
 
 ![Download import settings](../../../assets/dl02.png)
 
-## Supported Formats
-
-- **Folders** - Drag and drop or auto-detect
-- **ZIP archives** - Automatically extracted
-- **7z archives** - Requires additional setup (see below)
-- **RAR archives** - Requires additional setup (see below)
-
-:::note[File Age Limit]
-Items older than one hour are ignored by the auto-detection.
-:::
-
-## Downloads Playlist
+## Default Import Playlist
 
 Items will be imported to the playlist you've flagged as the **downloads playlist**. To set this:
 
@@ -44,19 +37,26 @@ Items will be imported to the playlist you've flagged as the **downloads playlis
 
 If no downloads playlist is set, items will be imported to the currently viewed playlist.
 
-## Advanced Archive Support
 
-### 7z and RAR Support
+## Supported Formats
+
+- **Folders** - Drag and drop or auto-detect
+- **ZIP archives** - Automatically extracted
+- **7z archives** - Requires additional setup (see below)
+- **RAR archives** - Requires additional setup (see below)
+
+
+## 7z and RAR Support
 
 To use 7z and RAR archives, you need to install additional packages:
 
-**AUR:**
+**Arch Linux**
 ```bash
 # Install optional packages
 sudo pacman -S unrar p7zip
 ```
 
-**Flatpak:**
+**Flatpak**
 ```bash
 # Install host packages
 sudo apt install unrar p7zip-full  # Ubuntu/Debian
@@ -66,13 +66,6 @@ sudo dnf install unrar p7zip        # Fedora
 # Grant permission to run commands in host environment
 sudo flatpak override com.github.taiko2k.tauonmb --talk-name=org.freedesktop.Flatpak
 ```
-
-**Snap:**
-These packages are included by default.
-
-:::caution[Password Protected Archives]
-Password protected archives are not supported.
-:::
 
 ## Tips
 
