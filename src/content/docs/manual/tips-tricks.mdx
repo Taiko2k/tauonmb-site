@@ -61,15 +61,6 @@ It takes to you a random track with a random time!
 
 ![Screenshot from 2022-04-30 12-09-54](https://user-images.githubusercontent.com/17271572/166082528-01056a9e-bb17-424d-906e-0a36f202674b.png)
 
-## Editing keymaps
-
-In the user data folder theres a file named `input.txt` which lets you edit the local keybinds.
-
-![Screenshot from 2022-04-30 12-15-18](https://user-images.githubusercontent.com/17271572/166082736-68414bc8-c6d3-4d3c-89a5-8f62490aee92.png)
-
-![Screenshot from 2022-04-30 12-14-45](https://user-images.githubusercontent.com/17271572/166082740-ba59c4dc-d42e-4abf-b9ee-b454b17ed201.png)
-
-Tip: Delete this file to reset keybinds to default.
 
 ## Widen the right side panel past 1:1 ratio
 
@@ -102,3 +93,22 @@ Right click track/album, click "Meta" > "Modify Folder". In that box there is an
 You can bring this up by *middle mouse clicking* on the seek bar.
 
 ![Screenshot from 2022-04-30 13-28-50](https://user-images.githubusercontent.com/17271572/166085292-d086081f-2176-47dd-b8b3-dc8fda8029ff.png)
+
+
+## Fix Japanese Mojibake
+
+In case of [mojibake](https://en.wikipedia.org/wiki/Mojibake) (where displayed characters from Japanese language metadata is garbled), the ideal solution is to re-apply tags in a tag editor, preferably using UTF-8 if the tag format supports it.
+
+As a quick temporary solution, a 'fix mojibake' function is available under:
+
+`Track Menu` > `Meta...` > `Fix Mojibake`
+
+This function will attempt to detect the original Japanese encoding and apply changes to all tracks in the folder/album.
+
+:::note
+Changes made by these functions only apply to internal database and are not written back to the tags on disk. You could write these back to disk using the "Edit fields..." function under "Meta...", but note that these *Japanese Mojibake* and *Edit Fields* functions don't work on all types of fields, so, fields such as *composer*, *comment* and *lyrics* would be left unmodified.
+:::
+
+:::tip
+To undo these database changes and revert to original tags (provided you didn't select *write to disk*), use `Track Menu` > `Meta...` > `Reload Metadata`
+:::
