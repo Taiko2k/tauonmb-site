@@ -43,6 +43,7 @@ export default defineConfig({
 						{ label: 'Download Importing', slug: 'manual/download-importing' },
 						{ label: 'Smart Playlists', slug: 'manual/generators' },
 						{ label: 'Spotify', slug: 'manual/spotify' },
+						{ label: 'Jellyfin', slug: 'manual/jellyfin' },
 					],
 				},
 				{
