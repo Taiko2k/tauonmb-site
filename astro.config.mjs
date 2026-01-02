@@ -42,6 +42,7 @@ export default defineConfig({
 						{ label: 'Mini Mode', slug: 'manual/mini-mode' },
 						{ label: 'Download Importing', slug: 'manual/download-importing' },
 						{ label: 'Smart Playlists', slug: 'manual/generators' },
+						{ label: 'Transcoding & Sync', slug: 'manual/transcoding' },
 						{ label: 'Spotify', slug: 'manual/spotify' },
 						{ label: 'Jellyfin', slug: 'manual/jellyfin' },
 					],

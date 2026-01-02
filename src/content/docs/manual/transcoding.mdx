@@ -1,0 +1,83 @@
+---
+title: Transcoding & Sync
+description: Convert audio files to a different codec
+---
+import { Steps } from '@astrojs/starlight/components';
+
+## Overview
+
+This **transcoding** feature converts audio from one format/codec to another (for example, FLAC → Opus/MP3) and places it in an output folder. This can be useful when
+copying music to portable devices with limited storage.
+
+:::note
+This feature creates a flattened file structure in the format of `Artist - Album/filename.ext` to the target folder. It does not preserve the original directory structure.
+:::
+
+## How to:
+
+<Steps>
+1. Set **codec** and **bitrate** settings in `MENU` > `Settings...` > `Transcode`
+     :::tip
+     Try OPUS at 72kbps to really compress your music. For playback on iOS try **foobar2000**, for Android try AIMP.
+     Enabling the `write as .ogg extension` setting will improve compatibility on Android to most players.
+     :::
+
+2. Right click a track and select `Transcode Folder` to transcode all the tracks in the folder/block where the track resides. Wait for it to finish.
+   (It doesn't matter which track of an album you click, it will still transcode the whole album/block.)
+</Steps>
+
+To see the resulting folders in your file manager, press F9. You can then copy these folders to your device using your file manager.
+
+### Additional settings
+
+ - You can have the source tracks deleted and **replaced** by new output tracks by enabling the setting `Transcode files inplace`. You should maybe back up your files first before using this option.
+ - You can transcode ***single*** tracks by right clicking a track, holding Shift, and selecting `Transcode Single`
+
+
+# Sync
+
+The way this is intended to work is you maintain a playlist of all the albums you want on your device. Then you can add and remove items and only the difference needs to be copied.
+
+## Tutorial
+
+<Steps>
+1. Create a sync playlist
+   First, we want to make a playlist of the albums we want on the device. You could use an existing playlist, or make a new playlist. You could for example name it something like `Sync Playlist`. To mark this playlist as the ***sync source playlist***, right click its tab, then select "Misc..." > **"Set as Sync Playlist"**
+
+2. Copy albums to that playlist
+   One way to easily copy albums to a playlist is to use the **Gallery Quick Add** function by right clicking the target playlist tab, then selecting "Misc..." > "Engage Gallery Quick Add".
+
+   Then, you can **right-click any album in the gallery view** from any playlist to add it or remove it from that target playlist. Once done, click MENU and select "Disengage Gallery Quick Add"
+
+3. Setup transcoder
+   So now we have our playlist ready, let's select transcode settings. Go to `MENU` > `Settings...` > `Transcode`, and select a lossy codec.
+
+4. Setup sync
+   Now click the "**Sync...**" button to switch to the sync page.
+
+   At this point we will want our device connected and ready. The device filesystem must be mounted and contain a folder to sync music to.
+
+   **Android/MTP**
+
+   For an Android/MTP device connected by USB, try opening it in your file browser to trigger a mount. Then back in Tauon you can click the lightning bolt icon to automatically try to detect this location. If that failed, you will need to supply the path manually.
+
+   **iPhone**
+
+   For iPhone install an app such as [foobar2000](https://apps.apple.com/us/app/foobar2000/id1072807669). Connect your iPhone via USB. In your desktop, trigger a mount of your iPhone documents drive in your file manager. Then use the terminal to locate the mounted location for that app. Under GNOME it looks something like `/run/user/1000/gvfs/afc:host=???/com.foobar2000.mobile`. Paste the full path into Tauon.
+
+   :::note[Flatpak Note]
+   Don’t forget to add permission for the target path if using the Flatpak version of Tauon.
+   :::
+
+   There is an option named **"Delete all other folders in target"** which you can optionally enable. If enabled, any folders in the target path **not** in the playlist will be deleted.
+
+5. Finally click "Transcode and Sync" to begin the process.
+</Steps>
+
+:::tip
+This function syncs based on the generated folder name. Clear both the encode output directory and target directory to fix incomplete albums or to update transcode codec/bitrate.
+:::
+
+:::tip
+You can safely interrupt the process by clicking `Stop...` (or right click status bar text and select `Cancel`). Starting again will effectively resume where you left off.
+:::
