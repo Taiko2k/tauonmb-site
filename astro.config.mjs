@@ -31,6 +31,7 @@ export default defineConfig({
 					label: 'User Interface',
 					items: [
 						{ label: 'Main Panels', slug: 'manual/interface' },
+						{ label: 'Artist List', slug: 'manual/artist-list' },
 						{ label: 'Gallery View', slug: 'manual/gallery' },
 						{ label: 'Folder Navigator', slug: 'manual/folder-navigator' },
 					],
