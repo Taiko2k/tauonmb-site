@@ -53,6 +53,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Tips & Tricks', slug: 'manual/tips-tricks' },
 						{ label: 'Keyboard Shortcuts', slug: 'manual/keyboard-shortcuts' },
+						{ label: 'Menu Functions', slug: 'manual/menu-functions' },
 					    { label: 'Gamepad Mappings', slug: 'manual/gamepad-mappings' },
 						{ label: 'Themes', slug: 'manual/themes' },
 						{ label: 'App Data & Playcounts', slug: 'manual/app-data' },

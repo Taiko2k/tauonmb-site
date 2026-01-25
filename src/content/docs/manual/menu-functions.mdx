@@ -1,0 +1,64 @@
+---
+title: Menu Functions
+description: Where to find common actions in Tauon’s menus.
+---
+
+## Main Menu
+
+| Entry | Details |
+| --- | --- |
+| New Playlist | Makes a new playlist. Will be given the title `New Playlist (n)`. You can change the name and it doesn't have to be unique. |
+| Export as CSV | Exports details from database to a CSV file in the data directory. Please note that this function is not regularly maintained and may not produce a valid CSV file.|
+| Play History to New Playlist | Creates a playlist of the playback history at the time of activation. Note that playback history is limited to 100 tracks. |
+| Reset Image Cache       | Will reset all cached thumbnails. Useful if you want updated artwork to show in the gallery.         |
+| Remove Network Tracks       | Removes all tracks that were imported from servers such as PLEX, Airsonic etc. Excludes Spotify tracks. |
+| Remove Missing Tracks       | Every item in the database will be checked and removed if associated file cannot be found. |
+| Mark Missing as Found | All greyed out tracks due to missing file will be un-greyed out. |
+| Import FMPS_Ratings from Tags | Overwrites local database ratings with tags FMPS rating if present. (You may want to run a tag rescan before using this to load any updated tag information) |
+| Reset User Ratings | Deletes all ratings in the local database |
+| Find Incomplete Albums | Creates a new playlist of imported albums that logically have missing tracks based on track numbers present |
+| Start Broadcast | See [Outbound Broadcasting](https://github.com/Taiko2k/tauonmb/wiki/Outbound-Broadcasting) |
+| Exit | Closes the application. Same as pressing the X button. |
+
+## Bottom Panel Menu
+
+| Entry | Details |
+| --- | --- |
+| Random Track | Plays a random track from the currently playing playlist. |
+| Radio Random | Plays a random track with a random seek position. |
+| Revert | Undo last track change and continue playing where previous track left off. |
+| Locate Artist | Finds the first instance of the playing track artist in the currently viewed playlist. Subsequent activations of this function will find subsequent group instances of the artist in the playlist. |
+| Go to Playing | You can also activate this by right clicking the play button. This will locate the currently playing track. If an identical track is already in the viewed playlist but its not the playing track, it will be set to be the playing track and playback will continue from this new position. |
+
+## Playlist Tab Menu
+
+| Entry | Details |
+| --- | --- |
+| Rename | Rename the title of the playlist. Type a name then click away to enter. |
+| Lock | This feature allows you to avoid accidentally deleting or sorting a playlist. Note that this does not prevent all forms of modification. You can still add tracks to a locked playlist. |
+| Clear | Remove all tracks in playlist |
+| Delete | Deletes the playlist. You can middle-mouse/wheel click a tab as a shortcut to delete. You can press `Ctrl + Z` to undo this as long as the application remains open. |
+| Generate... | Creates a **new playlist** from the current with applied function. |
+| Sort by Filepath | Sorts tracks **in-place** according to filepath alphabetically. Note that this *may* be different to the order they were imported. |
+| Sort Year per Artist | Sorts each folder by release year by artist **in-place**. (So artists stay together and show their discography chronologically) |
+| Make Playlist Auto Sorting | Sets a generator code that applies the above sorting functions whenever tracks are imported. |
+| Rescan Folder | Re-imports any previously imported top-level folders. |
+| Paste | Copy tracks to end of this playlist. (From internal clipboard only) |
+| Append Playing | Add the currently playing track to end of this playlist. |
+| Export Playlist Stats | Creates a text file with various statistics such as play time per artist. |
+| Transcode All | Applies the transcode function to all folders in playlist. [Transcoding](https://github.com/Taiko2k/tauonmb/wiki/Transcoding-for-PMP-DAP-Smartphone). |
+| Rescan Tags | Reload metadata from files for all tracks in playlist. |
+| Toggle Breaks | Toggle whether to show folder titles for this playlist. The keyboard shortcut for this is `F1`. |
+
+## Track Menu
+
+| Entry | Details |
+| --- | --- |
+| Fix Mojibake | See [Fix Japanese Mojibake](https://github.com/Taiko2k/tauonmb/wiki/Japanese-Mojibake) |
+
+## Picture Menu
+
+| Entry | Details |
+| --- | --- |
+| Purge Folder Embedded | Removes embedded images from all tracks in a folder (tracks in current playlist). Built-in support for MP3 only. FLAC if the `flac` package is installed (for Flatpak installations see the permissions page). |
+| Quick Fetch Cover Art | Searches fanart.tv for high resolution album art, will fall-back to searching Musicbrainz. Any found artwork is downloaded to the folder of the track. |
