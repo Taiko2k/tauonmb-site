@@ -1,0 +1,38 @@
+---
+title: Playlist Export
+description: Export playlists to share or use in other players
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Tauon can export playlists using **XSPF** (recommended) or **M3U**.
+
+## Export a playlist
+
+<Steps>
+1. Right click the playlist tab.
+2. Select **Export...**.
+3. Choose any options, then click **Export**.
+</Steps>
+
+## Import a playlist
+
+<Steps>
+1. Drag and drop an **XSPF** or **M3U** playlist file onto the program window.
+</Steps>
+
+:::note[Recommended]
+Before importing playlists, it’s best to:
+
+- Remove missing tracks: **MENU > Database > Remove Missing Tracks**
+- Import the corresponding audio files first (so playlist entries can resolve)
+:::
+
+:::caution[Known issue]
+Some tracks with unusual characters in their metadata may cause the import process to fail.
+:::
+
+:::tip
+Exporting and then importing can also “revive” tracks after files have been moved.
+:::
+

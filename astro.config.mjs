@@ -41,6 +41,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Search & Find', slug: 'manual/search' },
 						{ label: 'Mini Mode', slug: 'manual/mini-mode' },
+						{ label: 'Playlist Export', slug: 'manual/playlist-export' },
 						{ label: 'Download Importing', slug: 'manual/download-importing' },
 						{ label: 'Smart Playlists', slug: 'manual/generators' },
 						{ label: 'Transcoding & Sync', slug: 'manual/transcoding' },
