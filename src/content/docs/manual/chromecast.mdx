@@ -3,4 +3,27 @@ title: Chromecast
 description: Cast audio to Chromecast devices
 ---
 
-# Chromecast
+import { Steps } from '@astrojs/starlight/components';
+
+## Cast to a device
+
+<Steps>
+1. Go to `MENU` > `Chromecast...` and select your device.
+2. Confirm **Chromecast mode** appears in the top panel, then use playback controls as normal.
+3. To stop casting, return to `MENU` > `Chromecast...` and select **End cast**.
+</Steps>
+
+:::note
+If you turned on your Chromecast after starting Tauon and it doesn’t appear, restart Tauon.
+:::
+
+:::tip
+If you have a firewall on the same PC, allow incoming as well as outgoing connections for Tauon.
+:::
+
+## Limitations
+
+- Doesn’t work with PLEX, Airsonic, Jellyfin, or Spotify.
+- Doesn’t work with some codecs (transcoding isn’t implemented). Common codecs like MP3, FLAC, and OGG should work.
+
+

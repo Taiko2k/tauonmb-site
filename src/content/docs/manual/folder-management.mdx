@@ -3,4 +3,45 @@ title: Folder Management
 description: Organize and manage your music folders
 ---
 
-# Folder Management
+## Modify Folder
+
+Access the moddify folder box via either:
+
+- Right-click a track → `Meta...` → `Modify Folder...`
+- Right-click a folder title → `Modify Folder...`
+
+| Button | What it does |
+| --- | --- |
+| **Rename** | Renames the folder using the template format you provide. |
+| **Default** | Reverts the template to the built-in default. |
+| **Trash** | Moves the physical folder to the system trash. Holding **Shift** deletes the folder directly (skips trash). |
+| **Raise** | If the parent folder contains no other folders or files, moves the current folder up two levels and removes the now-empty parent. |
+| **Clean** | Deletes common foreign/system files in the folder (e.g. `desktop.ini`, `Thumbs.db`, Windows Media Player thumbnail images, `.DS_Store`, `MACOSX`). |
+
+:::caution
+Although there are some checks in place, it's still possible to cause data loss. Avoid using these functions around files or folders you cannot afford to lose.
+:::
+
+---
+
+## Folder Relocate
+
+This feature allows you to relocate a folder to another physical location on disk in your music library.
+
+### How to use
+
+1. Start playing a track from the folder you want to move.
+2. In the **Folder navigator** panel, right-click a folder node and click `Move playing folder here`.
+
+   The folder will be placed in an **artist name** subfolder. This artist folder will be created if it does not exist already.
+
+:::tip
+You can lock the folder navigator view to a playlist by selecting **Lock Panel** from the context menu. This allows you to transfer folders while browsing a different playlist.
+:::
+
+:::caution
+This function moves data on disk. Use with caution and not around data you cannot afford to lose.
+
+The **entire** source directory tree will be moved, so make sure it only contains folders and files you want to transfer.
+:::
+

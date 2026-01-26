@@ -49,13 +49,18 @@ export default defineConfig({
 						{ label: 'Download Importing', slug: 'manual/download-importing' },
 						{ label: 'Smart Playlists', slug: 'manual/generators' },
 						{ label: 'Transcoding & Sync', slug: 'manual/transcoding' },
-						{ label: 'Network Sources', slug: 'manual/network-sources' },
-						{ label: 'Spotify', slug: 'manual/spotify' },
-						{ label: 'Jellyfin', slug: 'manual/jellyfin' },
 						{ label: 'Chromecast', slug: 'manual/chromecast' },
 						{ label: 'Discord', slug: 'manual/discord' },
 					],
 				},
+					{
+						label: 'Network Sources',
+						items: [
+							{ label: 'PLEX/Airsonic/Tauon', slug: 'manual/network-sources' },
+							{ label: 'Jellyfin', slug: 'manual/jellyfin' },
+							{ label: 'Spotify', slug: 'manual/spotify' },
+						],
+					},
 				{
 					label: 'Reference',
 					items: [

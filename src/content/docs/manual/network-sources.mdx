@@ -3,4 +3,57 @@ title: Network Sources
 description: Play music from network sources
 ---
 
-# Network Sources
+import { Steps } from '@astrojs/starlight/components';
+
+You can import tracks from your [**PLEX**](https://www.plex.tv/), [**Jellyfin**](https://jellyfin.org/) or **Subsonic** compatible server such as [Airsonic](https://airsonic.github.io/) or [Navidrome](https://github.com/deluan/navidrome). (Funkwhale not supported).
+
+## Connect Tauon to a server
+
+<Steps>
+1. Make sure your server is set up, running, and accessible.
+2. In Tauon, go to `MENU` > `Settings` > `Accounts` and select the tab for your server type.
+3. Fill in your account details, then click `Import music to playlist`.
+</Steps>
+
+:::note
+Imported network tracks are stored in a playlist and **won’t auto-sync**. To refresh, right click the playlist tab and select `Regenerate`.
+
+Server-side playlists are currently not supported.
+
+On Linux (AUR), PLEX users may need to install `python-plexapi`.
+:::
+
+:::caution[Limitations]
+- Having multiple source servers of the same type is **not supported**.
+- If you switch or reset a server, remove any playlists containing tracks from that server type. To fully clean out network tracks, go to `MENU` > `Database...` > `Remove Network Tracks`.
+- If Last.fm scrobbling is enabled in both Airsonic and Tauon, you’ll get double scrobbles. Disable scrobbling in either Airsonic or Tauon.
+:::
+
+:::tip[Nextcloud]
+You can connect to **Nextcloud** using the Subsonic API via [Nextcloud Music](https://github.com/owncloud/music).
+:::
+
+
+---
+
+## Tauon remote playback
+
+The ***Tauon Satellite*** feature lets you use Tauon as a network source itself! This function lets you import playlists from another running instance of Tauon Music Box on the same network.
+
+### Limitations
+
+- Only use on the same trusted LAN.
+- Read-only: you can’t manage your collection remotely, only playback.
+
+:::caution[Security]
+This protocol is unauthenticated and unsecured. Only use it on a trusted network, and do not expose the port directly to the internet.
+:::
+
+### Set up
+
+<Steps>
+1. On the **source** PC, go to `MENU` > `Settings` > `Function` > `pg4` and enable **Remote control**.
+2. Find the source computer’s IP address (on Linux, `ip a` can help).
+3. On the **satellite** PC, go to `MENU` > `Settings` > `Accounts` > `Satellite` and enter the IP address (IP only, no protocol or port).
+4. Enter the name of a playlist that exists on the source, then click **Get playlist** to import it.
+</Steps>

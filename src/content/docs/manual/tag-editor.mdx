@@ -3,4 +3,31 @@ title: Tag Editor
 description: Edit music metadata tags
 ---
 
-# Tag Editor
+import { Steps } from '@astrojs/starlight/components';
+
+This feature lets you edit metadata fields in Tauon’s local database, with the option to write changes back to the audio files on disk.
+
+:::caution[Data loss risk]
+If you don’t write changes to disk, you may lose associated playcount, rating, and love status if:
+
+- You move files and then re-import.
+- You reset Tauon by deleting its user data.
+- You migrate to a new installation by only moving `star.p`.
+- You edit tags of a network-based track (see below).
+:::
+
+:::note[Network sources]
+Using this feature on network sources (for example Airsonic or Spotify) currently has no persistent effect because the data is reset when network tracks are re-imported.
+:::
+
+:::tip[Backups]
+If you plan to make lots of edits without writing tags, periodically back up Tauon’s user data folder so your changes aren’t lost in case of corruption.
+:::
+
+## How to use
+
+<Steps>
+1. Select `Edit Fields...` from any track menu.
+2. Edit a field, then press **Enter** to apply the change.
+3. Optional: click **WRITE TAGS** to save changes to the audio files. Otherwise changes remain in the local database only.
+</Steps>
