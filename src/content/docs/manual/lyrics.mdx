@@ -1,0 +1,46 @@
+---
+title: Lyrics
+description: View and fetch lyrics
+---
+
+# Lyrics
+
+You can view lyrics in either the **right-side panel** or the **Showcase + Lyrics** view. Both have a **right-click** context menu with various operations related to lyrics.
+
+There are two kinds of lyrics that can be shown: **Standard** and **Synced**. Synced lyrics can be edited in the [Lyrics Editor](lyrics-editor).
+
+## Standard Lyrics
+
+Standard lyrics are shown when available. They are stored in the internal database and can be sourced from any of three types of locations:
+
+- From the audio file's metadata tag.
+   > These will automatically be scanned when importing. You can use the `Reload Metadata` function to manually re-scan.
+- By using the `Search lyrics` function to automatically find lyrics from the internet.
+- By pasting text from the system clipboard using the `Paste Lyrics` function.
+
+Clicking `Clear Lyrics` will remove the shown standard lyrics from the internal database.
+
+### Substitute Lyrics Search
+
+If lyrics need to be searched under a different name (e.g., to remove a featured artist), you can create a search substitution via the lyrics context menu > `Misc...` > `Substitute Search...`.
+
+Edit values as needed, then click away to confirm. This will also apply to all songs with that original name in the future, not just the single one you clicked on.
+
+To remove a substitution, re-open the Substitute Search box and clear the field.
+
+## Synced Lyrics
+
+Synced lyrics highlight the currently active line in the lyrics and scroll automatically.
+
+These lyrics are loaded from `.lrc` files, which need to be in the same location as the source audio file and have the same base filename in order to be detected. For example, have `clocks.mp3` and `clocks.lrc` in the same folder.
+
+> **Note:** These are loaded when you play a track and not stored in the internal database, unlike standard lyrics.
+
+> **Tip:** When both standard and synced types are available, a button in the **Showcase + Lyrics** view will be shown that lets you toggle which type is preferred for display.
+
+The format of a `.lrc` file is made up of lines of lyrics with timestamps, with each line taking the format of `[mm:ss.ms]words` such as follows:
+
+```text
+[01:32.21]On my fears, on my loose ends
+[01:38.99]All the strength leaves the ghosts alone
+```

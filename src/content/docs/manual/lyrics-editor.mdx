@@ -1,0 +1,158 @@
+---
+title: Synced Lyrics Editor
+description: Edit and manage song lyrics
+---
+
+# Synced Lyrics Editor
+
+This feature allows you to edit synced lyrics.
+
+You can enter this synced lyrics editor via the **View Menu**, or by right-clicking the side panel or showcase view and selecting "Lyrics Editor." In this view, you can play, edit, save and upload both synced and unsynced lyrics.
+
+The editor is split into two sub-views, corresponding with the two types of lyrics Tauon can store with every track. The primary one is the **Synced View**, which allows you to work with synced lyrics in a line-by-line system. The secondary **Unsynced View** is more basic, but it is less strict with the formatting. Most of this tutorial is about the **Synced View**.
+
+To switch views, click the button in the lower left of the screen that indicates which view you are currently in.
+
+<img width="357" height="138" alt="Buttons in the lower left of the synced view. The switch views button is indicated; it currently contains the icon for the synced view, a clock and a quill pen." src="https://github.com/user-attachments/assets/3c60cf2a-c3e8-4480-a11d-47e7f8999f36" /> <img width="338" height="131" alt="The same set of buttons from the unsynced view. The switch views button contains the icon for the unsynced view, an open book." src="https://github.com/user-attachments/assets/5254706f-98fe-495e-ad4f-aba107d5c644" />
+
+All keybinds are written for Linux and Windows. If you are on a Mac, here are the substitutions:
+
+- `Ctrl` means **Command**
+- `Alt` means **Option**
+- `Backspace` means **Delete**
+- `Delete` also means delete, but it's the one with an icon like ⌦. If you're on a laptop you don't have it, sorry.
+
+## Tutorial
+
+If you're in the **synced view** with a normal-sized window, you will see the current track's album cover on the left, a set of buttons below it, then a column of timestamps and a column of lyrics to the right.
+
+<img width="800" height="450" alt="the synced view" src="https://github.com/user-attachments/assets/da61f062-0a44-4d01-991d-aa6e75616f57" />
+
+The synced lyrics editor will always try to edit and save synced lyrics using the LRC format standard.
+
+---
+
+### Editing lyrics text
+
+<img width="1147" height="227" alt="The text editor for the synced lyrics view. One line is shown in a text box with some buttons on either side; another line (the active or currently playing line) is highlighted." src="https://github.com/user-attachments/assets/ea26055b-765c-44b0-ab6a-20eca6714f63" />
+
+You can edit lyrics while the track is paused. Hover your mouse over a line to begin editing it, and use normal text controls (enter, backspace, delete, arrow keys) to get to the others if you don't want to touch the mouse again. You can only edit a line if your cursor is hovering over it.
+
+- To delete a line, click the `x` button to the right of it. 
+- To create a new line, click the `+` button. 
+
+:::tip
+Try holding **Alt** when you use these buttons to see what it does for you.
+:::
+
+The synced lyrics editor also accepts pasted text, even if it has multiple lines, and even if it includes timestamps. Hold **Alt** while pasting to overwrite existing lines instead of inserting new ones. Beware of the quirks.
+
+---
+
+### Syncing lyrics
+<img width="560" height="130" alt="Buttons in the lower left corner of the window. The top row of buttons is indicated, including 'back 5', 'previous' and 'time.'" src="https://github.com/user-attachments/assets/afff2215-0187-4660-8fd2-c1ecd3e69e7e" />
+
+You can sync your lyrics while the track is playing. As the song progresses, simply click the `TIME` button (or press **Enter**) to tell the player that the next line has started. This will write the current timestamp and prepare the next line. This is the only button you really need - you can sync an entire song's lyrics in real time if you don't make any mistakes. 
+
+If you do make a mistake, you can go back and try again! Click the `≪5` button to seek back 5 seconds, or `Previous` to seek to the last line you timestamped. 
+- **Tip:** the `Previous` button will remove your faulty timestamp for you. 
+
+You can also **Right-click** the `TIME` button, or press **Backspace**, to combine the `≪5` and the `Previous` buttons together. The player will seek back to whichever of the two is the most recent, deleting the current timestamp if necessary.
+- **Tip:** hold **Alt** while pressing any of these to seek back *without* removing any timestamps.
+
+To navigate between lines while playing, press **Alt** + **arrow keys** (up or down). This only works on lines that are already timed, because we also warp you to the timestamp :)
+
+There are also some modifiers you can use while clicking the `TIME` button (or pressing **Enter**) to do more specific things. 
+- Hold **Alt** to time the current line instead of the next one.
+- Hold **Ctrl** to create a new timed line immediately after the current one - then simply go back and put in the text later.
+
+While playing, use the **Delete** key to remove the upcoming line, or **Alt + Delete** to remove the current one.
+
+---
+
+### Timestamps
+<img width="330" height="234" alt="A screenshot of a timestamp in the synced editor. The player is paused, so the timestamp becomes a button; a tooltip is displayed which says 'Teleport to timestamp.'" src="https://github.com/user-attachments/assets/84a6ccfa-9ca7-4d1a-86ab-4ae7fd63cd7e" />
+
+Timestamps display to the left of the lyrics text. A full timestamp can be teleported to by clicking it, or deleted by using the `x` button to the left of it. 
+- A timestamp of `tag` means the line contains metadata about the track in LRC format.
+- A timestamp of `??:??.??` means the line has not been timed.
+
+You can edit timestamps even after they've been put in! Hover your mouse over a timestamp and hold **Alt**, then scroll or use the left and right arrow keys to nudge the timestamp. 
+
+:::tip
+Hold **Ctrl** for even finer editing.
+:::
+
+:::tip
+If your mouse is somewhere else entirely (outside the line editing section), or if Tauon is currently playing, these same controls will edit the active line.
+:::
+
+We'll also warp you straight to the timestamp so you can make sure it's timed correctly :)
+
+:::tip
+If you're doing fine-grained editing, make sure your lyrics are displaying at the right time. Find your `synced-lyrics-time-offset` setting in the config file (accessible via the main Settings menu) and tune it by trial and error.
+:::
+
+:::tip
+While playing, press and release **Alt** on its own to warp back to the start of the current line.
+:::
+
+---
+
+### Unsynced View
+<img width="800" height="450" alt="The unsynced view." src="https://github.com/user-attachments/assets/b63d57a5-6b97-4a3b-8602-5be97322023c" />
+
+The unsynced view allows you to edit unsynced lyrics in plain text format. To begin, simply click the `Edit Lyrics` button in the lower corner. You will see a little control window pop up within Tauon, and a plain old ordinary text editor should open outside of it. (If it doesn't, it's likely your system doesn't have a default program set to open `.txt` files.) 
+
+<img width="611" height="375" alt="The unsynced view. A small control window is open in Tauon, containing the buttons 'Read Back,' 'Cancel' and 'Reopen Editor.' A text editor is also on screen in a separate window, and it contains all the lyrics of the current song." src="https://github.com/user-attachments/assets/97c2220a-c63b-4050-9183-78ea579e12f2" />
+
+Edit your lyrics in the text editor and then save the file. Back in Tauon, press `Read Back` to load your changes back from the text file. If you're happy with them, click `Save` (or press **Ctrl + S**) to save them back to the Tauon database as well as the original audio files.
+
+:::tip
+Hold **Alt** while pressing `Read Back` to immediately save the new lyrics to Tauon's database, without touching the original audio files. (Most people probably won't find a use for this, but I thought I'd document it anyway. It was useful for me at least.)
+:::
+
+Tauon doesn't delete these temporary text files automatically - it only happens when you press `Read Back` or `Cancel`. If you don't press either - for example, you close Tauon, or skip to the next track - they will stick around. Click `Reopen Editor` to get back to editing them. 
+
+---
+
+### Saving
+<img width="559" height="131" alt="Buttons in the lower left corner of the window. The bottom row of buttons is indicated, including 'switch views,' 'save' and 'discard.'" src="https://github.com/user-attachments/assets/2b34676d-d28c-4a4e-8b78-d4620d80b4a4" />
+
+Tauon uses the LRC format for synced lyrics, and plain text for unsynced lyrics. **These formats aren't compatible!** If your first line is timestamped and all the rest are plain, the player will only show you the first line! When you save, EVERY line (that isn't a tag) should be the same type, either timestamped or untimed. (If you forget, we'll warn you.)
+
+If none of the lines are timed, lyrics will save as **unsynced**, even if they were edited in the **synced editor**.
+
+A full save will write your finished lyrics back to the database, as well as to your filesystem. 
+
+:::tip
+We will always write **unsynced** lyrics to the `lyrics` field in the original file's metadata. However, by default, **synced** lyrics will write to a separate `.lrc` lyric file. You can turn this off in the right-click menu - but heed the warning.
+:::
+
+Besides clicking the green `SAVE` button, you can also press **Ctrl + S** to save your lyrics. If you have set your end-of-track behavior to `Fully save and continue` (in the right-click menu), you don't have to do anything special, just let it play :)
+
+:::note
+End-of-track behavior only runs if the lyrics editor is **open** when the track changes! It does not occur in the background.
+:::
+
+If you get any warnings while saving, don't worry, it will save a backup no matter what. If there's nothing wrong with the lyrics themselves, they will also save to Tauon's internal database. 
+
+### Backups
+Tauon will automatically save backups of your current synced lyrics. These are not the same as normal saves - they're not shown in the player or written to the track. They're for getting back your progress if you make a big mistake, like closing the program without saving, clearing all the lyrics or searching for new lyrics by accident. If you do any of those, visit the right-click menu and click `Backups...` > `Load Current Backup` to get your progress back. 
+
+:::note
+Backups are tied to a track's internal ID. Only one backup will exist per track.
+:::
+
+---
+
+### Uploading
+<img width="541" height="199" alt="A dialog box in Tauon. It says 'Upload lyrics for CFCF - Jump Out of the Train?', and it contains toggles to include synced and unsynced lyrics, as well as buttons to upload or cancel." src="https://github.com/user-attachments/assets/06fdb32c-afd6-42c9-98fd-e8d43b0fdfe1" />
+
+If you are particularly proud of your completed lyrics, you can find the option to `Upload to LRCLIB` (an online lyrics database) in the right-click menu. Clicking it, you will see a little control window that should be self-explanatory, I think. Just wanted to make sure you knew you could do this. :)
+
+Uploading might take a while - it's not your internet! (probably.) We actually have to solve a proof-of-work challenge to upload anything, which can take about 20 seconds.
+
+:::note
+If you're on Windows, that's what's going on when the scary little black box pops up. No danger :)
+:::
