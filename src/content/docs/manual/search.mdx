@@ -1,0 +1,58 @@
+---
+title: Search & Find
+description: Learn how to search for music globally or within playlists
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+Tauon provides two ways to find music: **global search** and **quick find**.
+
+## Global search
+
+Global search compiles results from across all playlists. It automatically activates when you start typing.
+
+### Search results
+
+Global search returns results in multiple categories:
+
+- **Artists**: all tracks by an artist
+- **Albums**: all tracks from an album
+- **Tracks**: individual tracks
+- **Genres**: all tracks in a genre
+- **Folders**: all tracks from a folder
+
+### Actions
+
+- Click an **Artist**, **Genre**, or **Folder** result → creates a new playlist of that result
+- Click a **Track** or **Album** result → plays it
+- Right-click any result → locates the result without playing or creating a playlist
+- <kbd>Ctrl</kbd> + click → adds the result to the current playlist without closing the search
+
+## Quick find
+
+Quick find searches within the **currently viewed playlist only**.
+
+### Use quick find
+
+<Steps>
+1. Press <kbd>Ctrl</kbd> + <kbd>F</kbd> to open the find box.
+2. Type your search terms.
+3. Use the <kbd>Up</kbd> or <kbd>Down</kbd> arrow keys to jump to the previous/next match.
+</Steps>
+
+### Advanced find
+
+Press <kbd>Shift</kbd> + <kbd>Enter</kbd> to create a new playlist of all matching results.
+
+:::tip[Advanced uses]
+Because quick find searches filenames, you can:
+
+- Find artists in features that may not be picked up by global search
+- Create a playlist of tracks of a single file type (for example, search `.ogg`)
+:::
+
+## Search tips
+
+- Global search is best for discovering content across all playlists.
+- Quick find is ideal for filtering the current playlist.
+- Both search methods are case-insensitive.
