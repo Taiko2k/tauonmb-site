@@ -3,7 +3,7 @@ title: Mini Mode
 description: Use Tauon in a compact mini player mode
 ---
 
-Mini Mode provides a compact view of the player, perfect for keeping music controls visible while you work.
+Mini Mode provides a compact view of the player.
 
 ![Mini mode example](../../../assets/t07.jpg)
 
