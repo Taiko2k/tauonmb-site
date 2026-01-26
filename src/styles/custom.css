@@ -7,10 +7,10 @@
 	--sl-color-gray-1: #eceef2;
 	--sl-color-gray-2: #c0c2c7;
 	--sl-color-gray-3: #888b96;
-	--sl-color-gray-4: #545861;
-	--sl-color-gray-5: #353841;
-	--sl-color-gray-6: #24272f;
-	--sl-color-black: #17181c;
+	--sl-color-gray-4: #555861;
+	--sl-color-gray-5: #434343;
+	--sl-color-gray-6: #303030;
+	--sl-color-black: #1f1f1f;
 }
 /* Light mode colors. */
 :root[data-theme='light'] {
