@@ -3,7 +3,6 @@ title: Synced Lyrics Editor
 description: Edit and manage song lyrics
 ---
 
-# Synced Lyrics Editor
 
 This feature allows you to edit synced lyrics.
 
@@ -41,9 +40,7 @@ You can edit lyrics while the track is paused. Hover your mouse over a line to b
 - To delete a line, click the `x` button to the right of it. 
 - To create a new line, click the `+` button. 
 
-:::tip
 Try holding **Alt** when you use these buttons to see what it does for you.
-:::
 
 The synced lyrics editor also accepts pasted text, even if it has multiple lines, and even if it includes timestamps. Hold **Alt** while pasting to overwrite existing lines instead of inserting new ones. Beware of the quirks.
 
@@ -79,22 +76,15 @@ Timestamps display to the left of the lyrics text. A full timestamp can be telep
 
 You can edit timestamps even after they've been put in! Hover your mouse over a timestamp and hold **Alt**, then scroll or use the left and right arrow keys to nudge the timestamp. 
 
-:::tip
-Hold **Ctrl** for even finer editing.
-:::
-
-:::tip
-If your mouse is somewhere else entirely (outside the line editing section), or if Tauon is currently playing, these same controls will edit the active line.
-:::
-
 We'll also warp you straight to the timestamp so you can make sure it's timed correctly :)
 
 :::tip
-If you're doing fine-grained editing, make sure your lyrics are displaying at the right time. Find your `synced-lyrics-time-offset` setting in the config file (accessible via the main Settings menu) and tune it by trial and error.
-:::
+Fine-tuning timestamps:
 
-:::tip
-While playing, press and release **Alt** on its own to warp back to the start of the current line.
+- Hold **Ctrl** for even finer editing.
+- If your mouse is somewhere else entirely (outside the line editing section), or if Tauon is currently playing, these same controls will edit the active line.
+- If you're doing fine-grained editing, make sure your lyrics are displaying at the right time. Find your `synced-lyrics-time-offset` setting in the config file (accessible via the main Settings menu) and tune it by trial and error.
+- While playing, press and release **Alt** on its own to warp back to the start of the current line.
 :::
 
 ---
@@ -108,7 +98,7 @@ The unsynced view allows you to edit unsynced lyrics in plain text format. To be
 
 Edit your lyrics in the text editor and then save the file. Back in Tauon, press `Read Back` to load your changes back from the text file. If you're happy with them, click `Save` (or press **Ctrl + S**) to save them back to the Tauon database as well as the original audio files.
 
-:::tip
+:::note
 Hold **Alt** while pressing `Read Back` to immediately save the new lyrics to Tauon's database, without touching the original audio files. (Most people probably won't find a use for this, but I thought I'd document it anyway. It was useful for me at least.)
 :::
 
@@ -125,7 +115,7 @@ If none of the lines are timed, lyrics will save as **unsynced**, even if they w
 
 A full save will write your finished lyrics back to the database, as well as to your filesystem. 
 
-:::tip
+:::note
 We will always write **unsynced** lyrics to the `lyrics` field in the original file's metadata. However, by default, **synced** lyrics will write to a separate `.lrc` lyric file. You can turn this off in the right-click menu - but heed the warning.
 :::
 
@@ -147,12 +137,9 @@ Backups are tied to a track's internal ID. Only one backup will exist per track.
 ---
 
 ### Uploading
+
 <img width="541" height="199" alt="A dialog box in Tauon. It says 'Upload lyrics for CFCF - Jump Out of the Train?', and it contains toggles to include synced and unsynced lyrics, as well as buttons to upload or cancel." src="https://github.com/user-attachments/assets/06fdb32c-afd6-42c9-98fd-e8d43b0fdfe1" />
 
 If you are particularly proud of your completed lyrics, you can find the option to `Upload to LRCLIB` (an online lyrics database) in the right-click menu. Clicking it, you will see a little control window that should be self-explanatory, I think. Just wanted to make sure you knew you could do this. :)
 
 Uploading might take a while - it's not your internet! (probably.) We actually have to solve a proof-of-work challenge to upload anything, which can take about 20 seconds.
-
-:::note
-If you're on Windows, that's what's going on when the scary little black box pops up. No danger :)
-:::
