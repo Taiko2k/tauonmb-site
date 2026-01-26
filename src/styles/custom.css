@@ -32,3 +32,9 @@
 .right-sidebar-panel {
 	width: 10rem; /* default is ~20rem, adjust as needed */
 }
+
+/* Square hero image corners on the splash (home) page */
+[data-has-hero] .hero > img,
+[data-has-hero] .hero img {
+	border-radius: 0 !important;
+}
