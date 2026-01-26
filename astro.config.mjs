@@ -68,6 +68,7 @@ export default defineConfig({
 						{ label: 'Keyboard Shortcuts', slug: 'manual/keyboard-shortcuts' },
 						{ label: 'Menu Functions', slug: 'manual/menu-functions' },
 					    { label: 'Gamepad Mappings', slug: 'manual/gamepad-mappings' },
+						{ label: 'Remote Control', slug: 'manual/remote-control' },
 						{ label: 'Themes', slug: 'manual/themes' },
 						{ label: 'App Data & Playcounts', slug: 'manual/app-data' },
 					],

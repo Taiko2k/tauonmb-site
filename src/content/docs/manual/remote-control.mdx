@@ -1,0 +1,89 @@
+---
+title: Remote Control
+description: Control Tauon via media keys, CLI, or APIs
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## Media keys
+
+Media keys should be automatically handled by your desktop environment and forwarded to media players using **MPRIS2** via **D-Bus** (Linux only). For GNOME and KDE, no extra configuration should be needed.
+
+macOS media keys are not currently supported.
+
+## Commands
+
+### Using `playerctl` (Linux only)
+
+You can use [playerctl](https://github.com/altdesktop/playerctl) ([Arch Linux package](https://archlinux.org/packages/community/x86_64/playerctl/)), which uses MPRIS2 for additional controls (volume, shuffle, etc.).
+
+Example:
+
+```
+playerctl -p tauon play
+```
+
+
+### Using D-Bus directly (Linux only)
+
+If `playerctl` isn’t working for you, you can send commands over D-Bus manually using `dbus-send`.
+
+Example: switch to the next track
+
+```
+dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.tauon /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+```
+
+:::note
+Tauon does not implement the *tracklist* or *playlists* MPRIS interface.
+:::
+
+### Tauon launch options
+
+There are also some Tauon launch commands you can use.
+
+ - If installed via AUR, the CLI command is `tauon`.
+ - If installed via Flatpak, use:
+
+```bash
+flatpak run com.github.taiko2k.tauonmb
+```
+
+
+Options:
+
+```text
+--play
+--pause
+--play-pause
+--stop
+--next
+--previous
+--shuffle   (this toggles shuffle)
+--repeat    (this toggles repeat)
+```
+
+For example:
+
+```bash
+tauon --pause
+```
+
+You can also open files, for example:
+
+```bash
+tauon ~/Music/Myalbum/mysong.mp3
+```
+
+## Network / advanced control
+
+### Android app (unmaintained)
+
+See the wiki list of known Android remote control apps: https://github.com/Taiko2k/TauonMusicBox/wiki/Android-Remote-Apps
+
+### Using Tauon's HTTP API
+
+For advanced control (developers), you can use the remote HTTP API. See the wiki page: https://github.com/Taiko2k/TauonMusicBox/wiki/Remote-Control-API
+
+This must be enabled in Tauon’s settings.
+
