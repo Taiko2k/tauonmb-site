@@ -18,15 +18,18 @@ import { Tabs, TabItem, Card, LinkButton } from '@astrojs/starlight/components';
   <TabItem label="Flatpak" icon="linux">
     <Card title="Install via Flatpak">
       Install on most Linux distros using Flatpak
+
       ```bash
+      # Install
       flatpak install com.github.taiko2k.tauonmb
+
+      # Give access to external music library
+      flatpak override com.github.taiko2k.tauonmb --filesystem=/mnt/example
+
+      # Uninstall
+      flatpak uninstall com.github.taiko2k.tauonmb
       ```
-      :::tip
-      If your music is located outside of `~/Music` such as in `/mnt` you will need to grant explicit permission. For example:
-      ```bash
-      flatpak override com.github.taiko2k.tauonmb --filesystem=/mnt
-      ``` 
-      :::
+
     </Card>
   </TabItem>
   <TabItem label="Windows" icon="seti:windows">
