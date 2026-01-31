@@ -19,40 +19,41 @@ export default defineConfig({
 				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/v4EmhES' }
 			],
 			sidebar: [
-				{
-					label: 'Overview',
-					items: [
-						{ label: 'Getting Started', slug: 'manual/overview' },
-						{ label: 'Installing', slug: 'manual/installing' },
-						{ label: 'FAQ', slug: 'manual/faq' },
-					],
-				},
-				{
-					label: 'User Interface',
-					items: [
-						{ label: 'Main Panels', slug: 'manual/interface' },
-						{ label: 'Artist List', slug: 'manual/artist-list' },
-						{ label: 'Gallery View', slug: 'manual/gallery' },
-						{ label: 'Folder Navigator', slug: 'manual/folder-navigator' },
-						{ label: 'Mini Mode', slug: 'manual/mini-mode' },
-					],
-				},
-				{
-					label: 'Features',
-					items: [
-						{ label: 'Search & Find', slug: 'manual/search' },
-						{ label: 'Tag Editor', slug: 'manual/tag-editor' },
-						{ label: 'Playlist Export/Import', slug: 'manual/playlist-export' },
-						{ label: 'Download Importing', slug: 'manual/download-importing' },
-						{ label: 'Smart Playlists', slug: 'manual/generators' },
-						{ label: 'Transcoding & Sync', slug: 'manual/transcoding' },
-						{ label: 'Chromecast', slug: 'manual/chromecast' },
-						{ label: 'Discord', slug: 'manual/discord' },
-						{ label: 'Folder Management', slug: 'manual/folder-management' },
-						{ label: 'Lyrics Display', slug: 'manual/lyrics' },
-						{ label: 'Synced Lyrics Editor', slug: 'manual/lyrics-editor' },
-					],
-				},
+					{
+						label: 'Overview',
+						items: [
+							{ label: 'Getting Started', slug: 'manual/overview' },
+							{ label: 'Installing', slug: 'manual/installing' },
+							{ label: 'FAQ', slug: 'manual/faq' },
+						],
+					},
+					{
+						label: 'User Interface',
+						items: [
+							{ label: 'Main Panels', slug: 'manual/interface' },
+							{ label: 'Artist List', slug: 'manual/artist-list' },
+							{ label: 'Gallery View', slug: 'manual/gallery' },
+							{ label: 'Folder Navigator', slug: 'manual/folder-navigator' },
+							{ label: 'Mini Mode', slug: 'manual/mini-mode' },
+						],
+					},
+					{
+						label: 'Features',
+						items: [
+							{ label: 'Search & Find', slug: 'manual/search' },
+							{ label: 'Milkdrop Visualisations', slug: 'manual/milkdrop' },
+							{ label: 'Tag Editor', slug: 'manual/tag-editor' },
+							{ label: 'Playlist Export/Import', slug: 'manual/playlist-export' },
+							{ label: 'Download Importing', slug: 'manual/download-importing' },
+							{ label: 'Smart Playlists', slug: 'manual/generators' },
+							{ label: 'Transcoding & Sync', slug: 'manual/transcoding' },
+							{ label: 'Chromecast', slug: 'manual/chromecast' },
+							{ label: 'Discord', slug: 'manual/discord' },
+							{ label: 'Folder Management', slug: 'manual/folder-management' },
+							{ label: 'Lyrics Display', slug: 'manual/lyrics' },
+							{ label: 'Synced Lyrics Editor', slug: 'manual/lyrics-editor' },
+						],
+					},
 					{
 						label: 'Network Sources',
 						items: [
