@@ -43,7 +43,14 @@ import { Tabs, TabItem, Card, LinkButton } from '@astrojs/starlight/components';
       Download a DMG build from the releases page:
       <LinkButton href="https://github.com/Taiko2k/TauonMusicBox/releases" variant="minimal">Github Releases</LinkButton>
       :::note
-      Builds are not signed and will incur a macOS security warning
+      Builds are not signed and will incur a macOS security warning.
+
+      If macOS blocks Tauon with “can’t be opened because Apple cannot check it for malicious software”, you can bypass Gatekeeper (only do this for files you downloaded from the official releases page):
+
+      1. In Finder, right-click (or Ctrl-click) the app and choose **Open**, then click **Open** again.
+      - Or go to **System Settings → Privacy & Security** and click **Open Anyway** for Tauon.
+      - If the app was quarantined, you can also remove the quarantine attribute in Terminal:
+
       :::
     </Card>
   </TabItem>
