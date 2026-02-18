@@ -59,7 +59,6 @@ export default defineConfig({
 						items: [
 							{ label: 'PLEX/Airsonic/Tauon', slug: 'manual/network-sources' },
 							{ label: 'Jellyfin', slug: 'manual/jellyfin' },
-							{ label: 'Spotify', slug: 'manual/spotify' },
 						],
 					},
 				{
