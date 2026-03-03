@@ -25,6 +25,7 @@ export default defineConfig({
 							{ label: 'Getting Started', slug: 'manual/overview' },
 							{ label: 'Installing', slug: 'manual/installing' },
 							{ label: 'FAQ', slug: 'manual/faq' },
+							{ label: 'Tauon for iOS', slug: 'manual/tauon-for-ios' },
 						],
 					},
 					{
