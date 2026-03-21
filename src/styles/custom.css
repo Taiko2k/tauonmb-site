@@ -38,3 +38,11 @@
 [data-has-hero] .hero img {
 	border-radius: 0 !important;
 }
+
+.install-download-card .expressive-code .frame.is-terminal .header {
+	display: none;
+}
+.install-download-card .expressive-code .frame.is-terminal pre {
+	border-top-left-radius: var(--border-radius);
+	border-top-right-radius: var(--border-radius);
+}

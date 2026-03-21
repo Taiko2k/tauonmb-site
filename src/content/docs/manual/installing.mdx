@@ -1,22 +1,31 @@
 ---
-title: Installing
+title: Download & Install
 description: How to download and install Tauon
 ---
 
-import { Tabs, TabItem, Card, LinkButton } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import InstallDownloadCard from '../../../components/InstallDownloadCard.astro';
 
 
 <Tabs>
   <TabItem label="Arch Linux" icon="linux">
-    <Card title="Install on Arch Linux">
+    <InstallDownloadCard
+      eyebrow="Arch package"
+      metaLabel="Package"
+      metaValue="tauon-music-box"
+    >
       Install on Arch based distros using Pacman
       ```bash
       sudo pacman -Syu tauon-music-box
       ```
-    </Card>
+    </InstallDownloadCard>
   </TabItem>
   <TabItem label="Flatpak" icon="linux">
-    <Card title="Install via Flatpak">
+    <InstallDownloadCard
+      eyebrow="Cross-distro package"
+      metaLabel="App ID"
+      metaValue="com.github.taiko2k.tauonmb"
+    >
       Install on most Linux distros using Flatpak
 
       ```bash
@@ -30,19 +39,30 @@ import { Tabs, TabItem, Card, LinkButton } from '@astrojs/starlight/components';
       flatpak uninstall com.github.taiko2k.tauonmb
       ```
 
-    </Card>
+    </InstallDownloadCard>
   </TabItem>
   <TabItem label="Windows" icon="seti:windows">
-    <Card title="Install on Windows">
-      Download an installer from the releases page:
-      <LinkButton href="https://github.com/Taiko2k/TauonMusicBox/releases" variant="minimal">Github Releases</LinkButton>
-    </Card>
+    <InstallDownloadCard
+      eyebrow="Latest Windows release"
+      metaLabel="Source"
+      metaValue="GitHub"
+      primaryHref="https://github.com/Taiko2k/TauonMusicBox/releases"
+      primaryText="Browse Windows releases"
+    >
+      Download the latest Windows installer from the GitHub releases page.
+    </InstallDownloadCard>
   </TabItem>
   <TabItem label="macOS" icon="apple">
-    <Card title="Install on macOS">
-      Download latest DMG: [Tauon v9.1.2 DMG](https://github.com/Taiko2k/Tauon/releases/download/v9.1.2/Tauon-v9.1.2-signed.dmg)
-
-      Or download an older release from the [releases page](https://github.com/Taiko2k/TauonMusicBox/releases).
-    </Card>
+    <InstallDownloadCard
+      eyebrow="Latest signed build"
+      metaLabel="Current build"
+      metaValue="v9.1.2"
+      primaryHref="https://github.com/Taiko2k/Tauon/releases/download/v9.1.2/Tauon-v9.1.2-signed.dmg"
+      primaryText="Download Tauon DMG"
+      secondaryHref="https://github.com/Taiko2k/TauonMusicBox/releases"
+      secondaryText="Browse older releases"
+    >
+      Download the latest DMG, then move Tauon to your <code>Applications</code> folder.
+    </InstallDownloadCard>
   </TabItem>
 </Tabs>

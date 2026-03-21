@@ -2,3 +2,4 @@ node_modules
 .idea
 .astro
 *.DS_Store
+dist/*
