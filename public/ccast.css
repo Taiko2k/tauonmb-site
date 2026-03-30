@@ -1,0 +1,12 @@
+.background {
+  background-color: #222222;
+}
+
+.logo {
+  background-image: url(/loading.svg);
+  background-size: 200px 200px;
+}
+
+.progressBar {
+  background-color: #d42abd;
+}
