@@ -10,8 +10,10 @@ export default defineConfig({
 		starlight({
 			plugins: [starlightThemeGalaxy()],
 			title: 'Tauon',
-			logo: {src: './src/assets/tauon.svg',
-				    replacesTitle: true
+			logo: {
+				dark: './src/assets/tauon.svg',
+				light: './src/assets/tauon-light.svg',
+				replacesTitle: true
 			},
 			customCss: ['./src/styles/custom.css'],
 			social: [
