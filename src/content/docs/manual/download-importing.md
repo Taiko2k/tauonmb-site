@@ -17,14 +17,14 @@ Files older than one hour are ignored
 
 ## Setup
 
-To enable this feature, go to **MENU > Settings... > Functions** and enable:
+To enable this feature, go to **MENU > Settings... > General** and enable:
 
-1. **"Monitor download folders"** - Watches for new files
-2. **"Extract archives on import"** - Automatically extracts compressed files
+1. **"Extract archives"** - Automatically extracts compressed files on import
+2. **"Enable download monitor"** - Watches your Downloads folder for one-click imports
 
 Optional settings:
 - **"Trash archive after extraction"** - Removes the archive after extracting
-- **"Always extract to music folder"** - Extracts to your music library folder
+- **"Always extract to Music folder"** - Extracts to your music library folder
 
 ![Download import settings](../../../assets/dl02.png)
 

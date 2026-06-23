@@ -75,13 +75,13 @@ ___
 
 By default, Tauon will try to detect an appropriate UI scale automatically. 
 
-You can manually set the scaling Tauon uses by going `MENU` > `Settings...` > `Window` and adjusting the slider.
+You can manually set the scaling Tauon uses by going `MENU` > `Settings...` > `View` and adjusting the slider.
 
 
 :::tip
 If album art tends to look too small, consider enabling the setting `Zoom album art to fit` under `Settings...` > `View`.
 
-If text in the tracklist seems vertically off-centre, consider tweaking the setting `Baseline offset` under `Settings...` > `Tracklist` to whatever looks visually best to you.
+If text in the tracklist seems vertically off-centre, consider tweaking the setting `Text baseline` under `Settings...` > `Tracklist` to whatever looks visually best to you.
 :::
 
 ___
@@ -96,7 +96,7 @@ Lossess codec support is as follows:
 | WAV, ALAC, APE, TTA | Downscaled to 16bit | No, may use resampling |
 
 :::tip[Avoiding resampling on Linux]
-To get sample rates forwarded to your DAC, enable the setting "*Avoid Resampling*" in Tauon under MENU > Settings > Audio. You will also need to enable dynamic samplerates in your Pipewire configuration, see [here](https://wiki.archlinux.org/title/PipeWire#Changing_the_allowed_sample_rate(s)) on how to do that.
+To get sample rates forwarded to your DAC, enable the setting "*Avoid resampling*" in Tauon under MENU > Settings > Audio. You will also need to enable dynamic samplerates in your Pipewire configuration, see [here](https://wiki.archlinux.org/title/PipeWire#Changing_the_allowed_sample_rate(s)) on how to do that.
 
 The downside of enabling *Avoid Resampling* is that fades will no longer occur between tracks of differing sample rates
 :::
