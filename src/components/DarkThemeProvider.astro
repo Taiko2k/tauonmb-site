@@ -1,0 +1,10 @@
+---
+/* Force the dark theme site-wide; the light theme is disabled. Inlined to
+   avoid a flash of the wrong theme. Provides a no-op StarlightThemeProvider
+   so any leftover picker scripts don't error. */
+---
+
+<script is:inline>
+	document.documentElement.dataset.theme = 'dark';
+	window.StarlightThemeProvider = { updatePickers() {} };
+</script>

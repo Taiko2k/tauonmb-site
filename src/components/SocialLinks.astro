@@ -1,0 +1,35 @@
+---
+import config from 'virtual:starlight/user-config';
+
+const links = config.social || [];
+
+// Contextual nav link: "docs" on the home page, "home" on every other page.
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
+const navLink = isHome ? { label: 'docs', href: '/manual/overview/' } : { label: 'home', href: '/' };
+---
+
+<div class="tauon-social sl-flex">
+	<a href={navLink.href}>{navLink.label}</a>
+	{links.map(({ label, href }) => (
+		<a {href} rel="me">
+			{label.toLowerCase()}
+		</a>
+	))}
+</div>
+
+<style>
+	.tauon-social {
+		gap: 1.25rem;
+		align-items: center;
+	}
+	.tauon-social a {
+		font-family: var(--sl-font-mono, monospace);
+		font-size: 0.8rem;
+		letter-spacing: 0.02em;
+		color: var(--sl-color-gray-3);
+		text-decoration: none;
+	}
+	.tauon-social a:hover {
+		color: var(--sl-color-white);
+	}
+</style>

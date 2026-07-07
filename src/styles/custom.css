@@ -1,44 +1,695 @@
-/* Dark mode colors. */
+/* =========================================================================
+   Tauon "Striped" theme
+   A monospace, terminal-inspired dark theme derived from the redesign
+   mockups (Tauon Striped.dc.html / Tauon Docs.dc.html).
+   ========================================================================= */
+
+/* --- Palette -------------------------------------------------------------
+   base    bg          #1a1817
+   stripe  bg overlay  #1e1c1a
+   text    bright      #eeece8
+   text    strong      #d1cfca / #cdcbc7
+   text    body        #a6a39e
+   text    muted       #928f8a / #8f8c87
+   text    dim         #7e7b76 / #6f6c67
+   text    faint       #5e5b57 / #58554f
+   border  hairline    #262421
+   border  soft        #2f2c29
+   border  strong      #3d3a36 / #34312d
+   accent  hover       #847f79
+   ------------------------------------------------------------------------- */
+
 :root {
-	--sl-color-accent-low: #131e4f;
-	--sl-color-accent: #8c55f3;
-	--sl-color-accent-high: #e7b3ff;
-	--sl-color-white: #ffffff;
-	--sl-color-gray-1: #eceef2;
-	--sl-color-gray-2: #c0c2c7;
-	--sl-color-gray-3: #888b96;
-	--sl-color-gray-4: #555861;
-	--sl-color-gray-5: #434343;
-	--sl-color-gray-6: #303030;
-	--sl-color-black: #1f1f1f;
+	/* Dark theme (the default / primary look). */
+	--sl-color-accent-low: #262421;
+	--sl-color-accent: #847f79;
+	--sl-color-accent-high: #eeece8;
+
+	--sl-color-white: #eeece8;
+	--sl-color-gray-1: #d1cfca;
+	--sl-color-gray-2: #a6a39e;
+	--sl-color-gray-3: #928f8a;
+	--sl-color-gray-4: #6f6c67;
+	--sl-color-gray-5: #3d3a36;
+	--sl-color-gray-6: #262421;
+	--sl-color-gray-7: #1e1c1a;
+	--sl-color-black: #1a1817;
+
+	--sl-color-text: #cdcbc7;
+	--sl-color-text-accent: #eeece8;
+	--sl-color-bg: #1a1817;
+	--sl-color-bg-nav: #1a1817;
+	--sl-color-bg-sidebar: #1a1817;
+	--sl-color-bg-inline-code: #1e1c1a;
+	--sl-color-hairline: #262421;
+	--sl-color-hairline-light: #262421;
+	--sl-color-hairline-shade: #262421;
+
+	/* Typography — Inter for prose, JetBrains Mono for UI chrome & code. */
+	--sl-font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+	--sl-font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
+
+	/* Flatten Starlight's rounded corners for the terminal look. */
+	--border-radius: 0px;
+	--sl-shadow-sm: none;
+	--sl-shadow-md: none;
+	--sl-shadow-lg: none;
+
+	--tauon-stripes: repeating-linear-gradient(45deg, #1e1c1a 0 8px, #1a1817 8px 16px);
 }
-/* Light mode colors. */
+
+/* Light theme — a warm paper inversion of the same palette. */
 :root[data-theme='light'] {
-	--sl-color-accent-low: #c7d6ff;
-	--sl-color-accent: #364bff;
-	--sl-color-accent-high: #182775;
-	--sl-color-white: #17181c;
-	--sl-color-gray-1: #24272f;
-	--sl-color-gray-2: #353841;
-	--sl-color-gray-3: #545861;
-	--sl-color-gray-4: #888b96;
-	--sl-color-gray-5: #c0c2c7;
-	--sl-color-gray-6: #eceef2;
-	--sl-color-gray-7: #f5f6f8;
-	--sl-color-black: #ffffff;
+	--sl-color-accent-low: #e7e3da;
+	--sl-color-accent: #6f6a63;
+	--sl-color-accent-high: #2a2724;
+
+	--sl-color-white: #2a2724;
+	--sl-color-gray-1: #33302c;
+	--sl-color-gray-2: #4a453f;
+	--sl-color-gray-3: #6f6a63;
+	--sl-color-gray-4: #8a857d;
+	--sl-color-gray-5: #cdc7bb;
+	--sl-color-gray-6: #e2ddd2;
+	--sl-color-gray-7: #efece4;
+
+	--sl-color-text: #4a453f;
+	--sl-color-text-accent: #2a2724;
+	--sl-color-black: #f4f1ea;
+	--sl-color-bg: #f4f1ea;
+	--sl-color-bg-nav: #f4f1ea;
+	--sl-color-bg-sidebar: #f4f1ea;
+	--sl-color-bg-inline-code: #e7e3da;
+	--sl-color-hairline: #ddd7cb;
+	--sl-color-hairline-light: #ddd7cb;
+	--sl-color-hairline-shade: #ddd7cb;
+
+	--tauon-stripes: repeating-linear-gradient(45deg, #efece4 0 8px, #f4f1ea 8px 16px);
 }
 
-/* Make right sidebar (table of contents) smaller */
+::selection {
+	background: #3d3a36;
+	color: #f2f0ec;
+}
+:root[data-theme='light'] ::selection {
+	background: #ddd7cb;
+	color: #2a2724;
+}
+
+/* --- Striped background -------------------------------------------------- */
+/* Scrolls with the page (not fixed) so the whole surface moves as one. */
+html,
+body {
+	background-color: var(--sl-color-bg);
+	background-image: var(--tauon-stripes);
+	background-attachment: scroll;
+}
+
+/* Let the striped body show through the app chrome. */
+.page,
+.main-frame,
+header.header,
+#starlight__sidebar,
+.sidebar-pane,
+.right-sidebar {
+	background: transparent !important;
+}
+
+/* --- Header (top bar) ---------------------------------------------------- */
+header.header {
+	border-bottom: 1px solid var(--sl-color-hairline);
+	backdrop-filter: none;
+	font-family: var(--sl-font-mono);
+}
+/* Home page has no header divider; docs pages keep it. */
+:root[data-has-hero] header.header {
+	border-bottom: none;
+}
+
+.site-title {
+	font-family: var(--sl-font-mono);
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	color: var(--sl-color-white);
+}
+
+/* Header nav / social links */
+header.header a {
+	font-family: var(--sl-font-mono);
+	font-size: 0.8rem;
+	color: var(--sl-color-gray-3);
+}
+header.header a:hover {
+	color: var(--sl-color-white);
+}
+.social-icons a {
+	color: var(--sl-color-gray-3);
+}
+.social-icons a:hover {
+	color: var(--sl-color-white);
+}
+/* The theme selector is gone, so drop the trailing divider after the links. */
+.social-icons::after {
+	display: none;
+}
+
+/* Search button — square, mono, understated */
+site-search button {
+	font-family: var(--sl-font-mono);
+	border-radius: 0;
+	border: 1px solid var(--sl-color-hairline);
+	background: transparent;
+	color: var(--sl-color-gray-3);
+}
+
+/* --- Unified single-scroll layout (desktop) -----------------------------
+   By default Starlight pins the left nav and right TOC as `position: fixed`
+   panes with their own scrollbars. We fold them back into the normal page
+   flow so the sidebar, content, and striped background all scroll as one. */
+@media (min-width: 50rem) {
+	/* Header on its own full-width line, then sidebar + content wrap below —
+	   everything in one scroll. */
+	.page {
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: stretch;
+		align-content: flex-start;
+	}
+
+	/* Bake the header into the flow instead of pinning it. */
+	.header {
+		position: static;
+		width: 100%;
+		flex-basis: 100%;
+	}
+
+	/* Left nav column joins the flow; the divider spans the full height. */
+	.sidebar {
+		width: var(--sl-sidebar-width);
+		flex-shrink: 0;
+		min-height: calc(100vh - var(--sl-nav-height));
+		border-inline-end: 1px solid var(--sl-color-hairline);
+	}
+	.sidebar-pane {
+		position: static;
+		width: 100%;
+		height: auto;
+		inset: auto;
+		overflow: visible;
+		visibility: visible;
+		border-inline-end: none;
+	}
+	.sidebar-content {
+		height: auto;
+		min-height: 0;
+		padding-top: 1.5rem;
+	}
+
+	/* Content column fills the rest; no offset for a (now absent) fixed pane.
+	   A 1px flex-basis (rather than 0) pushes the header line past 100% so the
+	   content always wraps below it — even on sidebar-less pages like home. */
+	.main-frame {
+		flex: 1 1 1px;
+		min-width: 0;
+		min-height: calc(100vh - var(--sl-nav-height));
+		padding-top: 0;
+		padding-inline-start: 0;
+	}
+
+	/* The mid-width "On this page" bar also scrolls with the header now. */
+	mobile-starlight-toc nav {
+		position: static;
+		inset-inline-start: auto;
+	}
+}
+
+/* Right TOC: sticky within the shared scroll rather than a fixed pane. */
+@media (min-width: 72rem) {
+	.right-sidebar {
+		position: sticky;
+		top: 0;
+		height: auto;
+		max-height: none;
+		overflow: visible;
+		padding-top: 1.5rem;
+	}
+}
+
+/* --- Left sidebar (nav) -------------------------------------------------- */
+
+/* Narrower nav panel. */
+:root {
+	--sl-sidebar-width: 15rem;
+}
+
+#starlight__sidebar {
+	font-family: var(--sl-font-mono);
+}
+
+/* Non-collapsible groups: hide the caret, ignore toggle clicks, and keep the
+   group contents shown even if a stale collapsed state is restored. */
+.sidebar-content .caret {
+	display: none;
+}
+.sidebar-content details > summary {
+	pointer-events: none;
+	cursor: default;
+}
+.sidebar-content details:not([open]) > :not(summary) {
+	display: block !important;
+	content-visibility: visible !important;
+}
+
+/* Group headings */
+.sidebar-content summary,
+.sidebar-content .large,
+.sidebar-content span.group-label {
+	font-size: 0.625rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--sl-color-gray-4);
+	font-weight: 500;
+}
+
+/* Nav links: left edge marker like the mockup */
+.sidebar-content a {
+	font-family: var(--sl-font-mono);
+	font-size: 0.75rem;
+	line-height: 1.5;
+	padding-block: 0.2rem;
+	padding-inline-start: 0.75rem;
+	border-inline-start: 1px solid var(--sl-color-hairline);
+	border-radius: 0;
+	color: var(--sl-color-gray-3);
+}
+.sidebar-content a:hover {
+	color: var(--sl-color-white);
+	background: transparent;
+}
+.sidebar-content a[aria-current='page'],
+.sidebar-content a[aria-current='page']:hover {
+	color: var(--sl-color-white);
+	background: transparent;
+	font-weight: 500;
+	border-inline-start-color: var(--sl-color-gray-4);
+}
+
+/* --- Right sidebar (table of contents) ----------------------------------- */
 .right-sidebar-panel {
-	width: 10rem; /* default is ~20rem, adjust as needed */
+	font-family: var(--sl-font-mono);
+	width: 13rem;
+}
+.right-sidebar-panel h2 {
+	font-size: 0.625rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--sl-color-gray-4);
+	font-weight: 500;
+}
+.right-sidebar-panel a {
+	font-size: 0.72rem;
+	color: var(--sl-color-gray-3);
+}
+.right-sidebar-panel a:hover,
+.right-sidebar-panel a[aria-current='true'] {
+	color: var(--sl-color-white);
 }
 
-/* Square hero image corners on the splash (home) page */
+/* --- Main content prose -------------------------------------------------- */
+.sl-markdown-content {
+	font-family: var(--sl-font-mono);
+	font-size: 0.8125rem;
+	line-height: 1.75;
+	color: var(--sl-color-gray-2);
+}
+
+/* The splash/home page keeps Inter for its hero prose; only docs go mono. */
+[data-has-hero] .sl-markdown-content {
+	font-family: var(--sl-font);
+}
+
+/* Breadcrumb / eyebrow feel for the page's content header */
+.content-panel h1#_top {
+	font-family: var(--sl-font-mono);
+	font-size: 1.5rem;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+	color: var(--sl-color-white);
+}
+
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.sl-markdown-content h4,
+.sl-markdown-content h5,
+.sl-markdown-content h6 {
+	font-family: var(--sl-font-mono);
+	color: var(--sl-color-white);
+	font-weight: 600;
+}
+
+.sl-markdown-content h2 {
+	font-size: 0.94rem;
+	padding-bottom: 0.5rem;
+	border-bottom: 1px solid var(--sl-color-hairline);
+}
+.sl-markdown-content h3 {
+	font-size: 0.8125rem;
+	color: var(--sl-color-gray-1);
+}
+
+.sl-markdown-content a {
+	color: var(--sl-color-gray-1);
+	text-decoration: none;
+	border-bottom: 1px solid var(--sl-color-gray-5);
+}
+.sl-markdown-content a:hover {
+	color: var(--sl-color-white);
+	border-bottom-color: var(--sl-color-gray-3);
+}
+
+.sl-markdown-content strong {
+	color: var(--sl-color-gray-1);
+	font-weight: 600;
+}
+
+/* Bordered image frames like the mockup screenshots */
+.sl-markdown-content img {
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 0;
+	background: #151312;
+}
+
+/* --- Tables -------------------------------------------------------------- */
+.sl-markdown-content table {
+	font-family: var(--sl-font-mono);
+	font-size: 0.75rem;
+	border-collapse: collapse;
+	width: 100%;
+}
+.sl-markdown-content th,
+.sl-markdown-content td {
+	border: none;
+	border-top: 1px solid var(--sl-color-hairline);
+	padding: 0.56rem 1rem 0.56rem 0;
+	text-align: start;
+	background: transparent;
+}
+.sl-markdown-content thead th {
+	color: var(--sl-color-gray-4);
+	font-weight: 500;
+	font-size: 0.625rem;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+.sl-markdown-content td:first-child {
+	color: var(--sl-color-gray-1);
+	white-space: nowrap;
+	vertical-align: top;
+}
+.sl-markdown-content td {
+	color: var(--sl-color-gray-3);
+}
+
+/* --- Inline code & keyboard keys ---------------------------------------- */
+.sl-markdown-content code:not(:where(.expressive-code *)) {
+	font-family: var(--sl-font-mono);
+	font-size: 0.82em;
+	background: var(--sl-color-bg-inline-code);
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 0;
+	padding: 0.1rem 0.4rem;
+	color: var(--sl-color-gray-1);
+}
+.sl-markdown-content kbd {
+	font-family: var(--sl-font-mono);
+	font-size: 0.72rem;
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 0;
+	background: transparent;
+	color: var(--sl-color-gray-1);
+	padding: 0.12rem 0.44rem;
+	box-shadow: none;
+}
+
+/* --- Code blocks (Expressive Code) -------------------------------------- */
+.expressive-code .frame pre {
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 0;
+	background: #151312;
+}
+:root {
+	--ec-brdRad: 0px;
+	--ec-frm-edBg: #151312;
+	--ec-frm-trmBg: #151312;
+}
+
+/* --- Asides / callouts (:::tip etc.) ------------------------------------- */
+.sl-markdown-content .starlight-aside {
+	font-family: var(--sl-font-mono);
+	border-radius: 0;
+	border: none;
+	border-inline-start: 2px solid var(--sl-color-gray-5);
+	background: var(--sl-color-gray-7);
+	padding: 0.6rem 1rem;
+	color: var(--sl-color-gray-2);
+}
+.sl-markdown-content .starlight-aside__title {
+	font-size: 0.625rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--sl-color-gray-4);
+	font-weight: 500;
+}
+.sl-markdown-content .starlight-aside--tip {
+	border-inline-start-color: #45423d;
+}
+.sl-markdown-content .starlight-aside--caution {
+	border-inline-start-color: #7a6a3a;
+}
+.sl-markdown-content .starlight-aside--danger {
+	border-inline-start-color: #7a4a3a;
+}
+
+/* --- Cards (used on splash / feature grids) ----------------------------- */
+.card {
+	font-family: var(--sl-font-mono);
+	border: 1px solid var(--sl-color-gray-5);
+	border-radius: 0;
+	background: var(--sl-color-gray-7);
+}
+.card .title {
+	color: var(--sl-color-gray-1);
+	font-weight: 600;
+	font-size: 0.82rem;
+}
+.card .icon {
+	color: var(--sl-color-gray-3);
+}
+.card .body {
+	color: var(--sl-color-gray-3);
+	font-size: 0.78rem;
+	line-height: 1.6;
+}
+
+/* --- Buttons / link buttons --------------------------------------------- */
+.sl-link-button {
+	font-family: var(--sl-font-mono);
+	font-size: 0.75rem;
+	border-radius: 0;
+	border: 1px solid var(--sl-color-gray-5);
+	box-shadow: none;
+}
+.sl-link-button.primary {
+	background: var(--sl-color-black);
+	color: var(--sl-color-white);
+	border-color: var(--sl-color-gray-5);
+}
+.sl-link-button.primary:hover {
+	border-color: var(--sl-color-accent);
+	background: var(--sl-color-gray-7);
+	color: var(--sl-color-white);
+}
+.sl-link-button.secondary,
+.sl-link-button.minimal {
+	background: var(--sl-color-black);
+	color: var(--sl-color-gray-2);
+	border-color: var(--sl-color-hairline);
+}
+.sl-link-button.secondary:hover,
+.sl-link-button.minimal:hover {
+	border-color: var(--sl-color-gray-4);
+	color: var(--sl-color-white);
+}
+
+/* --- Pagination (prev / next) ------------------------------------------- */
+.pagination-links a {
+	font-family: var(--sl-font-mono);
+	border: 1px solid var(--sl-color-hairline);
+	border-radius: 0;
+	background: transparent;
+	box-shadow: none;
+}
+.pagination-links a:hover {
+	border-color: var(--sl-color-gray-4);
+}
+.pagination-links a span {
+	color: var(--sl-color-gray-2);
+}
+
+/* =========================================================================
+   Home / splash page — the striped hero from Tauon Striped.dc.html
+   ========================================================================= */
+
+/* Square the hero screenshot corners on the splash page. */
 [data-has-hero] .hero > img,
 [data-has-hero] .hero img {
 	border-radius: 0 !important;
+	border: 1px solid var(--sl-color-gray-5);
 }
 
+/* Left-align the whole splash column against the page edge (the mockup pins
+   its content to the left rather than centering it). */
+[data-has-hero] .sl-container {
+	margin-inline: 0;
+}
+
+/* Hero layout: single narrow left-aligned column with the mockup's tight
+   vertical rhythm (48px top / 44px bottom, not Starlight's ~160px clamp). */
+[data-has-hero] .hero {
+	grid-template-columns: 1fr;
+	max-width: 42.5rem;
+	gap: 0;
+	padding-block: 2.25rem 2rem;
+}
+[data-has-hero] .hero .stack {
+	gap: 1.875rem; /* tagline -> buttons (30px in the mockup) */
+}
+[data-has-hero] .hero .copy {
+	gap: 1.25rem; /* heading -> tagline (20px in the mockup) */
+}
+[data-has-hero] .hero .actions {
+	gap: 0.5rem; /* tighter download / docs button spacing */
+}
+
+/* Hero copy in mono to match the mockup */
+.hero h1,
+.hero .tagline {
+	font-family: var(--sl-font-mono);
+}
+.hero h1 {
+	font-size: 1.2rem;
+	font-weight: 500;
+	line-height: 1.4;
+	color: var(--sl-color-white);
+	max-width: 35rem;
+}
+.hero .tagline {
+	font-size: 0.82rem;
+	line-height: 1.7;
+	color: var(--sl-color-gray-3);
+	max-width: 35rem;
+}
+
+/* Splash content: section labels rendered as uppercase mono eyebrows.
+   We turn the "Features" / "Support Development" h2s into the small
+   uppercase section labels from the mockup. */
+[data-has-hero] .sl-markdown-content h2 {
+	font-family: var(--sl-font-mono);
+	font-size: 0.6875rem;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--sl-color-gray-4);
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+/* Constrain the splash content to the mockup's narrow measure and pull it
+   up close under the hero (mockup: ~8px below the hero's 44px padding). */
+.tauon-home {
+	max-width: 42.5rem;
+	margin-inline: 0;
+	margin-top: 0.5rem;
+	font-family: var(--sl-font-mono);
+}
+/* Splash markdown panel sits directly under the hero, no extra gap. */
+[data-has-hero] .sl-markdown-content {
+	margin-top: 0;
+}
+
+/* Product screenshot above the Features section. */
+.tauon-shot {
+	margin: 0 0 2.5rem;
+	border: 1px solid var(--sl-color-gray-5);
+	background: #151312;
+	line-height: 0;
+}
+.tauon-shot img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.tauon-section {
+	margin-block: 0;
+}
+.tauon-section + .tauon-section {
+	margin-top: 3.5rem; /* ~56px between Features and Support */
+}
+
+.tauon-eyebrow {
+	font-size: 0.6875rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--sl-color-gray-4);
+	margin-bottom: 1.1rem;
+}
+
+.tauon-features {
+	font-size: 0.8125rem;
+	line-height: 1.3;
+}
+.tauon-feature {
+	display: flex;
+	gap: 0.875rem;
+	padding-block: 0;
+}
+.tauon-dash {
+	color: var(--sl-color-gray-5);
+	flex-shrink: 0;
+	user-select: none;
+}
+.tauon-feature-title {
+	color: var(--sl-color-gray-1);
+	flex-shrink: 0;
+	width: 10rem;
+}
+.tauon-feature-desc {
+	color: var(--sl-color-gray-3);
+}
+
+.tauon-support-text {
+	font-size: 0.8125rem;
+	line-height: 1.7;
+	color: var(--sl-color-gray-3);
+	margin: 0 0 1.1rem;
+}
+
+@media (max-width: 30rem) {
+	.tauon-feature {
+		flex-wrap: wrap;
+	}
+	.tauon-feature-title {
+		width: auto;
+	}
+	.tauon-feature-desc {
+		flex-basis: 100%;
+		padding-inline-start: 1.75rem;
+	}
+}
+
+/* --- Install download card (custom component) --------------------------- */
 .install-download-card .expressive-code .frame.is-terminal .header {
 	display: none;
 }

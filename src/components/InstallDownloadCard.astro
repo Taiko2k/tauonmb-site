@@ -50,17 +50,11 @@ const {
     display: grid;
     gap: 1rem;
     padding: 1.35rem;
-    border-radius: 1rem;
-    border: 1px solid color-mix(in srgb, var(--sl-color-accent) 24%, var(--sl-color-gray-5));
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--sl-color-accent) 12%, var(--sl-color-black)) 0%,
-        color-mix(in srgb, var(--sl-color-accent-low) 18%, var(--sl-color-black)) 100%
-      );
-    box-shadow:
-      inset 0 1px 0 color-mix(in srgb, white 10%, transparent),
-      0 16px 40px color-mix(in srgb, black 28%, transparent);
+    border-radius: 0;
+    border: 1px solid var(--sl-color-gray-5);
+    background: var(--sl-color-gray-7);
+    box-shadow: none;
+    font-family: var(--sl-font-mono);
   }
 
   .install-download-card__header {
@@ -72,10 +66,10 @@ const {
   }
 
   .install-download-card__eyebrow {
-    color: var(--sl-color-accent-high);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    color: var(--sl-color-gray-4);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
   }
 
@@ -83,10 +77,10 @@ const {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.4rem 0.65rem;
-    border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--sl-color-accent) 22%, transparent);
-    background: color-mix(in srgb, var(--sl-color-black) 82%, var(--sl-color-accent) 18%);
+    padding: 0.3rem 0.6rem;
+    border-radius: 0;
+    border: 1px solid var(--sl-color-gray-5);
+    background: var(--sl-color-black);
   }
 
   .install-download-card__meta-label {
@@ -140,30 +134,9 @@ const {
     margin: 0;
   }
 
-  .install-download-card__actions :global(.sl-link-button.primary) {
-    border-color: color-mix(in srgb, var(--sl-color-accent-high) 24%, transparent);
-    box-shadow:
-      inset 0 1px 0 color-mix(in srgb, white 22%, transparent),
-      0 10px 28px color-mix(in srgb, var(--sl-color-accent) 34%, transparent);
-  }
-
+  .install-download-card__actions :global(.sl-link-button.primary),
   .install-download-card__actions :global(.sl-link-button.secondary) {
-    border-color: color-mix(in srgb, var(--sl-color-accent) 18%, var(--sl-color-gray-5));
-    background:
-      linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--sl-color-black) 78%, var(--sl-color-accent) 10%) 0%,
-        color-mix(in srgb, var(--sl-color-black) 92%, var(--sl-color-accent-low) 8%) 100%
-      );
-    color: var(--sl-color-gray-1);
-    box-shadow:
-      inset 0 1px 0 color-mix(in srgb, white 10%, transparent),
-      0 8px 20px color-mix(in srgb, black 18%, transparent);
-  }
-
-  .install-download-card__actions :global(.sl-link-button.secondary:hover) {
-    border-color: color-mix(in srgb, var(--sl-color-accent-high) 35%, transparent);
-    color: var(--sl-color-white);
+    box-shadow: none;
   }
 
   :root[data-theme='light'] .install-download-card {

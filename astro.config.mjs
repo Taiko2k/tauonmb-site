@@ -1,14 +1,38 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import starlightThemeGalaxy from 'starlight-theme-galaxy'
 
 // https://astro.build/config
 export default defineConfig({
     site: 'https://tauonmusicbox.rocks',
 	integrations: [
 		starlight({
-			plugins: [starlightThemeGalaxy()],
+			// Disable the built-in search (Pagefind) entirely.
+			pagefind: false,
+			// Force dark theme, drop the theme selector, and swap the header's
+			// social icons for plain word links.
+			components: {
+				SocialIcons: './src/components/SocialLinks.astro',
+				ThemeSelect: './src/components/EmptyComponent.astro',
+				ThemeProvider: './src/components/DarkThemeProvider.astro',
+			},
+			head: [
+				{
+					tag: 'link',
+					attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+				},
+				{
+					tag: 'link',
+					attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
+				},
+				{
+					tag: 'link',
+					attrs: {
+						rel: 'stylesheet',
+						href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap',
+					},
+				},
+			],
 			title: 'Tauon',
 			logo: {
 				dark: './src/assets/tauon.svg',
