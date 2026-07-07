@@ -337,6 +337,21 @@ site-search button {
 	color: var(--sl-color-white);
 }
 
+/* No divider line under the page title, and tighter padding around the
+   title / content panels on docs pages. */
+.content-panel + .content-panel {
+	border-top: none;
+}
+:root:not([data-has-hero]) .content-panel {
+	padding-block: 1.25rem;
+}
+
+/* Tighten the space above section headings (Starlight wraps each in a
+   .sl-heading-wrapper carrying a large top margin). */
+.sl-markdown-content .sl-heading-wrapper {
+	margin-top: 2rem;
+}
+
 .sl-markdown-content h1,
 .sl-markdown-content h2,
 .sl-markdown-content h3,
