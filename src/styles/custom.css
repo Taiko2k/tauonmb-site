@@ -271,6 +271,12 @@ site-search button {
 	font-weight: 500;
 }
 
+/* Starlight draws a border on the nested <li> too; hide it so only the
+   per-link edge marker below remains (kept transparent to avoid a shift). */
+.sidebar-content ul ul li {
+	border-inline-start-color: transparent;
+}
+
 /* Nav links: left edge marker like the mockup */
 .sidebar-content a {
 	font-family: var(--sl-font-mono);
@@ -350,6 +356,16 @@ site-search button {
    .sl-heading-wrapper carrying a large top margin). */
 .sl-markdown-content .sl-heading-wrapper {
 	margin-top: 2rem;
+}
+/* …but not when a heading is the first thing under the page title — the
+   panel padding already provides the gap there. */
+.sl-markdown-content > .sl-heading-wrapper:first-child {
+	margin-top: 0;
+}
+
+/* No permalink (#) button on heading hover. */
+.sl-markdown-content .sl-anchor-link {
+	display: none;
 }
 
 .sl-markdown-content h1,
@@ -564,9 +580,9 @@ site-search button {
 }
 
 /* Left-align the whole splash column against the page edge (the mockup pins
-   its content to the left rather than centering it). */
+   its content to the left rather than centering it), with a small left inset. */
 [data-has-hero] .sl-container {
-	margin-inline: 0;
+	margin-inline: 1rem 0;
 }
 
 /* Hero layout: single narrow left-aligned column with the mockup's tight
@@ -575,7 +591,7 @@ site-search button {
 	grid-template-columns: 1fr;
 	max-width: 42.5rem;
 	gap: 0;
-	padding-block: 2.25rem 2rem;
+	padding-block: 1.5rem 2rem;
 }
 [data-has-hero] .hero .stack {
 	gap: 1.875rem; /* tagline -> buttons (30px in the mockup) */
