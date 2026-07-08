@@ -551,7 +551,7 @@ site-search button {
 /* Left-align the whole splash column against the page edge (the mockup pins
    its content to the left rather than centering it), with a small left inset. */
 [data-has-hero] .sl-container {
-	margin-inline: 1rem 0;
+	margin-inline: 0.5rem 0;
 }
 
 /* Hero layout: single narrow left-aligned column with the mockup's tight
@@ -560,13 +560,13 @@ site-search button {
 	grid-template-columns: 1fr;
 	max-width: 42.5rem;
 	gap: 0;
-	padding-block: 1.5rem 2rem;
+	padding-block: 1.25rem 1.5rem;
 }
 [data-has-hero] .hero .stack {
-	gap: 1.875rem; /* tagline -> buttons (30px in the mockup) */
+	gap: 1.5rem; /* tagline -> buttons */
 }
 [data-has-hero] .hero .copy {
-	gap: 1.25rem; /* heading -> tagline (20px in the mockup) */
+	gap: 1rem; /* heading -> tagline */
 }
 [data-has-hero] .hero .actions {
 	gap: 0.5rem; /* tighter download / docs button spacing */
@@ -620,7 +620,7 @@ site-search button {
 
 /* Product screenshot above the Features section. */
 .tauon-shot {
-	margin: 0 0 2.5rem;
+	margin: 0 0 2rem;
 	border: 1px solid var(--sl-color-gray-5);
 	background: #151312;
 	line-height: 0;
@@ -635,7 +635,7 @@ site-search button {
 	margin-block: 0;
 }
 .tauon-section + .tauon-section {
-	margin-top: 3.5rem; /* ~56px between Features and Support */
+	margin-top: 2.75rem; /* between Features and Support */
 }
 
 .tauon-eyebrow {
@@ -643,12 +643,12 @@ site-search button {
 	letter-spacing: 0.1em;
 	text-transform: uppercase;
 	color: var(--sl-color-gray-4);
-	margin-bottom: 1.1rem;
+	margin-bottom: 0.9rem;
 }
 
 .tauon-features {
 	font-size: 0.8125rem;
-	line-height: 1.3;
+	line-height: 1.15;
 }
 .tauon-feature {
 	display: flex;
@@ -673,7 +673,7 @@ site-search button {
 	font-size: 0.8125rem;
 	line-height: 1.7;
 	color: var(--sl-color-gray-3);
-	margin: 0 0 1.1rem;
+	margin: 0 0 0.9rem;
 }
 
 @media (max-width: 30rem) {
