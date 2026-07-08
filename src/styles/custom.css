@@ -110,8 +110,7 @@ body {
 .main-frame,
 header.header,
 #starlight__sidebar,
-.sidebar-pane,
-.right-sidebar {
+.sidebar-pane {
 	background: transparent !important;
 }
 
@@ -215,24 +214,6 @@ site-search button {
 		padding-top: 0;
 		padding-inline-start: 0;
 	}
-
-	/* The mid-width "On this page" bar also scrolls with the header now. */
-	mobile-starlight-toc nav {
-		position: static;
-		inset-inline-start: auto;
-	}
-}
-
-/* Right TOC: sticky within the shared scroll rather than a fixed pane. */
-@media (min-width: 72rem) {
-	.right-sidebar {
-		position: sticky;
-		top: 0;
-		height: auto;
-		max-height: none;
-		overflow: visible;
-		padding-top: 1.5rem;
-	}
 }
 
 /* --- Left sidebar (nav) -------------------------------------------------- */
@@ -300,25 +281,13 @@ site-search button {
 	border-inline-start-color: var(--sl-color-gray-4);
 }
 
-/* --- Right sidebar (table of contents) ----------------------------------- */
-.right-sidebar-panel {
-	font-family: var(--sl-font-mono);
-	width: 13rem;
-}
-.right-sidebar-panel h2 {
-	font-size: 0.625rem;
-	letter-spacing: 0.12em;
-	text-transform: uppercase;
-	color: var(--sl-color-gray-4);
-	font-weight: 500;
-}
-.right-sidebar-panel a {
-	font-size: 0.72rem;
-	color: var(--sl-color-gray-3);
-}
-.right-sidebar-panel a:hover,
-.right-sidebar-panel a[aria-current='true'] {
-	color: var(--sl-color-white);
+/* Left-align the docs content column against the sidebar instead of
+   centering it in the remaining space (home has its own alignment rule).
+   Desktop only — mobile keeps Starlight's default full-width behaviour. */
+@media (min-width: 50rem) {
+	:root:not([data-has-hero]) .content-panel .sl-container {
+		margin-inline: 0;
+	}
 }
 
 /* --- Main content prose -------------------------------------------------- */
@@ -718,13 +687,4 @@ site-search button {
 		flex-basis: 100%;
 		padding-inline-start: 1.75rem;
 	}
-}
-
-/* --- Install download card (custom component) --------------------------- */
-.install-download-card .expressive-code .frame.is-terminal .header {
-	display: none;
-}
-.install-download-card .expressive-code .frame.is-terminal pre {
-	border-top-left-radius: var(--border-radius);
-	border-top-right-radius: var(--border-radius);
 }
