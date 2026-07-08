@@ -1,0 +1,196 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+
+/* Downloads grid for the installing page.
+   The version number and release date are fetched from GitHub at build time
+   and baked into the static page; download links use the stable
+   `releases/latest/download/` URLs so they never go stale between builds. */
+
+let version = 'latest';
+let released = '';
+try {
+	const res = await fetch('https://api.github.com/repos/Taiko2k/Tauon/releases/latest');
+	if (res.ok) {
+		const data = await res.json();
+		if (data.tag_name) version = data.tag_name;
+		if (data.published_at)
+			released = new Date(data.published_at).toLocaleDateString('en-NZ', {
+				month: 'long',
+				year: 'numeric',
+			});
+	}
+} catch {
+	/* Offline or rate-limited build — fall back to "latest" with no date. */
+}
+
+const cards = [
+	{
+		os: 'Windows',
+		icon: 'seti:windows',
+		desc: '64-bit installer for Windows 10 and up',
+		action: 'download installer',
+		arrow: '↓',
+		href: 'https://github.com/Taiko2k/Tauon/releases/latest/download/TauonMusicBox-windows-installer.exe',
+	},
+	{
+		os: 'macOS',
+		icon: 'apple',
+		desc: 'Signed disk image — drag Tauon to Applications',
+		action: 'download dmg',
+		arrow: '↓',
+		href: 'https://github.com/Taiko2k/Tauon/releases/latest/download/Tauon-signed.dmg',
+	},
+	{
+		os: 'Linux',
+		icon: 'linux',
+		desc: 'Flatpak for most distributions',
+		action: 'get it on Flathub',
+		arrow: '→',
+		href: 'https://flathub.org/apps/com.github.taiko2k.tauonmb',
+	},
+	{
+		os: 'Arch Linux',
+		icon: 'linux',
+		desc: 'Packaged in the official extra repository',
+		action: 'view package',
+		arrow: '→',
+		href: 'https://archlinux.org/packages/extra/x86_64/tauon-music-box/',
+	},
+] as const;
+---
+
+<div class="dl">
+	<div class="dl-release">
+		<span class="dl-eyebrow">Latest release</span>
+		<span class="dl-version">{version}</span>
+		{released && <span class="dl-date">{released}</span>}
+	</div>
+
+	<div class="dl-grid">
+		{
+			cards.map((c) => (
+				<a class="dl-card" href={c.href}>
+					<span class="dl-os">
+						<Icon name={c.icon} class="dl-icon" size="1rem" />
+						{c.os}
+					</span>
+					<span class="dl-desc">{c.desc}</span>
+					<span class="dl-action">
+						{c.action} <span class="dl-arrow">{c.arrow}</span>
+					</span>
+				</a>
+			))
+		}
+	</div>
+
+	<p class="dl-note">
+		Older builds and checksums on <a href="https://github.com/Taiko2k/Tauon/releases">GitHub releases</a>.
+	</p>
+</div>
+
+<style>
+	.dl {
+		font-family: var(--sl-font-mono);
+		max-width: 40rem;
+	}
+
+	/* Release header */
+	.dl-release {
+		display: flex;
+		align-items: baseline;
+		gap: 1rem;
+		margin: 1.75rem 0 1.25rem;
+	}
+	.dl-eyebrow {
+		font-size: 0.625rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--sl-color-gray-4);
+	}
+	.dl-version {
+		font-size: 0.8125rem;
+		font-weight: 600;
+		color: var(--sl-color-white);
+	}
+	.dl-date {
+		font-size: 0.75rem;
+		color: var(--sl-color-gray-4);
+	}
+
+	/* Platform cards */
+	.dl-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 0.75rem;
+	}
+	@media (max-width: 40rem) {
+		.dl-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	a.dl-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.45rem;
+		padding: 1.1rem 1.2rem 1rem;
+		border: 1px solid var(--sl-color-gray-5);
+		background: var(--sl-color-gray-7);
+		text-decoration: none;
+	}
+	a.dl-card:hover {
+		border-color: var(--sl-color-accent);
+		background: var(--sl-color-black);
+	}
+
+	.dl-os {
+		display: flex;
+		align-items: center;
+		gap: 0.55rem;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: var(--sl-color-white);
+	}
+	.dl-os :global(.dl-icon) {
+		color: var(--sl-color-gray-3);
+	}
+	a.dl-card:hover .dl-os :global(.dl-icon) {
+		color: var(--sl-color-white);
+	}
+	.dl-desc {
+		font-size: 0.72rem;
+		line-height: 1.6;
+		color: var(--sl-color-gray-3);
+		min-height: 2.3em;
+	}
+	.dl-action {
+		font-size: 0.75rem;
+		color: var(--sl-color-gray-2);
+		margin-top: 0.35rem;
+	}
+	a.dl-card:hover .dl-action {
+		color: var(--sl-color-white);
+	}
+	.dl-arrow {
+		color: var(--sl-color-gray-4);
+	}
+	a.dl-card:hover .dl-arrow {
+		color: var(--sl-color-white);
+	}
+
+	/* Footer note */
+	.dl-note {
+		font-size: 0.75rem;
+		color: var(--sl-color-gray-4);
+		margin-top: 1.5rem;
+	}
+	.dl-note a {
+		color: var(--sl-color-gray-2);
+		text-decoration: none;
+		border-bottom: 1px solid var(--sl-color-gray-5);
+	}
+	.dl-note a:hover {
+		color: var(--sl-color-white);
+		border-bottom-color: var(--sl-color-gray-3);
+	}
+</style>
