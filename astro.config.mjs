@@ -9,6 +9,8 @@ export default defineConfig({
 		starlight({
 			// Disable the built-in search (Pagefind) entirely.
 			pagefind: false,
+			// No "On this page" table of contents.
+			tableOfContents: false,
 			// Force dark theme, drop the theme selector, and swap the header's
 			// social icons for plain word links.
 			components: {
