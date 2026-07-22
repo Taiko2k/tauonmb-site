@@ -22,6 +22,7 @@ hero:
 import { LinkButton } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
 import screenshot from '../../assets/scr.png';
+import moreScreenshot from '../../assets/vul.png';
 
 <div class="tauon-home">
 
@@ -48,6 +49,13 @@ import screenshot from '../../assets/scr.png';
   <div class="tauon-eyebrow">Support</div>
   <p class="tauon-support-text">If you like this app, support me on GitHub or Patreon.</p>
   <LinkButton href="https://github.com/sponsors/Taiko2k" variant="secondary">sponsor &rarr;</LinkButton>
+</section>
+
+<section class="tauon-section">
+  <div class="tauon-eyebrow">More Screenshots</div>
+  <div class="tauon-shot">
+    <Image src={moreScreenshot} alt="Tauon showing a playlist, music visualisation, and track details" />
+  </div>
 </section>
 
 </div>
