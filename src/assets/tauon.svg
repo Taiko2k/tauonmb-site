@@ -88,62 +88,73 @@
        fy="38.518688"
        r="61.085987" />
   </defs>
-  <g
+  <svg
      id="tmb-icon"
-     transform="matrix(0.23817246,0,0,0.23817247,-1.201653,-1.202148)">
-    <ellipse
-       cx="66.13549"
-       cy="66.141769"
-       rx="61.085987"
-       ry="61.094383"
-       style="display:inline;fill:url(#tmbGradientFill);fill-opacity:1;stroke:none;stroke-width:13.3337;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:9.5;stroke-dasharray:none;stroke-opacity:1"
-       id="ellipse2" />
-    <path
-       style="display:inline;fill:#ffffff;fill-opacity:0;stroke:none;stroke-width:13.3337;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:9.5;stroke-dasharray:none;stroke-opacity:1"
-       id="path9"
-       d="M 127.22148,-66.141769 A 61.085987,61.094383 0 0 1 66.13549,-5.0473862 V -66.141769 Z"
-       transform="scale(1,-1)" />
-    <path
-       style="display:inline;fill:#ffffff;fill-opacity:0;stroke:none;stroke-width:13.3337;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:9.5;stroke-dasharray:none;stroke-opacity:1"
-       id="ellipse6"
-       d="M -5.0495033,66.141769 A 61.085987,61.094383 0 0 1 -66.13549,127.23615 V 66.141769 Z"
-       transform="scale(-1,1)" />
-    <ellipse
-       cx="66.13549"
-       cy="66.141769"
-       rx="23.223633"
-       ry="23.228233"
-       style="display:inline;fill:#292929;fill-opacity:1;stroke:none;stroke-width:4.72411;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:9.5;stroke-dasharray:none;stroke-opacity:1"
-       id="ellipse3" />
-    <circle
-       cx="66.13549"
-       cy="66.141769"
-       r="3.9020491"
-       style="display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:14.613;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:9.5;stroke-dasharray:none;stroke-opacity:1"
-       id="circle3-7" />
-    <path
-       d="M 66.1565,5.081025 A 61.090186,61.090186 0 0 0 5.06631,66.17541 l 0.0378,0.982477 A 61.090186,61.090186 0 0 1 66.1565,6.756262 61.090186,61.090186 0 0 1 127.2131,66.872375 l 0.0336,-0.696965 A 61.090186,61.090186 0 0 0 66.1565,5.085218 Z"
-       style="display:inline;opacity:0.187;fill:#fef2fd;fill-opacity:1;stroke:none;stroke-width:13.3337;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:9.5;stroke-dasharray:none;stroke-opacity:1"
-       id="path5-5" />
-    <path
-       d="M 127.1837,65.062778 A 61.090186,61.090186 0 0 1 66.1355,125.38463 61.090186,61.090186 0 0 1 5.0873,65.38187 l -0.042,0.772541 a 61.090186,61.090186 0 0 0 61.09018,61.090199 61.090186,61.090186 0 0 0 61.09018,-61.090199 z"
-       style="display:inline;fill:#000000;fill-opacity:0.0912281;stroke:none;stroke-width:13.3337;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:9.5;stroke-dasharray:none;stroke-opacity:1"
-       id="path6-3" />
-    <ellipse
-       cx="66.13549"
-       cy="66.141769"
-       rx="61.085987"
-       ry="61.094383"
-       style="display:inline;fill:url(#tmbRadialLeft);fill-opacity:1;stroke:none;stroke-width:13.3337;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:9.5;stroke-dasharray:none;stroke-opacity:1"
-       id="ellipse5" />
-    <ellipse
-       cx="66.13549"
-       cy="66.141769"
-       rx="61.085987"
-       ry="61.094383"
-       style="display:inline;fill:url(#tmbRadialRight);fill-opacity:1;stroke:none;stroke-width:13.3337;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:9.5;stroke-dasharray:none;stroke-opacity:1"
-       id="ellipse12" />
-  </g>
+     x="0" y="0" width="29.104006" height="29.104006"
+     viewBox="103.9 103.9 422.2 422.2">
+    <defs>
+      <linearGradient id="tmb-new-disc" x1="125" y1="110" x2="510" y2="525"
+                      gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#302f38"/>
+        <stop offset=".5" stop-color="#1d1c24"/>
+        <stop offset="1" stop-color="#15151c"/>
+      </linearGradient>
+      <radialGradient id="tmb-new-label">
+        <stop offset="0" stop-color="#24232c"/>
+        <stop offset=".78" stop-color="#15151c"/>
+        <stop offset="1" stop-color="#0c0c13"/>
+      </radialGradient>
+      <linearGradient id="tmb-new-warm" x1="110" y1="315" x2="315" y2="110"
+                      gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#7b3fa5"/>
+        <stop offset=".27" stop-color="#bb4f91"/>
+        <stop offset=".53" stop-color="#e86678"/>
+        <stop offset=".78" stop-color="#fa8a55"/>
+        <stop offset="1" stop-color="#ffc857"/>
+      </linearGradient>
+      <linearGradient id="tmb-new-cool" x1="520" y1="315" x2="315" y2="520"
+                      gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#514273"/>
+        <stop offset=".32" stop-color="#506da0"/>
+        <stop offset=".66" stop-color="#45a0bd"/>
+        <stop offset="1" stop-color="#62d1c4"/>
+      </linearGradient>
+      <linearGradient id="tmb-new-hub" x1="235" y1="235" x2="395" y2="395"
+                      gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#e86678"/>
+        <stop offset=".5" stop-color="#8b4a9a"/>
+        <stop offset="1" stop-color="#45a0bd"/>
+      </linearGradient>
+    </defs>
+    <circle cx="315" cy="315" r="210"
+            fill="url(#tmb-new-disc)" stroke="#44414c" stroke-width="2.2"/>
+    <g fill="none">
+      <circle cx="315" cy="315" r="201"
+              stroke="#4b4854" stroke-width="1.5" opacity=".72"/>
+      <circle cx="315" cy="315" r="190"
+              stroke="#42404b" stroke-width="1.1" opacity=".58"/>
+      <circle cx="315" cy="315" r="176"
+              stroke="#3f3d48" stroke-width="1" opacity=".54"/>
+      <circle cx="315" cy="315" r="162"
+              stroke="#3c3a45" stroke-width="1" opacity=".5"/>
+      <circle cx="315" cy="315" r="148"
+              stroke="#393742" stroke-width=".9" opacity=".46"/>
+      <circle cx="315" cy="315" r="134"
+              stroke="#373540" stroke-width=".9" opacity=".43"/>
+    </g>
+    <path fill="url(#tmb-new-warm)"
+          d="M 106.1 315 A 208.9 208.9 0 0 1 315 106.1
+             L 315 192 A 123 123 0 0 0 192 315 Z"/>
+    <path fill="url(#tmb-new-cool)"
+          d="M 523.9 315 A 208.9 208.9 0 0 1 315 523.9
+             L 315 438 A 123 123 0 0 0 438 315 Z"/>
+    <circle cx="315" cy="315" r="83" fill="url(#tmb-new-hub)"/>
+    <circle cx="315" cy="315" r="73" fill="url(#tmb-new-label)"
+            stroke="#34323d"/>
+    <circle cx="315" cy="315" r="15" fill="#0a0a11"
+            stroke="#3b3945"/>
+    <circle cx="315" cy="315" r="4" fill="#e86678"/>
+  </svg>
   <g
      aria-label="Tauon Music Box"
      style="font-style:normal;font-weight:400;font-size:10.5833px;line-height:1.25;font-family:sans-serif;letter-spacing:0;word-spacing:0;fill:#f9f9f9;fill-opacity:1;stroke:none;stroke-width:0.264583"
