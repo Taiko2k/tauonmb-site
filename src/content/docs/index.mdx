@@ -24,6 +24,7 @@ import { Image } from 'astro:assets';
 import screenshot from '../../assets/scr.png';
 import moreScreenshot from '../../assets/vul.png';
 import cgalScreenshot from '../../assets/cgal.png';
+import blurScreenshot from '../../assets/blur.png';
 
 <div class="tauon-home">
 
@@ -54,6 +55,9 @@ import cgalScreenshot from '../../assets/cgal.png';
 
 <section class="tauon-section">
   <div class="tauon-eyebrow">More Screenshots</div>
+  <div class="tauon-shot">
+    <Image src={blurScreenshot} alt="Tauon with a translucent blurred background showing a playlist and album art" />
+  </div>
   <div class="tauon-shot">
     <Image src={moreScreenshot} alt="Tauon showing a playlist, music visualisation, and track details" />
   </div>
