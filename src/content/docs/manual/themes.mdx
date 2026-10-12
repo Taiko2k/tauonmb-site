@@ -1,41 +1,51 @@
 ---
 title: Themes
-description: Customize Tauon's appearance with themes
+description: Change Tauon's colours and background, or make your own theme
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-Tauon Music Box supports custom themes to personalize your music player's appearance.
+Themes are in **Settings › Appearance › Theme**.
 
-## Using Themes
+![The theme settings](../../../assets/themes.png)
 
-### Cycle Through Themes
+## Choose a theme
 
-Press `F2` to cycle through all available themes installed on your system.
+Click a colour swatch to switch themes. Hover over a swatch to see its name. You can also press `Ctrl` + `]` and `Ctrl` + `[` to cycle through themes.
 
-### Auto Theme Mode
+## Background style
 
-Press `F3` to toggle "Auto Theme" mode, which automatically adjusts the theme based on various conditions.
+**Background style** changes what's behind the interface:
 
-## Installing Custom Themes
+| Style | Description |
+| --- | --- |
+| **Standard** | The theme's own colours |
+| **Colourise** | Tints the theme with colours from the playing album's art ("auto theme"). Press `F3` to toggle it. |
+| **Art** | A blurred copy of the album art behind the interface |
+| **Artist** | A picture of the playing artist behind the interface |
+| **Frost lo** / **Frost hi** | A frosted-glass look over the album art, with low or high blur |
 
-To install a custom theme (`.ttheme` file):
+**Glass mode** makes the window translucent, so your desktop shows through (on supported desktops). **Glass intensity** and **Darken tracklist** fine-tune it.
+
+## Make your own theme
+
+Bundled themes can't be edited directly, so start from a copy:
 
 <Steps>
-1. Locate your Tauon user data folder
-   1. Go to **MENU > Settings... > General**
-   2. Click **"Open data folder"**
-2. Navigate to the `theme` folder inside the data folder
-3. Place your `.ttheme` file in this folder
-4. Restart Tauon or press `F2` to cycle to the new theme
+1. Choose the theme you want to start from.
+2. Click the **Duplicate** icon next to its name. This creates a copy called "*Name* Copy".
+3. Click the **Edit** icon to open the theme editor.
+4. Pick a colour to change and adjust it with the colour picker. Changes show live.
 </Steps>
 
-## Creating Custom Themes
+Your themes are saved as `.ttheme` files in the `theme` folder in Tauon's [data folder](/manual/app-data/). To delete one of your themes, select it and click the **Delete** icon.
 
-You can create your own themes to customize Tauon's appearance. For detailed information on creating themes, see the [Theming Guide](https://github.com/Taiko2k/TauonMusicBox/wiki/Theming) on GitHub.
+## Install a theme
 
-## Sharing Themes
+<Steps>
+1. Open Tauon's data folder: **Settings › System › Files › Open data folder**.
+2. Put the `.ttheme` file in the `theme` folder.
+3. Restart Tauon, or press `Ctrl` + `]` until the theme appears.
+</Steps>
 
-Want to share your custom themes or download themes created by others? Check out the [custom themes discussion thread](https://github.com/Taiko2k/TauonMusicBox/discussions/461) on GitHub.
-
-
+Find themes made by others, or share your own, in the [custom themes discussion](https://github.com/Taiko2k/Tauon/discussions/461) on GitHub. For the theme file format, see the [Theming Guide](https://github.com/Taiko2k/Tauon/wiki/Theming).

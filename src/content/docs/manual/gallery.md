@@ -3,30 +3,43 @@ title: Gallery View
 description: Browse your music collection visually with the gallery
 ---
 
-The gallery view provides a visual way to browse your music collection by album art.
+The gallery shows the albums in the current playlist as a grid of cover art.
 
-![Screenshot of the gallery view](../../../assets/g01.jpg)
+![The gallery beside the tracklist](../../../assets/gallery.png)
 
-## Entering Gallery View
+## Open the gallery
 
-There are several ways to enter the gallery:
+- Click the layout button (the second button in the top-left corner) and choose **Tracks + Gallery**.
+- Or press `]` / `[` (or your mouse's back and forward buttons) to cycle through layouts until you reach it.
+- Press `Tab` to open the gallery in keyboard control mode (see below).
 
-1. Click **MENU**, then click the gallery layout icon (2nd from the top)
-2. Press **mouse button 4** (the button closer to you on a 5-button mouse)
-3. Press `Tab` to enter in "keyboard control mode"
+Drag the border between the tracklist and the gallery to resize the gallery.
 
-## Using the Gallery
+## Using the gallery
 
-To play an album, just **click it**. This is a single click by default, but you can change it to double-click in settings:
+- **Click** an album to play it. To use double-click instead, turn off **Single click to play** (see below).
+- **Right-click** an album to open its folder, show it in the playlist, change its cover image, add it to the [queue](/manual/queue/), or [transcode](/manual/transcoding/) it.
+- **Right-click empty space** in the gallery to change how it looks:
+  - **Thumbnail size**
+  - **Show titles** and **Center title text**
+  - **Single click to play**
+  - **Scroll by row**
+  - **Combine multi-discs** shows multi-disc albums as one cover
 
-Go to **MENU > Settings... > View** and un-check "Single click to play"
+:::tip
+If a thumbnail shows the wrong image, right-click it and choose **Image… › Next** to pick another image from the album's folder.
+:::
 
-## Keyboard Control Mode
+## Keyboard control mode
 
-When you press `Tab` to enter the gallery, you'll be in keyboard control mode where you can navigate using:
+Press `Tab` to open the gallery with keyboard control:
 
-- Arrow keys to move between albums
-- `Enter` to play the selected album
-- `Esc` to exit back to the tracklist view
+- Arrow keys move between albums
+- `Enter` plays the selected album
+- `Tab` again returns to where you were
 
-The gallery is perfect for when you want to browse your collection visually and discover albums based on their artwork!
+If you're already in the gallery layout, `Tab` switches keyboard control on and off.
+
+## Gallery widgets
+
+[Custom layouts](/manual/layouts/#custom-layouts) have more gallery styles: **Gallery: Compact** (a fixed number of albums per row) and **Albumflow** (a scrolling row of covers).

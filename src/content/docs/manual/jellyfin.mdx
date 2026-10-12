@@ -4,59 +4,62 @@ description: Connect Tauon to a Jellyfin server
 ---
 import { Steps } from '@astrojs/starlight/components';
 
-## Create a server
+## Set up a server
 
-If you don't already have a [Jellyfin](https://jellyfin.org/) server setup you can easily try it out on Linux using the [Jellyfin Server Flatpak](https://flathub.org/apps/org.jellyfin.JellyfinServer). For Windows see [Jellyfin Downloads](https://jellyfin.org/downloads/windows).
+If you don't have a [Jellyfin](https://jellyfin.org/) server yet, you can try one on Linux with the [Jellyfin Server Flatpak](https://flathub.org/apps/org.jellyfin.JellyfinServer). For Windows and macOS, see [Jellyfin Downloads](https://jellyfin.org/downloads/).
 
 :::tip
-If using the Flatpak server, use Flatseal to grant access to your music library path.
+If you use the Flatpak server, use Flatseal to give it access to your music folder.
 :::
 
 ## Import your library
 
 <Steps>
-1. Make sure your server is setup, running and accessible.
-2. In Tauon, to go `MENU` > `Settings` > `Connections` and click Jellyfin button.
-3. Fill in **Username**, **Password** and **Server URL**. (Include the port number which is probably `8096`.)
-4. Press the **Test connectivity** button to ensure a connection can be made
-5. Press the **Import music to playlist** button to import your library. In the top panel the text "Accessing Jellyfin Library" will appear, this means you just need to wait. That notice may persist for a while as additional metadata is downloaded.
+1. Make sure your server is set up, running and reachable from your computer.
+2. In Tauon, go to **Settings › Connect** and click the **Jellyfin** tile.
+3. Fill in **Username**, **Password** and **Server URL**. Include the port number, which is usually `8096`, for example `http://192.168.1.20:8096`.
+4. Click **Test connectivity** to check that Tauon can connect.
+5. Click **Import music**. Progress is shown by the activity indicator at the top right. This can take a while for a large library.
 </Steps>
 
-## Your Library Playlist
+## Your library playlist
 
-The playlist created by the **Import music to playlist** button acts as your main Jellyfin library playlist. You should keep this playlist around regardless of if you create/import/use other playlists.
+The import creates a playlist called "Jellyfin Collection". This is your main Jellyfin library playlist. Keep it, even if you make other playlists from it.
 
-### Updating
+When music is added to your server, right-click the playlist's tab and choose **Regenerate** to update it.
 
-If new music is added to your Jellyfin server, for those to show in Tauon you will need to manually update your Jellyfin library playlist by right clicking the playlist tab and selecting **Regenerate**.
+## Favourites
 
-## Favorites
+When you **love** a track in Tauon, it's marked as a favourite in Jellyfin straight away. Changes made on the server show up in Tauon when you regenerate the library playlist.
 
-If you ***love*** a track in Tauon, it's favorite status in Jellyfin will be immediately updated. If an items status changes server side, it won't show in Tauon until you update the library playlist, see above.
+## Lyrics
 
-## Playlist Import
+Tauon shows lyrics stored on your Jellyfin server.
 
-#### To import all playlists at once
+## Playlists
 
- - Click `MENU` > `Settings` > `Connections` > `Jellyfin` > `Import playlists`.
+To import all your Jellyfin playlists at once, click **Import playlists** in the Jellyfin settings. Import your music first.
 
-#### To import a single playlist
+To import a single playlist:
 
 <Steps>
- 1. In the jellyfin web interface, go to your playlist and copy the playlist ID. You can find that in the URL when viewing the playlist. See highlighted section in screenshot:
-![Screenshot from 2022-09-12 20-50-32](https://user-images.githubusercontent.com/17271572/189612492-ceeaf36c-b635-41df-866f-022bf0ecbb62.png)
- 2. Create a new playlist (Ctrl+t)
- 3. Edit its generator (Ctrl+e)
- 4. Type `jelly""` and paste the ID between the quotes.
- 5. Right click the playlist tab and select "Regenerate".
+1. In the Jellyfin web interface, open the playlist and copy its ID from the address bar:
+   ![Screenshot of the Jellyfin web interface with the playlist ID highlighted in the URL](https://user-images.githubusercontent.com/17271572/189612492-ceeaf36c-b635-41df-866f-022bf0ecbb62.png)
+2. In Tauon, create a new playlist (`Ctrl` + `T`).
+3. Edit its generator (`Ctrl` + `E`).
+4. Type `jelly""` and paste the ID between the quotes.
+5. Right-click the playlist tab and choose **Regenerate**.
 </Steps>
 
-### Playlist syncing
+### Syncing playlists
 
-Syncing needs to be done manually.
+Playlists sync manually:
 
- - If changes were made on the server, you need to right click the playlist tab in Tauon and select "Regenerate".
- - If changes were made in Tauon, right click the playlist and select "Upload".
-    :::note 
-    Pressing "Upload" only works for Jellyfin tracks. Any local track entries in the playlist will be lost.
-    :::
+- If the playlist changed on the server, right-click its tab in Tauon and choose **Regenerate**.
+- If you changed it in Tauon, right-click its tab and choose **Upload**.
+
+:::note
+**Upload** only sends Jellyfin tracks. Any local tracks in the playlist are left out.
+:::
+
+Other settings, such as **Allow local scrobbling** and the network cache, work the same as for [other network sources](/manual/network-sources/).

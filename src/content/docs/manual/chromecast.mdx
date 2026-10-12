@@ -8,21 +8,19 @@ import { Steps } from '@astrojs/starlight/components';
 ## Cast to a device
 
 <Steps>
-1. Go to `MENU` > `Chromecast...` and select your device.
-2. Confirm **Chromecast mode** appears in the top panel, then use playback controls as normal.
-3. To stop casting, return to `MENU` > `Chromecast...` and select **End cast**.
+1. Open the main menu and choose **Chromecast…**, then **Cast to:** your device.
+2. Use the playback controls as normal. "Chromecast Mode" appears under the activity indicator at the top right while you're casting.
+3. To stop, open **Chromecast…** again and choose **End Cast**.
 </Steps>
 
+Tauon converts audio formats that Chromecast can't play, such as high-resolution FLAC or tracks in CUE sheets, so most music casts without any setup. Tracks from network servers like Jellyfin also work, as long as the Chromecast can reach the server.
+
 :::note
-If you turned on your Chromecast after starting Tauon and it doesn’t appear, restart Tauon.
+Devices are found when Tauon starts. If you turned your Chromecast on after starting Tauon, restart Tauon.
 :::
 
 :::tip
-If you have a firewall on the same PC, allow incoming as well as outgoing connections for Tauon.
+If you have a firewall on your computer, allow incoming as well as outgoing connections for Tauon.
 :::
 
-## Limitations
-
-- Doesn’t work with PLEX, Airsonic, or Jellyfin sources.
-- Doesn’t work with some codecs (transcoding isn’t implemented). Common codecs like MP3, FLAC, and OGG should work.
-
+Playback speed can't be changed while casting.

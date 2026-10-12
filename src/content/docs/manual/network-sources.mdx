@@ -1,64 +1,87 @@
 ---
 title: Network Sources
-description: Play music from network sources
+description: Play music from PLEX, Subsonic, TIDAL or another Tauon
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-You can import tracks from your [**PLEX**](https://www.plex.tv/), [**Jellyfin**](https://jellyfin.org/) or **Subsonic** compatible server such as [Airsonic](https://airsonic.github.io/) or [Navidrome](https://github.com/deluan/navidrome).
+As well as local files, Tauon can play music from:
 
-## Connect Tauon to a server
+- [**Jellyfin**](/manual/jellyfin/)
+- [**PLEX**](https://www.plex.tv/)
+- **Subsonic**-compatible servers such as [Navidrome](https://www.navidrome.org/), [Airsonic](https://airsonic.github.io/) and [Nextcloud Music](https://github.com/owncloud/music)
+- **TIDAL**
+- Another copy of **Tauon** on your network
+
+Each has a tile in **Settings › Connect**. Click a tile to open its settings.
+
+## PLEX and Subsonic servers
 
 <Steps>
-1. Make sure your server is set up, running, and accessible.
-2. In Tauon, go to `MENU` > `Settings` > `Connections` and select the tab for your server type.
-3. Fill in your account details, then click `Import music to playlist`.
+1. Make sure your server is set up, running and reachable from your computer.
+2. In Tauon, go to **Settings › Connect** and click the **PLEX** or **Airsonic** tile. (Airsonic covers all Subsonic-compatible servers.)
+3. Fill in your account details. For PLEX, also enter the server and library names.
+4. Click **Import music to playlist**.
 </Steps>
 
+The imported playlist ("PLEX Collection" or "Airsonic Collection") holds your server's library. Keep this playlist, even if you make other playlists from it.
+
 :::note
-Imported network tracks are stored in a playlist and **won’t auto-sync**. To refresh, right click the playlist tab and select `Regenerate`.
+Imported network tracks don't update automatically. To refresh, right-click the playlist tab and choose **Regenerate**.
 
-Server-side playlists are currently not supported.
-
-On Linux (AUR), PLEX users may need to install `python-plexapi`.
+Server-side playlists aren't imported.
 :::
+
+Server options:
+
+- **Use plain text authentication** (Subsonic): needed for Nextcloud Music.
+- **Allow local scrobbling**: turn off if your server already [scrobbles](/manual/scrobbling/) your plays, to avoid double scrobbles.
 
 :::caution[Limitations]
-- Having multiple source servers of the same type is **not supported**.
-- If you switch or reset a server, remove any playlists containing tracks from that server type. To fully clean out network tracks, go to `MENU` > `Database...` > `Remove Network Tracks`.
-- If Last.fm scrobbling is enabled in both Airsonic and Tauon, you’ll get double scrobbles. Disable scrobbling in either Airsonic or Tauon.
+- Only one server of each type is supported.
+- If you switch or reset a server, delete any playlists with tracks from it. To remove all network tracks, choose **Database… › Remove Network Tracks** from the main menu.
 :::
 
-:::tip[Nextcloud]
-You can connect to **Nextcloud** using the Subsonic API via [Nextcloud Music](https://github.com/owncloud/music).
+## TIDAL
+
+<Steps>
+1. Click the **TIDAL** tile, then **Login**. Your web browser opens.
+2. Sign in to TIDAL. When the browser lands on a page that doesn't load, copy that page's full address.
+3. Back in Tauon, click **Paste redirect URL**.
+</Steps>
+
+Then use **Import albums** and **Import tracks** to import your TIDAL favourites. You can also paste a TIDAL album, playlist, mix, track or artist link into a playlist with `Ctrl` + `V`.
+
+:::note
+TIDAL support needs the optional `tidalapi` Python package.
 :::
 
-___
+## Network cache
 
-## Offline caching
+Settings for streaming are in **Settings › Audio › Cache**:
 
-Its possible to cache and compress network tracks for offline use. To do this simply transcode folders (or a playlist of folders) using the Transcode Folders feature and leave them in the output folder. In the event the network track is unreachable it will fall back to using transcoded tracks.
+- **Use persistent network cache** keeps downloaded tracks between sessions, up to the **Cache size** you set.
+- **Wait for entire file** downloads each track fully before playing, instead of streaming it.
+
+### Offline copies
+
+You can keep compressed copies of network tracks for offline use. [Transcode](/manual/transcoding/) the albums (or a whole playlist with **Misc… › Transcode All**) and leave the results in the output folder. When a transcoded copy exists, Tauon plays it instead of downloading the track.
 
 ---
 
-## Tauon remote playback
+## Another Tauon on your network
 
-The ***Tauon Satellite*** feature lets you use Tauon as a network source itself! This function lets you import playlists from another running instance of Tauon Music Box on the same network.
-
-### Limitations
-
-- Only use on the same trusted LAN.
-- Read-only: you can’t manage your collection remotely, only playback.
+The **Tauon** tile lets you import playlists from another computer running Tauon, and stream music from it.
 
 :::caution[Security]
-This protocol is unauthenticated and unsecured. Only use it on a trusted network, and do not expose the port directly to the internet.
+This connection is not authenticated or encrypted. Only use it on a trusted home network, and never expose the port to the internet.
 :::
 
-### Set up
-
 <Steps>
-1. On the **source** PC, go to `MENU` > `Settings` > `Connections` and enable **Remote control**.
-2. Find the source computer’s IP address (on Linux, `ip a` can help).
-3. On the **satellite** PC, go to `MENU` > `Settings` > `Connections` > `Satellite` and enter the IP address (IP only, no protocol or port).
-4. Enter the name of a playlist that exists on the source, then click **Get playlist** to import it.
+1. On the computer with the music, go to **Settings › Connect › Sharing** and turn on **Enable remote control**, then restart Tauon.
+2. Find that computer's IP address. On Linux, `ip a` shows it.
+3. On the other computer, click the **Tauon** tile and enter the IP address (just the address, no `http://` or port).
+4. Enter the name of a playlist on the first computer and click **Get playlist**.
 </Steps>
+
+This is read-only: you can play the music, but not manage the other computer's collection.

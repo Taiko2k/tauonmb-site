@@ -1,38 +1,47 @@
 ---
-title: Playlist Export
-description: Export playlists to share or use in other players
+title: Playlist Export & Import
+description: Export playlists to share or use in other players, and import playlist files
 ---
 
 import { Steps } from '@astrojs/starlight/components';
+import { Image } from 'astro:assets';
+import playlistExportImg from '../../../assets/playlist-export.png';
 
-Tauon can export playlists using **XSPF** (recommended) or **M3U**.
+Tauon can export playlists as **XSPF** (recommended) or **M3U** files, and import playlist files in both formats.
 
 ## Export a playlist
 
 <Steps>
-1. Right click the playlist tab.
-2. Select **Export...**.
-3. Choose any options, then click **Export**.
+1. Right-click the playlist tab and choose **Import/Export…**.
+2. Enter a target folder or file name. Tauon shows below the box what will happen, for example the file name it will use.
+3. Choose **XSPF** and/or **M3U**, and whether to **Use relative paths**.
+4. Click **Export**.
 </Steps>
+
+<Image src={playlistExportImg} alt="The Import/Export Playlist dialog" width={520} densities={[1, 2]} />
+
+### Keep a playlist file in sync
+
+The same dialog has two options that link the playlist to its file:
+
+- **Auto-export** writes the file again whenever Tauon saves, for example when you quit.
+- **Auto-import** reloads the playlist from the file when Tauon starts. If **Settings › Library › Playlists › Auto reload playlists** is on, it also reloads when you switch to the playlist.
+
+The default export folder is set in **Settings › System › Input and export**.
 
 ## Import a playlist
 
-<Steps>
-1. Drag and drop an **XSPF** or **M3U** playlist file onto the program window.
-</Steps>
+Drag and drop an XSPF or M3U file onto the Tauon window. The playlist is created and linked to the file, so it's reloaded if the file changes.
 
-:::note[Recommended]
-Before importing playlists, it’s best to:
+To import every playlist file in a folder, set **Auto-import playlists from this folder** in **Settings › System › Input and export**. The folder is checked when you choose **Database… › Reload All Folders** from the main menu.
 
-- Remove missing tracks: **MENU > Database > Remove Missing Tracks**
-- Import the corresponding audio files first (so playlist entries can resolve)
-:::
+:::note[Before importing]
+For the playlist's entries to be found:
 
-:::caution[Known issue]
-Some tracks with unusual characters in their metadata may cause the import process to fail.
+- Import the matching music files into Tauon first.
+- Clean up old entries with **Database… › Remove Missing Tracks** from the main menu.
 :::
 
 :::tip
-Exporting and then importing can also “revive” tracks after files have been moved.
+Exporting and then re-importing a playlist can "revive" its tracks after you've moved your music files.
 :::
-

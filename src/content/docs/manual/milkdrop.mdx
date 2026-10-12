@@ -1,24 +1,33 @@
 ---
-title: Milkdrop Visualisations
-description: Milkdrop visuals support in Tauon
+title: MilkDrop Visualisations
+description: MilkDrop visualiser support in Tauon
 ---
 
-This feature allows you to load Winnamp style `.milk` visualisations presets. Powered by [ProjectM](https://projectm-visualizer.org/).
+Tauon can play Winamp-style MilkDrop visualisation presets (`.milk` files), powered by [projectM](https://projectm-visualizer.org/).
 
-![Milkdrop Visualisations](../../../assets/milk1.png)
+![The MilkDrop visualiser in the side panel](../../../assets/milk1.png)
 
+To turn it on, right-click the album art in the side panel and select **MilkDrop Visualiser**. It replaces the album art while it's on.
 
-To enable, right click the right side panel album art and choose `Enable Milkdrop Visualiser`.
+- **Click** the visualiser to switch to a random preset.
+- **Right-click** it for these options:
+  - **Auto Cycle** changes preset every 30 seconds or so.
+  - **Cut Out** makes dark areas transparent, so the album art shows through.
+  - **Favorite This Preset** marks the current preset as a favourite.
+  - **Choose Preset** opens a full-window picker. Type to filter presets, and click the star to show only favourites.
+  - **Enable Wide Mode** stretches the visualiser across the **Art + Lyrics** layout.
+  - **Open Preset Folder** opens the folder where presets are stored.
 
-Middle click to toggle between square and wide aspect ratio.
+The visualiser is also available as a widget in [custom layouts](/manual/layouts/#custom-layouts).
 
-Click the visualiser to change to a random one. You can toggle **auto advance** from the context menu.
+## Presets
 
-### Installing presets:
+If you have no presets when you turn the visualiser on, Tauon offers to download a small curated preset pack (about 5 MB).
 
-If no presets are present you will be prompted to download a small curated preset pack. Otherwise, you can add your own presets by placing them in the preset folder. Presets must be in `.milk` "v1" format.
+To add your own, put `.milk` files in the preset folder (use **Open Preset Folder**), or drag and drop a `.milk` file onto Tauon to load it straight away. Presets must be in the MilkDrop v1 `.milk` format.
 
- - You can open the preset folder directly from the context menu.
- - You can drag and drop a `.milk` file directly into Tauon to load it immediately.
+There are many presets online, but compatibility isn't perfect. Some may show glitches or display only a black or white screen.
 
- There are a lot of presets out there on the internet but compatibility isn't perfect. Some may show artifacts or display as a black or white screen.
+:::note
+If the **MilkDrop Visualiser** option is missing, your build of Tauon doesn't include projectM or OpenGL support.
+:::

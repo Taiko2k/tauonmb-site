@@ -3,60 +3,56 @@ title: Lyrics
 description: View and fetch lyrics
 ---
 
-You can view lyrics in either:
+Tauon shows lyrics in two places:
 
-- The **right-side panel**
-- The **Showcase + Lyrics** view
+- The **side panel**, in place of the track details
+- The **Art + Lyrics** layout (press `F5`, or choose it from the [layout menu](/manual/layouts/))
 
-Both views have a **right-click** context menu with lyrics-related actions.
+![Synced lyrics in the Art + Lyrics layout](../../../assets/lyrics-showcase.png)
 
-:::note
-Tauon can display **Standard** (unsynced) lyrics and **Synced** lyrics. Synced lyrics can be edited in the [Lyrics Editor](/manual/lyrics-editor/).
-:::
+Right-click the lyrics, or the track details in the side panel, for the lyrics menu.
 
-## Standard Lyrics
+Tauon handles two kinds of lyrics:
 
-Standard lyrics are shown when available. They are stored in the internal database and can be sourced from any of three types of locations:
+- **Unsynced lyrics** are plain text.
+- **Synced lyrics** have a timestamp on each line. The current line is highlighted and the lyrics scroll along with the song. You can create and fix them in the [Synced Lyrics Editor](/manual/lyrics-editor/).
 
-- The audio file's metadata tags
-   - These are automatically scanned when importing.
-   - Use `Reload Metadata` to manually re-scan.
-- `Search lyrics` (automatically fetch lyrics from the internet)
-- `Paste Lyrics` (paste text from your system clipboard)
+## Where lyrics come from
 
-:::note
-Clicking `Clear Lyrics` removes the shown standard lyrics from Tauon's internal database.
-:::
+- **Your files:** lyrics in the track's tags are read when you import. A `.lrc` file with the same name as the audio file, in the same folder, is picked up as synced lyrics. For example, `clocks.mp3` and `clocks.lrc`.
+- **The internet:** choose **Search for Lyrics** from the lyrics menu. Turn on **Auto-search lyrics** in **Settings › Library › Lyrics** to search automatically. The same section lets you choose which lyrics sources to use.
+- **Your clipboard:** choose **Misc… › Paste Lyrics**.
+- **Network servers:** Jellyfin and Subsonic servers can provide lyrics too.
 
-### Substitute Lyrics Search
+To re-read lyrics from your files, right-click the track and choose **Meta… › Rescan Tags**.
 
-If lyrics need to be searched under a different name (e.g., to remove a featured artist), you can create a search substitution via the lyrics context menu > `Misc...` > `Substitute Search...`.
+## The lyrics menu
 
-Edit values as needed, then click away to confirm. This will also apply to all songs with that original name in the future, not just the single one you clicked on.
+| Item | What it does |
+| --- | --- |
+| **Search for Lyrics** | Looks up lyrics online |
+| **Show Lyrics** | Shows lyrics in the side panel instead of the track details whenever lyrics are available |
+| **Prefer Synced Lyrics** | When a track has both kinds, shows the synced lyrics |
+| **Lyrics Editor** | Opens the [Synced Lyrics Editor](/manual/lyrics-editor/) |
+| **Misc…** | Substitute Search, Paste, Copy, and Clear options |
+
+**Clear Lyrics** and **Clear Synced Lyrics** remove lyrics from Tauon's database. Whether lyrics changes are also written to your files is controlled by **Save lyrics edits to tags** in **Settings › Library › Lyrics**.
+
+## Substitute search
+
+If lyrics can't be found because of how a track is named, for example because of a featured artist in the title, choose **Misc… › Substitute Search…**. Enter the artist or title to search for instead, then click away to confirm.
 
 :::caution
-Substitutions apply globally: any track that matches the original name will use the new search terms.
+Substitutions apply to every track with the same artist (or title), not just the one you clicked.
 :::
 
-To remove a substitution, re-open the Substitute Search box and clear the field.
+To remove a substitution, open **Substitute Search…** again and clear the field.
 
-## Synced Lyrics
+## Synced lyrics format
 
-Synced lyrics highlight the currently active line in the lyrics and scroll automatically.
-
-These lyrics are loaded from `.lrc` files, which need to be in the same location as the source audio file and have the same base filename in order to be detected. For example, have `clocks.mp3` and `clocks.lrc` in the same folder.
-
-:::note
-Synced lyrics are loaded when you play a track and are not stored in the internal database (unlike standard lyrics).
-:::
-
-:::tip
-When both standard and synced lyrics are available, **Showcase + Lyrics** shows a button that lets you choose which type is preferred for display.
-:::
-
-The format of a `.lrc` file is made up of lines of lyrics with timestamps, with each line taking the format of `[mm:ss.ms]words` such as follows:
+Synced lyrics use the LRC format. Each line starts with a timestamp in the form `[mm:ss.xx]`:
 
 ```text
-[01:32.21]On my fears, on my loose ends
-[01:38.99]All the strength leaves the ghosts alone
+[00:34.00]Meet me at the midnight arcade
+[00:40.30]Where the pixels never fade
 ```

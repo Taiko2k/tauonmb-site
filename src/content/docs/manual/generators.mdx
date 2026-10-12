@@ -3,173 +3,138 @@ title: Smart Playlists
 description: Create dynamic playlists with generators
 ---
 
+import { Image } from 'astro:assets';
+import generateMenuImg from '../../../assets/generate-menu.png';
 
-import { Steps } from '@astrojs/starlight/components';
+Smart playlists (also called generator playlists) are built from other playlists using a short code. They're the main way to make a filtered or sorted view of your library.
 
-
-Generator playlists (also called smart or filter playlists) allow you to create derivative playlists based on the content of another playlist. This is the main way of creating a filtered view of a playlist.
-
-![Generator menu](../../../assets/t08.jpg)
-
-## Creating Preset Generator Playlists
-
-The quickest way to create a generated playlist is using a preset:
-
-1. Right click a playlist tab
-2. Select **"Generate..."**
-3. Choose a preset from the menu
-
-
-:::tip
-Generated playlists are also created automatically when you use **Global search** or **Quick find** (via `Shift` + `Enter`)
+:::tip[Recommended workflow]
+Import your whole library into one **source playlist**. Then create and delete smart playlists from it as you like.
 :::
 
-## Regenerating Playlists
+## Use a preset
 
-Once a generated playlist has been created, you can reload it:
+The quickest way to create a smart playlist:
 
-1. Right click the playlist tab
-2. Select **"Regenerate"**
+1. Right-click a playlist tab.
+2. Choose **Generate…**.
+3. Pick a preset, such as **Top Played Tracks**, **Shuffled Albums**, **Loved** or **Has Lyrics**.
 
-This updates the playlist based on any changes to the source playlist.
+<Image src={generateMenuImg} alt="The Generate menu" width={350} densities={[1, 2]} />
 
-### Auto-Regenerate
+The new playlist is generated from the playlist you right-clicked.
 
-By default, you need to manually regenerate playlists. To enable automatic updates:
+Smart playlists are also created when you click an artist, genre or folder in [global search](/manual/search/), or press `Shift` + `Enter` in quick find.
 
-**Globally:**
-- Go to **MENU > Settings...**
-- Enable **"Auto regenerate playlists"**
+## Regenerate
 
-**Per Playlist:**
-- Edit the generator and add the code `auto`
+To update a smart playlist with changes from its source, right-click its tab and choose **Regenerate** (`Alt` + `R`).
 
-## Manual Generator Creation
+To have playlists update automatically whenever you switch to them, turn on **Settings › Library › Playlists › Auto reload playlists**. This skips playlists that shuffle, playlists from network servers, and the playlist that's currently playing. To make a particular playlist always update, add the code `auto` to it.
 
-You can create custom generator playlists with specific combinations of searches, filters, and sorters:
+## Write your own
 
-1. Right click a playlist tab
-2. Select **"Misc..." > "Edit generator..."**
-3. Enter generator codes
+Right-click a tab and choose **Edit Generator…** (or press `Ctrl` + `E`). To start a new smart playlist, press `Ctrl` + `Shift` + `E`.
 
-:::tip[Recommended Workflow]
-The general idea is to import your music library to a single **source playlist**, then you can create and delete derivative playlists as needed.
-:::
+![The generator editor](../../../assets/generator-editor.png)
 
+Type codes in the box. The playlist updates as you type, and the editor shows a quick reference and whether your code worked.
 
-# Code Format
+### How codes work
 
-There are 4 types of codes: **Selectors**, **Searchers**, **Filters** and **Sorters**. Only one *search* code is required at minimum.
+There are four kinds of code: **selectors**, **searches**, **filters** and **sorters**. You need at least one search. Codes run in order, so typically you:
 
-The order is important. Typically you:
+1. Select which playlists to use (optional; otherwise all playlists are used)
+2. Search, or add every track with `a`
+3. Filter and sort (optional)
 
- 1. Select any particular playlists to restrict search scope to (optional)
- 2. Perform a search **or** simply add all tracks using the `a` code
- 3. Add any filters or sorters (optional)
+For example:
 
-For example, if you wanted a playlist of all your loved tracks you could use: `a l`. If you wanted all loved tracks from only a specific playlist, you could use: `s"MyPlaylist" a l`
+| You want | Code |
+| --- | --- |
+| All your loved tracks | `a l` |
+| Loved tracks from one playlist | `s"My Playlist" a l` |
+| Loved tracks by one artist | `a"Artist Name" l` |
+| 10 random tracks from "Library" | `s"Library" a st n10` |
+| Every album, shuffled | `a sf` |
+| Unplayed tracks by an artist | `s"Library" a"Coldplay" pc<1` |
 
-If you wanted all loved tracks from a specific artist, you could use: `a"Artistname" l`
+### Selectors
 
-### Select source playlists
+| Code | Example | Notes |
+| --- | :---: | --- |
+| Use a playlist | `s"Library"` | Add several to use several playlists. Without any, all playlists are used. |
+| Clear selection | `clr` | Goes back to using all playlists |
+| This playlist | `self` | Uses the playlist itself as the source. Combine with `auto` and a sorter to re-sort tracks as they're imported. Filters with this are destructive. |
+| Exclude a playlist | `px"Archive"` | Leaves out any track that is in that playlist |
 
-| Function | Code example | Notes |
-|----------|:-------------:|------:|
-| Add playlist to selection | `s"Name of Playlist"` | If no selection is made, all playlists will be selected |
-| Clear selection | `clr` | Selects all playlists as per above rule |
-| Select current playlist | `self` | This is a special code that makes the selection the playlist itself. Useful when combined with `auto` and any sorters to re-sort tracks on import. Using any filter codes with this will be destructive. | 
+### Searches
 
-
-### Search from selected playlists
-
-:::note
-Entries in **Bold** are additional codes not shown in the in-app legend.
-:::
-
-| Function | Code example | Notes |
-|----------|:-------------:|------:|
-| Search artist | `a"Artist Name"` | This is a search term, so it can be fuzzy like: `a"arti"` |
-| Search genre | `g"Rock"` | You can combine multiple of these like `g"k-pop" g"j-pop"`  |
-| Find in all | `f"artist"` | This produces the same results as the *find box*. Includes searching the filename (can be a partial stem like `p"ingles/cold"`, a folder name, or a full folder path) and comment, but not lyrics or genre. |
-| **Find string in all** | `fs"artist"` | Same as above but for matching an exact sequence (Useful for searches where spaces are important) |
-| **Add by file type** | `ext"flac"` | You could also do `f".flac"` which will probably give you what you want since that includes searching the filename, but you would need this function to include; say; your Airsonic collection by doing `ext"sub"` | 
-| Add all tracks from selection | `a` | You will need this if you didn't perform any of the above searches |
+| Code | Example | Notes |
+| --- | :---: | --- |
+| All tracks | `a` | Use this if you don't search for anything |
+| Artist | `a"Artist Name"` | Partial matches work, like `a"arti"` |
+| Genre | `g"Rock"` | Partial match. Use `g="Rock"` for an exact genre. Combine several, like `g"k-pop" g"j-pop"`. |
+| Label | `lb"Warp"` | Partial match. Use `lb="Warp Records"` for an exact label. |
+| Folder | `p"Albums/Live"` | Matches part of the folder path |
+| Find anything | `f"text"` | Like quick find: title, artist, album, composer, comment and file path |
+| Find exact text | `fs"text"` | Like `f`, but matches the exact text including spaces |
+| File type | `ext"flac"` | Matches the file extension |
 
 ### Filters
 
-| Function | Code example | Notes |
-|----------|:-------------:|------:|
-| Max number of tracks | `n123` | In this case, limits playlist to 123 tracks |
-| Year greater than | `y>2015` | This can also be inclusive by using `y>=2016` |
-| Year less than | `y<2016` | This can also be inclusive by using `y<=2016` |
-| Year equals | `y=2016` | This would be the equivient of doing `y>2015 y<2017` |
-| Playcount greater than | `pc>5` | |
-| Playcount less then | `pc<10` | For example, combining this and the above like `pc>5 pc<10` will filter the playlist to only include tracks with playcounts of 6 to 9 |
-| Playtime greater than | `pt>5` | |
-| Playtime less then | `pt<10` | |
-| Duration less than | `d<30` | In seconds. In this case, playlist will only include tracks less than 30 seconds |
-| Duration greater than | `d>300` | In seconds. In this case, playlist will only include tracks greater then 5 minutes |
-| Rating greater than | `rat>2` | In this case, includes tracks with more than 2 stars |
-| Rating less than | `rat<4.5` | In this case, includes tracks with less than 4.5 stars |
-| Rating equals | `rat=5` | In this case, includes tracks with exactly 5 stars |
-| Loved tracks | `l` | | 
+| Code | Example | Notes |
+| --- | :---: | --- |
+| Limit | `n50` | Keep at most 50 tracks |
+| Year | `y>2015`, `y<2000`, `y=2016` | Also `y>=` and `y<=` |
+| Play count | `pc>5`, `pc<1` | |
+| Playtime | `pt>600` | Total time played, in seconds |
+| Track length | `d<3`, `d>10` | In **minutes** |
+| Album length | `ad>40` | In minutes |
+| Rating | `rat>3`, `rat<4.5`, `rat=5` | In stars. `rat` keeps only rated tracks and `norat` only unrated tracks. |
+| Album rating | `rata>4` | Also `rata<` and `rata=` |
+| Loved | `l` | |
 | Has lyrics | `ly` | |
-| **Has cue sheet** | `cue` | Only keeps tracks that are part of a larger file | |
-| **Today's day of the year** | `today` | Includes release dates that match today's month and day. Tracks will need to have full date in date field | 
-| **Comment match** | `com"bandcamp"` | The `f""` code already includes searching the comment, but you can use this code to only search the comment. (Also this must be an exact match of a string segment and isn't fuzzy like `f"text"`) |  
-| Find and keep | `ff"text"` | Same as `f"text"` but only for tracks already included, discarding non-matches. |
-| Find and exclude | `fx"text"` | Same as `ff"text"` but removes matching tracks. |
-| **Exclude playlist** | `px"playlistname"` | Exclude tracks that appear in a particular playlist. (Added in v7.2.0) |
+| Part of a CUE sheet | `cue` | |
+| Released on this day | `today` | Tracks whose release date matches today's month and day |
+| Comment | `com"bandcamp"` | Exact text in the comment |
+| Modified date | `m>2024-01-01` | Also `m<` |
+| Keep matches | `ff"text"` | Like `f`, but only keeps tracks already added |
+| Remove matches | `fx"text"` | Removes tracks that match |
 
 ### Sorters
 
-| Function | Code example | Notes |
-|----------|:-------------:|------:|
-| Shuffle tracks | `st` | |
-| Shuffle albums | `sf` | |
-| Year Oldest to Latest | `y>` | |
-| Year Latest to Oldest | `y<` | |
-| Playtime highest | `pt>` | |
-| Playtime lowest | `pt<` | |
-| Duration longest | `d>` | |
-| Duration shortest | `d<` | |
-| Most played albums | `pa>` | |
-| Least played albums | `pa<` | |
-| Reversed tracks | `rv` | |
-| Reversed albums | `rva` | |
-| Highest track ratings | `rat>` | If you would like to exclude tracks that don't have a rating, use `rat rat>` |
-| Lowest track ratings | `rat<` | If you would like to exclude tracks that don't have a rating, use `rat rat<` |
-| Highest album ratings | `rata>` | |
-| Recently modified files | `m>` | This is read from the modification date of the file at the time it was imported. Won't work with network tracks. | 
-| Oldest modified files | `m<` | | 
-| Track numbers per album | `tn` | |
-| Year per artist | `ypa` | Use this if you want discographies in order for each artist. (Artists albums must already be grouped together in the playlist). |
-| Sort tracks by filepath | `path` | This may not be the same order as was originally imported |
-| Column sort | `"bitrate">` | Sort by any column. Name must be the exact title of a column as shown in the columns view. Can also use < to sort in reverse |
+| Code | What it sorts by |
+| --- | --- |
+| `st` | Shuffle tracks |
+| `sf` | Shuffle albums |
+| `y<` / `y>` | Year, oldest first / newest first |
+| `pt>` / `pt<` | Most / least played tracks |
+| `pa>` / `pa<` | Most / least played albums |
+| `d>` / `d<` | Longest / shortest tracks |
+| `ad>` / `ad<` | Longest / shortest albums |
+| `rat>` / `rat<` | Highest / lowest rated tracks |
+| `rata>` | Highest rated albums |
+| `m>` / `m<` | Most / least recently modified files |
+| `ia>` / `ia<` | Most / least recently imported folders |
+| `rv` / `rva` | Reverse the tracks / albums |
+| `tn` | Track number within each album |
+| `ypa` | Year, within each artist (artists must already be grouped) |
+| `path` | File path |
+| `"Bitrate">` | Any column, by its exact title in the columns view. Use `<` to reverse. |
 
 ### Special
 
-| Function | Code | Notes |
-|----------|:-------------:|------:|
-| Automatically update | auto | |
+| Code | Notes |
+| --- | --- |
+| `auto` | Regenerate this playlist every time you switch to it |
 
-## Examples
-
-| Function | Code String |
-|----------|-------------|
-| Search for Coldplay from playlist Default and show tracks that have a playcount of less than 2 | `s"Default" a"Coldplay" pc<2` 
-| Shuffle albums from every playlist | `a sf` |
-| Take 10 random tracks from the playlist Default | `s"Default" a st n10` |
-| Show loved tracks of artists Coldplay and Red Hot Chili Peppers in order of playcount from playlists Default and Downloads. **Tip:** You can shorten the names and it will (probably) still return what you want. | `s"De" s"Do" a"Col" a"Red H" pt> l` |
+Codes for network sources, such as `jelly` and `plex`, are covered in [Network Sources](/manual/network-sources/) and [Jellyfin](/manual/jellyfin/).
 
 :::note
-If you rename a targeted playlist, you will need to update any strings manually.
+If you rename a playlist that a code refers to, update the code by hand. If several playlists share a name, the first one is used.
 :::
 
-:::note
-If multiple playlists have the same name, just the first one will be selected.
-:::
-
-:::caution[Important]
-Its best to keep your source playlists as the firstmost playlists, appearing before any generator playlists. So if you have a main library playlist, keep it as the first playlist.
+:::caution
+Keep your source playlists before any smart playlists in your tab order. For example, keep your main library playlist first.
 :::

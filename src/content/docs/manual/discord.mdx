@@ -1,14 +1,21 @@
 ---
 title: Discord
-description: Discord rich presence integration
+description: Discord Rich Presence integration
 ---
 
-Discord Rich Presence allows you to show your currently playing track as your Discord game status.
+Discord Rich Presence shows what you're listening to on your Discord profile.
 
-To enable:
+To turn it on, go to **Settings › Connect › Sharing** and turn on **Enable Discord Rich Presence**. The status line underneath shows whether Tauon is connected to Discord.
 
- - Go to `MENU` > `Settings...` > `Connections` > and tick `Enable Discord Rich Presence`.
+Once it's on, you can choose:
+
+- **Discord card order**: whether the song or the artist comes first
+- **Member list shows**: whether the member list shows the song or the artist
+- **Clean title (Removes .feat etc)**
+- **Last.fm link button** and **Tauon website button** on your profile card
+- **Keep idle**: keep showing the presence while paused or stopped
+- **Upload to catbox.moe**: shows your own album art on Discord. A small copy of the cover is uploaded to litterbox.catbox.moe, where it's deleted after 72 hours. Without this, Tauon looks up the cover on MusicBrainz.
 
 :::note[Arch Linux]
-Install AUR dependency `python-pypresence`.
+Install the AUR dependency `python-pypresence`.
 :::

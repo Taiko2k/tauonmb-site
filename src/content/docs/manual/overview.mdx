@@ -1,65 +1,68 @@
 ---
-title: Overview
-description: Getting started with Tauon Music Box
+title: Getting Started
+description: Getting started with Tauon
 ---
 
-Tauon is a playlist oriented music player that makes the general assumption that folders are albums. You may find the words "album" and "folder" used interchangeably within the interface and documentation.
+Tauon is a playlist-oriented music player that assumes folders are albums. You'll see the words "album" and "folder" used interchangeably in the interface and in these docs.
 
-While some features and interface elements may not be immediately intuitive, once you are familiar with them, you will find that Tauon is pleasant, fast and fun to use!
+Some features aren't obvious at first, and many live in right-click menus, so it's worth right-clicking things as you explore. Once you know your way around, Tauon is fast and fun to use.
 
-## First Launch
+## First launch
 
-When you launch Tauon for the first time you will be greeted with the main window:
+When you start Tauon for the first time you get an empty window:
 
-![Empty main window](../../../assets/t01.png)
+![Tauon on first launch, with an empty playlist](../../../assets/first-launch.png)
 
-The interface is divided into several key areas:
+| Area | What it's for |
+| --- | --- |
+| **Top panel** | The main menu, layout and side-panel buttons in the corner, then your playlist tabs |
+| **Tracklist** | The tracks in the playlist you're viewing |
+| **Side panel** | Album art and track details for the playing track (it appears once you've added music) |
+| **Bottom panel** | Playback controls, the seek bar and volume |
 
-| Area | Description |
-|------|-------------|
-| **Main tracklist** | Where your tracks appear |
-| **Top panel** | Playlist tabs |
-| **Bottom panel** | Playback controls |
-| **Right side panel** | Album art and metadata |
-| **Left side panel** | Additional views (toggle from top-left corner) |
+See [Main Window](/manual/interface/) for a tour of each area.
 
-## Importing Your Music
+## Import your music
 
-To import tracks, simply **drag and drop** files or folders from your file manager into the main tracklist area.
+Drag and drop files or folders from your file manager into the tracklist.
+
+Alternatively, open the main menu (the record icon in the top-left corner) and choose **Import Music Folder**. This creates a playlist called "Music" and imports your system Music folder into it.
 
 :::tip
-To get started, try importing all your music into a single playlist.
+To get started, import your whole collection into a single playlist. You can then build smaller playlists from it using [search](/manual/search/), drag and drop, or [smart playlists](/manual/generators/).
 :::
 
-Once you have tracks imported, just **double click** them to play.
+Tauon works best when every album is in its own folder and your files are properly tagged.
 
-### Updating Your Library
+### Keeping your library up to date
 
-Tauon has no background file monitoring. To update, simply clear the playlist and re-import.
+Tauon doesn't watch your folders in the background. When you've added new music, either:
 
-Alternatively, you can trigger a rescan of all top level folders you've previously added by selecting "Rescan Folders" from the playlist tab context menu.
+- right-click the playlist tab and choose **Rescan Folder** to re-import the folders that playlist was built from, or
+- choose **Database… › Reload All Folders** from the main menu to rescan every playlist's folders.
 
-## Playing Music
+## Play music
 
-- **Double click** a track to play it
-- Use the **playback controls** in the bottom panel
-- **Right click** the play button to **go to playing** - this will locate the currently playing track in the tracklist
+- **Double-click** a track to play it.
+- Use the play, pause, stop, back and forward buttons in the bottom panel.
+- Click or drag on the seek bar to jump to a position.
+- Press `'` (or right-click the play button) to **go to playing**, which scrolls the tracklist to the current track.
 
-
-## Quick Keyboard Shortcuts
-
-Here are some essential shortcuts to get you started:
+## Essential shortcuts
 
 | Shortcut | Action |
 | --- | --- |
 | `Space` | Play/pause |
-| `-` / `+` | Seek backward/forward |
-| `Left` / `Right` | Cycle playlists |
+| `-` / `=` | Seek backward/forward |
+| `Left` / `Right` | Switch playlists |
 | `Shift` + `Left` / `Right` | Previous/next track |
-| `"` | Show playing track |
+| `'` | Show the playing track |
 | `,` / `.` | Toggle repeat / shuffle |
-| `Ctrl` + `F` | Find in playlist |
-| Start typing | Global search |
+| `Ctrl` + `F` | Find in the current playlist |
+| Start typing | Search all playlists |
 
-For a complete list of shortcuts, see the [Keyboard Shortcuts reference](/manual/keyboard-shortcuts/).
+For the complete list, see [Keyboard Shortcuts](/manual/keyboard-shortcuts/).
 
+## Where are the settings?
+
+Open the main menu and choose **Settings**. The settings window has a search box, so you can type what you're looking for and jump straight to it. Many display options live in right-click menus close to what they change. See [Settings](/manual/settings/).

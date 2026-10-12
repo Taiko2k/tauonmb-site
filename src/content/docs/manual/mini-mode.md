@@ -1,32 +1,34 @@
 ---
 title: Mini Mode
-description: Use Tauon in a compact mini player mode
+description: Use Tauon as a compact mini player
 ---
 
-Mini Mode provides a compact view of the player.
+Mini mode shrinks Tauon to a small player window. There are several styles:
 
-![Mini mode example](../../../assets/t07.jpg)
+![Tauon's mini mode styles](../../../assets/mini-modes.png)
 
-## Entering Mini Mode
+| Style | Description |
+| --- | --- |
+| **Tab** | A slim bar with a small cover, the track title and progress |
+| **Mini** | Just the album art |
+| **Square** / **Square Large** | The album art with the artist and title below |
+| **Slate** | Art, artist and title, with skip arrows and a seek bar |
+| **Signal** | A retro spectrum display with the album art |
 
-To enter Mini-mode, **double click** in the area under the seek bar of the main window.
+## Enter mini mode
 
-## Using Mini Mode
+- Press `F8`.
+- Open the playback menu (☰ at the right of the bottom panel) and choose a style from **Mini Mode**.
+- Right-click empty space in the bottom panel and choose a style.
 
-While in mini mode:
-- All basic playback controls are accessible
-- Album art is displayed
-- **Right click** to pause playback
+## Using mini mode
 
-## Changing Styles
+- The usual playback controls are available, depending on the style.
+- **Right-click** to play or pause.
+- **Middle-click** (or `Shift`-click) switches between **Tab** and **Square**.
 
-You can switch between different mini mode styles:
+To keep the mini player above other windows, turn on **Mini-mode always on top** in **Settings › Appearance › Window**.
 
-1. **Right click** in the area under the seek bar
-2. Select a style from the menu
+## Return to the full window
 
-Different styles offer various layouts and information density to suit your preferences.
-
-## Returning to Full Mode
-
-**Double click** the mini mode window again to return to the full interface.
+Press `F8` again, or double-click the title area of the mini player.
