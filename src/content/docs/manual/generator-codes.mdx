@@ -1,0 +1,129 @@
+---
+title: Generator Codes
+description: Reference for the codes behind smart playlists
+prev: false
+next: false
+---
+
+Every step in the [smart playlist](/manual/generators/) editor is stored as a short code. The **Generator code** box in the editor shows them, and you can type codes there directly. The steps update to match.
+
+You don't need codes to use smart playlists. This page is for anyone who prefers typing them.
+
+## How codes work
+
+Codes are separated by spaces and run left to right. A typical code:
+
+1. Picks the playlists to draw from (optional; otherwise all playlists are used).
+2. Takes tracks from them. At least one of these is required.
+3. Filters, sorts and limits them (optional).
+
+These match the editor's **From**, **Take** and **Then** rows.
+
+| You want | Code |
+| --- | --- |
+| All your loved tracks | `a l` |
+| Loved tracks from one playlist | `s"My Playlist" a l` |
+| Loved tracks by one artist | `a"Artist Name" l` |
+| 10 random tracks from "Library" | `s"Library" a st n10` |
+| Every album, shuffled | `a ra` |
+| An hour of music, at most 2 tracks per artist | `a st per-artist2 t60` |
+| Unplayed tracks by an artist | `s"Library" a"Coldplay" pc<1` |
+
+## From
+
+| Code | Example | Notes |
+| --- | :---: | --- |
+| Playlist | `s"Library"` | Add several to use several playlists. Without any, all playlists are used. |
+| This playlist | `self` | Uses the playlist itself. Combine with `auto` and a sort to re-sort tracks as they're imported. Filters with this are destructive. |
+| Clear | `clr` | Goes back to using all playlists |
+
+## Take
+
+| Code | Example | Notes |
+| --- | :---: | --- |
+| All tracks | `a` | |
+| Artist | `a"Artist Name"` | Partial matches work, like `a"arti"` |
+| Genre | `g"Rock"` | Partial match. `g="Rock"` matches the exact genre, and `gm"Rock"` matches one value of a multi-value genre. |
+| Search | `f"text"` | Like quick find: title, artist, album, composer, comment and file path. `fs"text"` matches the exact text, including spaces. |
+| Folder | `p"Albums/Live"` | Matches part of the folder path |
+| Label | `lb"Warp"` | Partial match. Use `lb="Warp Records"` for an exact label. |
+| File type | `ext"flac"` | Matches the file extension |
+
+### Services
+
+These take tracks from [network sources](/manual/network-sources/). In the editor they're under **Take › + › Services**.
+
+| Code | Takes |
+| --- | --- |
+| `plex` | The Plex library |
+| `jelly` | The [Jellyfin](/manual/jellyfin/) library |
+| `jelly"ID"` | A Jellyfin playlist, by its ID |
+| `air` | The Airsonic library |
+| `tau` | The Tauon Satellite playlist |
+| `tpl"ID"` | A Tidal playlist |
+| `tfa` / `tft` | Tidal favourite albums / tracks |
+| `tar"ID"` | A Tidal artist |
+| `tmix"ID"` | A Tidal mix |
+
+## Filters
+
+| Code | Example | Notes |
+| --- | :---: | --- |
+| Year | `y>2015`, `y<2000`, `y=2016` | Also `y>=` and `y<=` |
+| Rating | `rat>3`, `rat=5` | In stars. `rat` keeps only rated tracks and `norat` only unrated ones. |
+| Album rating | `rata>4` | Also `rata<` and `rata=` |
+| Play count | `pc>5`, `pc<1` | |
+| Play time | `pt>600` | Total time played, in seconds |
+| Length | `d<3`, `d>10` | Track length, in minutes |
+| Album length | `ad>40` | In minutes |
+| Recently modified | `m>30d` | Modified in the last 30 days. `m<30d` is over 30 days ago. |
+| Modified since | `m>2024-01-01` | Also `m<` |
+| Skips | `sk<1`, `sk>3` | Times skipped |
+| Loved | `l` | |
+| Has lyrics | `ly` | |
+| On this day | `today` | Released on today's month and day |
+| Hi-res | `hr` | Over 16-bit or over 48 kHz |
+| CUE tracks | `cue` | Part of a CUE sheet |
+| Keep matching | `ff"text"` | Like `f`, but only keeps tracks already taken |
+| Exclude matching | `fx"text"` | Removes tracks that match |
+| Comment | `com"bandcamp"` | Text in the comment |
+| Not in playlist | `px"Archive"` | Removes any track that's in that playlist |
+
+## Sorts
+
+| Code | What it sorts by |
+| --- | --- |
+| `st` | Shuffle tracks |
+| `ra` | Shuffle albums (`sf` also works) |
+| `y>` / `y<` | Year, newest / oldest first |
+| `rat>` / `rat<` | Rating, highest / lowest first |
+| `rata>` | Album rating, highest first |
+| `pt>` / `pt<` | Play time, most / least first |
+| `pa>` / `pa<` | Album play time, most / least first |
+| `d>` / `d<` | Length, longest / shortest first |
+| `ad>` / `ad<` | Album length, longest / shortest first |
+| `m>` / `m<` | Modified, newest / oldest first |
+| `ia>` / `ia<` | Imported, newest / oldest first |
+| `"Bitrate">` | Any column, by its exact title in the columns view. Use `<` to reverse. |
+| `tn` | Track number within each album |
+| `path` | File path |
+| `ypa` | Year, within each artist (artists must already be grouped) |
+| `rv` / `rva` | Reverse the tracks / albums |
+
+## Limits
+
+| Code | Example | Notes |
+| --- | :---: | --- |
+| Number of tracks | `n50` | Keep the first 50 tracks |
+| Total time | `t60` | Stop at 60 minutes |
+| Max per artist | `per-artist2` | At most 2 tracks per artist |
+
+## Options
+
+| Code | Notes |
+| --- | --- |
+| `auto` | Regenerate the playlist when you open it and after importing music. This is the editor's **Auto update** box. |
+
+:::caution
+Keep your source playlists before any smart playlists in your tab order. For example, keep your main library playlist first.
+:::

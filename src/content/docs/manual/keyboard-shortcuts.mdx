@@ -1,74 +1,110 @@
 ---
 title: Keyboard Shortcuts
-description: Complete list of keyboard shortcuts for Tauon Music Box
+description: Keyboard and mouse shortcuts for Tauon
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-Here's a comprehensive list of keyboard shortcuts available in Tauon Music Box.
+On macOS, use `Cmd` wherever this page says `Ctrl`.
+
+## Playback
 
 | Shortcut | Action |
 | --- | --- |
 | `Space` | Play/pause |
+| `Enter` | Play the selected track |
 | `-` / `=` | Seek backward/forward |
 | `Shift` + `Left` / `Right` | Previous/next track |
-| `Left` / `Right` | Cycle playlists |
-| `'` | Show playing track (locate in playlist) |
-| `,` | Toggle repeat mode |
-| `.` | Toggle shuffle mode |
-| `Ctrl` + `F` | Find in current playlist |
-| `Ctrl` + `G` | Activate global search |
-| Start typing | Activate global search |
-| `Tab` | Enter gallery view (keyboard control mode) |
-| `F2` | Rename current playlist |
-| `F3` | Toggle "Auto Theme" mode |
-| `Ctrl` + `'` | Go to last playing |
+| `Home` | Restart the track |
+| `End` | Next track |
+| `,` | Toggle repeat |
+| `.` | Toggle shuffle |
 | `;` | Random track |
 | `Alt` + `;` | Random album |
-| `/` | Random track (random start) |
-| `Shift` + `/` | Revert to previous track |
+| `/` | Random track, starting at a random point |
+| `Shift` + `/` | Revert to the previous track, where you left it |
 | `Ctrl` + `Up` / `Down` | Volume up/down |
-| `Ctrl` + `M` | Toggle mute |
-| `Ctrl` + `Z` | Undo delete |
-| Mouse button 4 | Toggle gallery view |
-| Mouse button 5 | Toggle right side panel |
-| `\` | Find in current playlist |
-| `Delete` | Remove selected track |
-| `Ctrl` + `I` | Show selected track info |
-| `Ctrl` + `P` | Show playing track info |
-| `Ctrl` + `T` | Create new playlist |
-| `Ctrl` + `W` | Delete current playlist |
-| `Ctrl` + `Shift` + `W` | Force delete current playlist |
-| `Ctrl` + `R` | Rename current playlist |
-| `Alt` + `Q` | Add selected track to queue |
-| `Ctrl` + `L` | Love / un-love selected track |
-| `Ctrl` + `Shift` + `L` | Love / un-love playing track |
-| `~` | Toggle left side panel |
-| `Ctrl` + `O` | Toggle artist info |
-| `Ctrl` + `[` / `]` | Cycle through available themes |
-| `F1` | Toggle playlist breaks |
-| `F4` | Quick locate playing artist |
-| `F5` | Toggle showcase view |
-| `F6` | Unbound |
-| `F7` | Dev use only |
-| `F8` | Toggle mini mode |
-| `F9` | Show encoding output folder |
-| `F10` | Reload theme (for use with editing) |
-| `F11` | Fullscreen toggle |
-| `Ctrl` + `1` ... `9` | Jump to playlist number |
-| `[` / `]` | Cycle layouts |
-| `Ctrl` + `-` | Decrease window opacity |
-| `Ctrl` + `+` | Increase window opacity |
+| `Ctrl` + `M` | Mute |
+
+## Navigation
+
+| Shortcut | Action |
+| --- | --- |
+| `Left` / `Right` | Switch playlists |
+| `Ctrl` + `1` … `9` | Go to playlist 1 to 9 |
+| `Up` / `Down` | Move the selection |
+| `Shift` + `Up` / `Down` | Extend the selection |
+| `Page Up` / `Page Down` | Scroll a page |
+| `Shift` + `Home` / `End` | Go to the top/bottom of the playlist |
+| `'` | Show the playing track |
+| `Ctrl` + `'` | Show the previously played track |
+| `F4` | Find the playing artist in the playlist |
+
+## Search
+
+| Shortcut | Action |
+| --- | --- |
+| Start typing | [Global search](/manual/search/) |
+| `Ctrl` + `G` | Global search |
+| `Ctrl` + `F` or `\` | Find in the current playlist |
+
+## Tracks and playlists
+
+| Shortcut | Action |
+| --- | --- |
+| `Ctrl` + `A` | Select all |
+| `Ctrl` + `C` / `X` / `V` | Copy, cut and paste tracks |
+| `Delete` | Remove the selected tracks from the playlist (files aren't deleted) |
+| `Ctrl` + `Z` | Undo: restores deleted playlists, removed tracks and sorting changes |
+| `Ctrl` + `L` | Love/unlove the selected track |
+| `Ctrl` + `Shift` + `L` | Love/unlove the playing track |
+| `Alt` + `Q` | Add the selected track to the queue |
+| `Alt` + `Shift` + `Q` | Clear the queue |
+| `Ctrl` + `I` | Track info for the selected track |
+| `Ctrl` + `P` | Track info for the playing track |
+| `Ctrl` + `T` | New playlist |
+| `Ctrl` + `R` or `F2` | Rename the current playlist |
+| `Ctrl` + `W` | Delete the current playlist |
+| `Ctrl` + `Shift` + `W` | Delete the current playlist, even if it's locked |
+| `Ctrl` + `E` | Open the [smart playlist](/manual/generators/) editor |
+| `Ctrl` + `Shift` + `E` | New smart playlist |
+| `Alt` + `R` | Regenerate the playlist |
+| `F1` | Toggle album headings for the playlist |
+| `Ctrl` + `Shift` + `P` | Transfer play counts from a copied track (see [Tips & Tricks](/manual/tips-tricks/#transfer-play-counts-to-another-track)) |
+
+## View
+
+| Shortcut | Action |
+| --- | --- |
+| `]` / `[` | Next/previous [layout](/manual/layouts/) |
+| Mouse forward/back buttons | Next/previous layout |
+| `Tab` | Gallery with keyboard control |
+| `F5` | Toggle the **Art + Lyrics** layout |
+| `~` | Toggle the left panel |
+| `Ctrl` + `H` | Toggle the side panel's album art |
+| `Ctrl` + `O` | Toggle the artist info panel |
+| `F8` | Toggle [mini mode](/manual/mini-mode/) |
+| `F11` | Toggle full screen |
+| `Ctrl` + `]` / `[` | Next/previous [theme](/manual/themes/) |
+| `F3` | Toggle auto theme (colours from album art) |
+| `F10` | Reload the theme (useful while editing one) |
+| `Ctrl` + `=` / `-` | Increase/decrease window opacity |
+
+## Other
+
+| Shortcut | Action |
+| --- | --- |
+| `F9` | Open the transcode output folder |
 | `Ctrl` + `Q` | Quit |
-| `` ` `` | Toggle console |
 
-## Customizing Key Bindings
+## Customising shortcuts
 
-You can edit key bindings by modifying the `input.txt` file in the user data folder.
+Shortcuts are defined in the `input.txt` file in Tauon's data folder.
 
-To find this folder:
 <Steps>
-1. Go to **MENU > Settings...**
-2. Press **"Open data folder"**
-3. Edit the `input.txt` file
+1. Open **Settings › System › Files** and click **Open keymap file**.
+2. Edit the file. Each line is an action name, a key, and up to two modifiers (`Shift`, `Ctrl` or `Alt`). For example, `toggle-gallery G Alt`.
+3. Restart Tauon.
 </Steps>
+
+Some actions have no key by default and can be bound here, including `play`, `pause`, `stop`, `toggle-gallery`, `toggle-right-panel` and `toggle-columns`. `MB4` and `MB5` (mouse back and forward) can be used as keys.

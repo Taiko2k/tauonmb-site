@@ -1,56 +1,66 @@
 ---
 title: Search & Find
-description: Learn how to search for music globally or within playlists
+description: Search across all your playlists, or find within one
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
-Tauon provides two ways to find music: **global search** and **quick find**.
+Tauon has two ways to find music: **global search** across all your playlists, and **quick find** within the playlist you're viewing.
 
 ## Global search
 
-Global search compiles results from across all playlists. It automatically activates when you start typing.
+Just start typing a name, or press <kbd>Ctrl</kbd> + <kbd>G</kbd>. Results update as you type.
 
-### Search results
+![Global search results](../../../assets/search.png)
 
-Global search returns results in multiple categories:
+Results are grouped by type: playlists, artists, albums, tracks, genres, folders, composers, years and labels. Tracks whose lyrics match also appear.
 
-- **Artists**: all tracks by an artist
-- **Albums**: all tracks from an album
-- **Tracks**: individual tracks
-- **Genres**: all tracks in a genre
-- **Folders**: all tracks from a folder
+### Using results
 
-### Actions
+| Action | Result |
+| --- | --- |
+| Click, or <kbd>Enter</kbd> | Albums and tracks play. Artists, genres, folders, composers, years and labels open as a new playlist. Playlists are switched to. |
+| Right-click, or <kbd>Shift</kbd> + <kbd>Enter</kbd> | Shows the result in its playlist without playing it |
+| <kbd>Ctrl</kbd> + click | Adds the result's tracks to the playlist you're viewing. Search stays open, so you can add several. |
+| Middle-click | Adds an album or track to the [queue](/manual/queue/) |
 
-- Click an **Artist**, **Genre**, or **Folder** result → creates a new playlist of that result
-- Click a **Track** or **Album** result → plays it
-- Right-click any result → locates the result without playing or creating a playlist
-- <kbd>Ctrl</kbd> + click → adds the result to the current playlist without closing the search
+Use the <kbd>Up</kbd> and <kbd>Down</kbd> keys to move through results, and <kbd>Esc</kbd> to close search.
+
+### Narrowing the search
+
+Start your search with one of these words to show only that kind of result:
+
+| Prefix | Example |
+| --- | --- |
+| `artist` | `artist marlow` |
+| `album` | `album static` |
+| `composer` | `composer bach` |
+| `label` | `label warp` |
+| `year` | `year 2019` |
+
+Search ignores accents, so `beyonce` finds "Beyoncé".
+
+:::tip
+If typing letters starts search when you don't want it to, you can turn this off in the config file (`alpha_key_activate_search`). <kbd>Ctrl</kbd> + <kbd>G</kbd> still works.
+:::
 
 ## Quick find
 
-Quick find searches within the **currently viewed playlist only**.
-
-### Use quick find
+Quick find searches only the playlist you're viewing. It matches the title, artist, album, composer, comment and file path.
 
 <Steps>
-1. Press <kbd>Ctrl</kbd> + <kbd>F</kbd> to open the find box.
-2. Type your search terms.
-3. Use the <kbd>Up</kbd> or <kbd>Down</kbd> arrow keys to jump to the previous/next match.
+1. Press <kbd>Ctrl</kbd> + <kbd>F</kbd> (or <kbd>\\</kbd>) to open the find box.
+2. Type your search. Every word must match.
+3. Use <kbd>Up</kbd> and <kbd>Down</kbd> to jump between matches, and <kbd>Enter</kbd> to play the highlighted one.
 </Steps>
 
-Press <kbd>Shift</kbd> + <kbd>Enter</kbd> to create a new playlist of all matching results.
+Press <kbd>Shift</kbd> + <kbd>Enter</kbd> to make a new playlist of all the matches.
 
 :::tip[Advanced uses]
-Because quick find searches filenames, you can:
+Because quick find searches file paths, you can:
 
-- Find artists in features that may not be picked up by global search
-- Create a playlist of tracks of a single file type (for example, search `.ogg`)
+- Find all tracks of one file type, for example `.flac`
+- Find everything in a folder by part of its path
+
+Start with `/` to match folder paths only. For example, `/live` then <kbd>Enter</kbd> makes a playlist of tracks whose folder path contains "live".
 :::
-
-## Search tips
-
-- Global search is best for discovering content across all playlists.
-- Quick find is ideal for filtering the current playlist.
-- Both search methods are case-insensitive.

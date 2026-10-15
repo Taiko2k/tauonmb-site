@@ -1,67 +1,58 @@
 ---
 title: Remote Control
-description: Control Tauon via media keys, CLI, or APIs
+description: Control Tauon with media keys, the command line, or over the network
 ---
-
-import { Steps } from '@astrojs/starlight/components';
 
 ## Media keys
 
-Media keys should be automatically handled by your desktop environment and forwarded to media players using **MPRIS2** via **D-Bus** (Linux only). For GNOME and KDE, no extra configuration should be needed.
+Media keys (play/pause, next, previous) work on all platforms:
 
-macOS media keys are not currently supported.
+- **Linux:** through MPRIS2 over D-Bus. GNOME and KDE need no extra setup.
+- **Windows:** through the system media controls.
+- **macOS:** through Now Playing, including Control Center.
 
-## Commands
+## Command line
 
-### Using `playerctl` (Linux only)
+### playerctl (Linux)
 
-You can use [playerctl](https://github.com/altdesktop/playerctl) ([Arch Linux package](https://archlinux.org/packages/community/x86_64/playerctl/)), which uses MPRIS2 for additional controls (volume, shuffle, etc.).
+[playerctl](https://github.com/altdesktop/playerctl) controls Tauon through MPRIS2, including volume and shuffle:
 
-Example:
-
-```
+```bash
 playerctl -p tauon play
 ```
 
+### D-Bus (Linux)
 
-### Using D-Bus directly (Linux only)
+If `playerctl` doesn't suit you, send commands over D-Bus directly. For example, to skip to the next track:
 
-If `playerctl` isn’t working for you, you can send commands over D-Bus manually using `dbus-send`.
-
-Example: switch to the next track
-
-```
+```bash
 dbus-send --print-reply --session --dest=org.mpris.MediaPlayer2.tauon /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 ```
 
 :::note
-Tauon does not implement the *tracklist* or *playlists* MPRIS interface.
+Tauon doesn't implement the MPRIS *TrackList* or *Playlists* interfaces.
 :::
 
-### Tauon launch options
+### Tauon commands
 
-There are also some Tauon launch commands you can use.
+You can control a running Tauon by launching it with a command:
 
- - If installed via AUR, the CLI command is `tauon`.
- - If installed via Flatpak, use:
+- If installed from the Arch repository, the command is `tauon`.
+- With Flatpak, use `flatpak run com.github.taiko2k.tauonmb`.
 
-```bash
-flatpak run com.github.taiko2k.tauonmb
-```
-
-
-Options:
-
-```text
---play
---pause
---play-pause
---stop
---next
---previous
---shuffle   (this toggles shuffle)
---repeat    (this toggles repeat)
-```
+| Command | Action |
+| --- | --- |
+| `--play` | Play |
+| `--pause` | Pause |
+| `--play-pause` | Toggle play/pause |
+| `--stop` | Stop |
+| `--next` | Next track |
+| `--previous` | Previous track |
+| `--shuffle` | Toggle shuffle |
+| `--repeat` | Toggle repeat |
+| `--raise` | Bring the Tauon window to the front |
+| `--tray` | Start Tauon hidden in the system tray |
+| `--no-start` | Only send the command to a running Tauon; don't start a new one |
 
 For example:
 
@@ -69,21 +60,24 @@ For example:
 tauon --pause
 ```
 
-You can also open files, for example:
+You can also open files with the command, for example:
 
 ```bash
-tauon ~/Music/Myalbum/mysong.mp3
+tauon ~/Music/MyAlbum/song.mp3
 ```
 
-## Network / advanced control
+## Over the network
 
-### Android app (unmaintained)
+:::caution[Security]
+Network control is not authenticated or encrypted. Only turn it on in a trusted network, and don't expose the port to the internet.
+:::
 
-See the wiki list of known Android remote control apps: https://github.com/Taiko2k/TauonMusicBox/wiki/Android-Remote-Apps
+To allow control over the network, turn on **Settings › Connect › Sharing › Enable remote control**, then restart Tauon. This starts an HTTP API on port 7814, used by:
 
-### Using Tauon's HTTP API
+- the [Tauon for iOS](/manual/tauon-for-ios/) app
+- [another Tauon](/manual/network-sources/#another-tauon-on-your-network) on your network
+- your own scripts. See the [Remote Control API](https://github.com/Taiko2k/Tauon/wiki/Remote-Control-API) wiki page.
 
-For advanced control (developers), you can use the remote HTTP API. See the wiki page: https://github.com/Taiko2k/TauonMusicBox/wiki/Remote-Control-API
+### Listen Along
 
-This must be enabled in Tauon’s settings.
-
+**Settings › Connect › Sharing › Enable Listen Along** starts a web page that lets others hear what you're playing in their browser. Click **Open** next to **Listen Along page** to see it.

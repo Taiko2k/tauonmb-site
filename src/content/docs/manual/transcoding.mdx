@@ -1,83 +1,70 @@
 ---
 title: Transcoding & Sync
-description: Convert audio files to a different codec
+description: Convert audio to another format and sync music to a device
 ---
 import { Steps } from '@astrojs/starlight/components';
 
-## Overview
+## Transcoding
 
-This **transcoding** feature converts audio from one format/codec to another (for example, FLAC → Opus/MP3) and places it in an output folder. This can be useful when
-copying music to portable devices with limited storage.
+Transcoding converts audio to a different format, for example FLAC to Opus or MP3, and saves the result in an output folder. This is useful for copying music to devices with limited storage.
 
 :::note
-This feature creates a flattened file structure in the format of `Artist - Album/filename.ext` to the target folder. It does not preserve the original directory structure.
+Transcoded albums are saved in a flat structure: `Artist - Album/filename.ext` inside the output folder. The original folder structure isn't kept.
 :::
 
-## How to:
-
 <Steps>
-1. Set **codec** and **bitrate** settings in `MENU` > `Settings...` > `Transcode`
+1. Choose the **Codec** and **Bitrate** in **Settings › Library › Transcode**.
+
      :::tip
-     Try OPUS at 72kbps to really compress your music. For playback on iOS try [foobar2000](https://apps.apple.com/us/app/foobar2000/id1072807669). For Android try AIMP.
-     Enabling the `write as .ogg extension` setting will improve compatibility on Android to most players.
+     Opus at around 72 kbps gives very small files that still sound good. Turn on **Save opus as .ogg** for better compatibility with Android players.
      :::
 
-2. Right click a track and select `Transcode Folder` to transcode all the tracks in the folder/block where the track resides. Wait for it to finish.
-   (It doesn't matter which track of an album you click, it will still transcode the whole album/block.)
+2. Right-click any track of an album and choose **Transcode Folder**. The whole album is transcoded. Progress is shown by the activity indicator at the top right.
 </Steps>
 
-To see the resulting folders in your file manager, press F9. You can then copy these folders to your device using your file manager.
+Press `F9` to open the output folder in your file manager.
 
-### Additional settings
+Other ways to transcode:
 
- - You can have the source tracks deleted and **replaced** by new output tracks by enabling the setting `Transcode files inplace`. You should maybe back up your files first before using this option.
- - You can transcode ***single*** tracks by right clicking a track, holding Shift, and selecting `Transcode Single`
+- **One track:** hold `Shift` while right-clicking a track and choose **Transcode Single**.
+- **A whole playlist:** right-click the playlist tab and choose **Misc… › Transcode All**.
 
+To replace the original files with the transcoded ones, choose **Save and overwrite files in place** in **Settings › Library › Transcode**. Back up your files before using this.
 
-# Sync
+## Sync
 
-The way this feature is intended to work is that you maintain a playlist of all the albums you want on your device. Then you can add and remove items and only the difference needs to be copied.
+Sync keeps a folder on a device, such as a phone or portable player, matching a playlist. Keep a playlist of the albums you want on the device, add and remove albums as you like, and only the differences are copied.
 
-## How to
+![The Sync to device settings](../../../assets/sync-settings.png)
 
 <Steps>
-1. Create a sync playlist
-   First, we want to make a playlist of the albums we want on the device. You could use an existing playlist, or make a new playlist. You could for example name it something like `Sync Playlist`. To mark this playlist as the ***sync source playlist***, right click its tab, then select "Misc..." > **"Set as Sync Playlist"**
+1. **Make a sync playlist.** Create a playlist (for example "Phone") and fill it with the albums you want on the device. Right-click its tab and choose **Misc… › Set as Sync Playlist**.
 
-2. Copy albums to that playlist
-   One way to easily copy albums to a playlist is to use the **Gallery Quick Add** function by right clicking the target playlist tab, then selecting "Misc..." > "Engage Gallery Quick Add".
+     :::tip[Gallery Quick Add]
+     To build the playlist quickly, right-click its tab and choose **Misc… › Engage Gallery Quick Add**. Now right-click any album in the [gallery](/manual/gallery/), in any playlist, to add it to or remove it from the sync playlist. When you're done, choose **Disengage Quick Add** from the main menu.
+     :::
 
-   Then, you can **right-click any album in the gallery view** from any playlist to add it or remove it from that target playlist. Once done, click MENU and select "Disengage Gallery Quick Add"
+2. **Connect the device.** Its storage must be mounted, with a folder to sync music into.
 
-3. Setup transcoder
-   So now we have our playlist ready, let's select transcode settings. Go to `MENU` > `Settings...` > `Transcode`, and select a lossy codec.
+3. **Set up sync** in **Settings › Library › Sync to device**:
+    - Enter the **Target folder**, or click **Detect** to find a mounted device automatically.
+    - Turn on **Transcode files** to convert music using your transcode settings, or turn it off to copy the files unchanged. **Bypass low bitrate** copies low-bitrate files instead of transcoding them again.
+    - **Delete other folders in target** removes any folders on the device that aren't in the playlist.
 
-4. Setup sync
-   Now click the "**Sync...**" button to switch to the sync page.
-
-   At this point we will want our device connected and ready. The device filesystem must be mounted and contain a folder to sync music to.
-
-   **Android/MTP**
-
-   For an Android/MTP device connected by USB, try opening it in your file browser to trigger a mount. Then back in Tauon you can click the lightning bolt icon to automatically try to detect this location. If that failed, you will need to supply the path manually.
-
-   **iPhone**
-
-   For iPhone install an app such as [foobar2000](https://apps.apple.com/us/app/foobar2000/id1072807669). Connect your iPhone via USB. In your desktop, trigger a mount of your iPhone documents drive in your file manager. Then use the terminal to locate the mounted location for that app. Under GNOME it looks something like `/run/user/1000/gvfs/afc:host=???/com.foobar2000.mobile`. Paste the full path into Tauon.
-
-   :::note[Flatpak Note]
-   Don’t forget to add permission for the target path if using the Flatpak version of Tauon.
-   :::
-
-   There is an option named **"Delete all other folders in target"** which you can optionally enable. If enabled, any folders in the target path **not** in the playlist will be deleted.
-
-5. Finally click "Transcode and Sync" to begin the process.
+4. Click **Start Transcode and Sync** (or **Start Sync** when not transcoding).
 </Steps>
 
-:::tip
-This function syncs based on the generated folder name. Clear both the encode output directory and target directory to fix incomplete albums or to update transcode codec/bitrate.
+You can stop the sync at any time with **Stop**, or from the activity indicator at the top right. Starting again picks up where it left off.
+
+### Device notes
+
+- **Android:** connect by USB and open the phone in your file manager to mount it, then try **Detect**. If that doesn't work, enter the path by hand.
+- **iPhone:** install a player that accepts files, such as [foobar2000](https://apps.apple.com/us/app/foobar2000/id1072807669). Connect by USB and mount the app's documents in your file manager. On GNOME the path looks like `/run/user/1000/gvfs/afc:host=…/com.foobar2000.mobile`. Paste the full path into **Target folder**.
+
+:::note[Flatpak]
+Grant Tauon permission to access the target path if you're using the Flatpak version.
 :::
 
 :::tip
-You can safely interrupt the process by clicking `Stop...` (or right click status bar text and select `Cancel`). Starting again will effectively resume where you left off.
+Sync matches albums by their folder names. To redo an album, for example after changing the codec or bitrate, delete it from both the output folder and the device, then sync again.
 :::

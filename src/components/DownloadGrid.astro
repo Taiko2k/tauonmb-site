@@ -1,7 +1,7 @@
 ---
-import { Icon } from '@astrojs/starlight/components';
+import { Code, Icon } from '@astrojs/starlight/components';
 
-/* Downloads grid for the installing page.
+/* Downloads list for the installing page.
    The version number and release date are fetched from GitHub at build time
    and baked into the static page; download links use the stable
    `releases/latest/download/` URLs so they never go stale between builds. */
@@ -23,174 +23,234 @@ try {
 	/* Offline or rate-limited build — fall back to "latest" with no date. */
 }
 
-const cards = [
+const latest = 'https://github.com/Taiko2k/Tauon/releases/latest/download/';
+
+const rows = [
 	{
-		os: 'Windows',
+		os: 'windows',
+		name: 'Windows',
 		icon: 'seti:windows',
-		desc: '64-bit installer for Windows 10 and up',
-		action: 'download installer',
-		arrow: '↓',
-		href: 'https://github.com/Taiko2k/Tauon/releases/latest/download/TauonMusicBox-windows-installer.exe',
+		desc: 'Installer for 64-bit Windows 10 and later.',
+		action: 'Download installer',
+		href: `${latest}TauonMusicBox-windows-installer.exe`,
+		extra: [{ label: 'Portable .7z', href: `${latest}TauonMusicBox-windows.7z` }],
 	},
 	{
-		os: 'macOS',
+		os: 'mac',
+		name: 'macOS',
 		icon: 'apple',
-		desc: 'Signed disk image — drag Tauon to Applications',
-		action: 'download dmg',
-		arrow: '↓',
-		href: 'https://github.com/Taiko2k/Tauon/releases/latest/download/Tauon-signed.dmg',
+		desc: 'Signed disk image. Open it and drag Tauon to Applications.',
+		action: 'Download .dmg',
+		href: `${latest}Tauon-signed.dmg`,
 	},
 	{
-		os: 'Linux',
+		os: 'linux',
+		name: 'Linux',
 		icon: 'linux',
-		desc: 'Flatpak for most distributions',
-		action: 'get it on Flathub',
-		arrow: '→',
+		desc: 'Flatpak for most distributions. Install it from Flathub, or run:',
+		command: 'flatpak install flathub com.github.taiko2k.tauonmb',
+		action: 'Get it on Flathub',
 		href: 'https://flathub.org/apps/com.github.taiko2k.tauonmb',
 	},
 	{
-		os: 'Arch Linux',
+		os: 'arch',
+		name: 'Arch Linux',
 		icon: 'linux',
-		desc: 'Packaged in the official extra repository',
-		action: 'view package',
-		arrow: '→',
+		desc: 'In the official extra repository:',
+		command: 'sudo pacman -S tauon-music-box',
+		action: 'View package',
 		href: 'https://archlinux.org/packages/extra/x86_64/tauon-music-box/',
 	},
 ] as const;
 ---
 
-<div class="dl">
-	<div class="dl-release">
-		<span class="dl-eyebrow">Latest release</span>
+<div class="dl not-content">
+	<p class="dl-release">
+		<span>Latest</span>
 		<span class="dl-version">{version}</span>
-		{released && <span class="dl-date">{released}</span>}
-	</div>
+		{released && <span>· {released}</span>}
+		<span>·</span>
+		<a href="https://github.com/Taiko2k/Tauon/releases/latest">Release notes →</a>
+	</p>
 
-	<div class="dl-grid">
+	<div class="dl-rows">
 		{
-			cards.map((c) => (
-				<a class="dl-card" href={c.href}>
-					<span class="dl-os">
-						<Icon name={c.icon} class="dl-icon" size="1rem" />
-						{c.os}
-					</span>
-					<span class="dl-desc">{c.desc}</span>
-					<span class="dl-action">
-						{c.action} <span class="dl-arrow">{c.arrow}</span>
-					</span>
-				</a>
+			rows.map((r) => (
+				<section class="dl-row" data-os={r.os} aria-labelledby={`dl-${r.os}`}>
+					<h3 class="dl-name" id={`dl-${r.os}`}>
+						<Icon name={r.icon} class="dl-icon" size="1.125rem" />
+						{r.name}
+						<span class="dl-yours">Your system</span>
+					</h3>
+					<div class="dl-body">
+						<p class="dl-desc">{r.desc}</p>
+						{'command' in r && <Code code={r.command} lang="sh" frame="none" />}
+						<div class="dl-actions">
+							<a class="dl-button" href={r.href}>
+								{r.action}
+							</a>
+							{'extra' in r &&
+								r.extra.map((e) => (
+									<a class="dl-link" href={e.href}>
+										{e.label}
+									</a>
+								))}
+						</div>
+					</div>
+				</section>
 			))
 		}
 	</div>
-
-	<p class="dl-note">
-		Older builds and checksums on <a href="https://github.com/Taiko2k/Tauon/releases">GitHub releases</a>.
-	</p>
 </div>
+
+<script>
+	// Put the visitor's platform first and highlight its download.
+	const ua = navigator.userAgent;
+	const touch = navigator.maxTouchPoints > 1;
+	let os: string | null = null;
+	if (/Windows/.test(ua)) os = 'windows';
+	else if (/Macintosh/.test(ua) && !touch) os = 'mac';
+	else if (/Linux|X11/.test(ua) && !/Android/.test(ua)) os = 'linux';
+
+	const row = os && document.querySelector<HTMLElement>(`.dl-row[data-os="${os}"]`);
+	if (row) {
+		row.classList.add('is-yours');
+		row.parentElement?.prepend(row);
+	}
+</script>
 
 <style>
 	.dl {
-		font-family: var(--sl-font-mono);
-		max-width: 40rem;
+		margin-top: 1.5rem;
 	}
 
-	/* Release header */
 	.dl-release {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: baseline;
-		gap: 1rem;
-		margin: 1.75rem 0 1.25rem;
-	}
-	.dl-eyebrow {
-		font-size: 0.625rem;
-		letter-spacing: 0.12em;
-		text-transform: uppercase;
-		color: var(--sl-color-gray-4);
+		gap: 0.5rem;
+		margin: 0 0 2rem;
+		font-family: var(--sl-font-mono);
+		font-size: 0.75rem;
+		font-weight: 300;
+		letter-spacing: 0.04em;
+		color: #7a7a7e;
 	}
 	.dl-version {
-		font-size: 0.8125rem;
-		font-weight: 600;
-		color: var(--sl-color-white);
+		color: #e6e6e6;
 	}
-	.dl-date {
-		font-size: 0.75rem;
-		color: var(--sl-color-gray-4);
+	.dl-release a {
+		color: #b8b8bc;
+		text-decoration: none;
+		border-bottom: 1px solid #4a4a4e;
+	}
+	.dl-release a:hover {
+		color: #ffffff;
+		border-bottom-color: #9a9a9e;
 	}
 
-	/* Platform cards */
-	.dl-grid {
+	.dl-row {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 0.75rem;
+		grid-template-columns: 10rem minmax(0, 1fr);
+		gap: 0.75rem 2rem;
+		padding: 2rem 0;
+		border-top: 1px solid #1c1c1e;
+	}
+	.dl-row:last-child {
+		border-bottom: 1px solid #1c1c1e;
 	}
 	@media (max-width: 40rem) {
-		.dl-grid {
-			grid-template-columns: 1fr;
+		.dl-row {
+			grid-template-columns: minmax(0, 1fr);
+			padding: 1.5rem 0;
 		}
 	}
 
-	a.dl-card {
+	.dl-name {
+		margin: 0;
 		display: flex;
-		flex-direction: column;
-		gap: 0.45rem;
-		padding: 1.1rem 1.2rem 1rem;
-		border: 1px solid var(--sl-color-gray-5);
-		background: var(--sl-color-gray-7);
-		text-decoration: none;
-	}
-	a.dl-card:hover {
-		border-color: var(--sl-color-accent);
-		background: var(--sl-color-black);
-	}
-
-	.dl-os {
-		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
-		gap: 0.55rem;
-		font-size: 0.875rem;
-		font-weight: 600;
-		color: var(--sl-color-white);
+		align-content: start;
+		gap: 0.625rem;
+		font-family: var(--sl-font);
+		font-size: 1.25rem;
+		font-weight: 300;
+		line-height: 1.3;
+		color: #f2f2f2;
 	}
-	.dl-os :global(.dl-icon) {
-		color: var(--sl-color-gray-3);
+	.dl-name :global(.dl-icon) {
+		color: #9a9a9e;
 	}
-	a.dl-card:hover .dl-os :global(.dl-icon) {
-		color: var(--sl-color-white);
+	.dl-yours {
+		display: none;
+		flex-basis: 100%;
+		font-family: var(--sl-font-mono);
+		font-size: 0.625rem;
+		font-weight: 300;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: #9a9a9e;
 	}
-	.dl-desc {
-		font-size: 0.72rem;
-		line-height: 1.6;
-		color: var(--sl-color-gray-3);
-		min-height: 2.3em;
+	.is-yours .dl-yours {
+		display: block;
 	}
-	.dl-action {
-		font-size: 0.75rem;
-		color: var(--sl-color-gray-2);
-		margin-top: 0.35rem;
-	}
-	a.dl-card:hover .dl-action {
-		color: var(--sl-color-white);
-	}
-	.dl-arrow {
-		color: var(--sl-color-gray-4);
-	}
-	a.dl-card:hover .dl-arrow {
-		color: var(--sl-color-white);
+	.is-yours .dl-name :global(.dl-icon) {
+		color: #f2f2f2;
 	}
 
-	/* Footer note */
-	.dl-note {
-		font-size: 0.75rem;
-		color: var(--sl-color-gray-4);
-		margin-top: 1.5rem;
+	.dl-desc {
+		margin: 0 0 1rem;
+		font-size: 1rem;
+		font-weight: 300;
+		line-height: 1.6;
+		color: #b8b8bc;
 	}
-	.dl-note a {
-		color: var(--sl-color-gray-2);
+	.dl-body :global(.expressive-code) {
+		margin: 0 0 1.25rem;
+	}
+
+	.dl-actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.75rem 1.5rem;
+	}
+	.dl-button {
+		display: inline-block;
+		padding: 0.625rem 1.125rem;
+		border: 1px solid #4a4a4e;
+		border-radius: 6px;
+		font-size: 0.9375rem;
+		font-weight: 400;
+		color: #e6e6e6;
 		text-decoration: none;
-		border-bottom: 1px solid var(--sl-color-gray-5);
 	}
-	.dl-note a:hover {
-		color: var(--sl-color-white);
-		border-bottom-color: var(--sl-color-gray-3);
+	.dl-button:hover {
+		border-color: #9a9a9e;
+		color: #ffffff;
+	}
+	.is-yours .dl-button {
+		background: #e6e6e6;
+		border-color: #e6e6e6;
+		color: #0d0d0e;
+		font-weight: 500;
+	}
+	.is-yours .dl-button:hover {
+		background: #ffffff;
+		border-color: #ffffff;
+		color: #0d0d0e;
+	}
+	.dl-link {
+		font-size: 0.9375rem;
+		font-weight: 300;
+		color: #b8b8bc;
+		text-decoration: none;
+		border-bottom: 1px solid #4a4a4e;
+		padding-bottom: 2px;
+	}
+	.dl-link:hover {
+		color: #ffffff;
+		border-bottom-color: #9a9a9e;
 	}
 </style>

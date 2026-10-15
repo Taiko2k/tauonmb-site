@@ -1,35 +1,39 @@
 ---
 import config from 'virtual:starlight/user-config';
 
-const links = config.social || [];
-
-// Contextual nav link: "docs" on the home page, "home" on every other page.
-const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
-const navLink = isHome ? { label: 'docs', href: '/manual/overview/' } : { label: 'home', href: '/' };
+const social = config.social || [];
+const links = [
+	{ label: 'Docs', href: '/manual/overview/' },
+	{ label: 'Download', href: '/manual/installing/', class: 'wide-only' },
+	...social.map(({ label, href }) => ({ label, href, rel: 'me' })),
+];
 ---
 
-<div class="tauon-social sl-flex">
-	<a href={navLink.href}>{navLink.label}</a>
-	{links.map(({ label, href }) => (
-		<a {href} rel="me">
-			{label.toLowerCase()}
-		</a>
-	))}
-</div>
+<nav class="tauon-nav sl-flex" aria-label="Site">
+	{links.map(({ label, href, rel, class: cls }) => <a {href} {rel} class={cls}>{label}</a>)}
+</nav>
 
 <style>
-	.tauon-social {
-		gap: 1.25rem;
+	.tauon-nav {
+		gap: 2rem;
 		align-items: center;
 	}
-	.tauon-social a {
-		font-family: var(--sl-font-mono, monospace);
-		font-size: 0.8rem;
-		letter-spacing: 0.02em;
+	.tauon-nav a {
+		font-family: var(--sl-font);
+		font-size: 0.9375rem;
+		font-weight: 300;
 		color: var(--sl-color-gray-3);
 		text-decoration: none;
 	}
-	.tauon-social a:hover {
+	.tauon-nav a:hover {
 		color: var(--sl-color-white);
+	}
+	@media (max-width: 40rem) {
+		.tauon-nav {
+			gap: 1.1rem;
+		}
+		.tauon-nav a {
+			font-size: 0.875rem;
+		}
 	}
 </style>

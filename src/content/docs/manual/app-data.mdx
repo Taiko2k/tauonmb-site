@@ -1,50 +1,56 @@
 ---
-title: App Data
+title: App Data & Playcounts
+description: Where Tauon keeps its data, and how to back up or reset it
 ---
 
-## Locating the user data file directory
+## Find the data folder
 
-If you'd like to access or backup Tauon's app data folder, you can locate it useing the "Open data folder" button under "MENU" > "Settings". Otherwise, here are some common paths:
+To open Tauon's data folder, go to **Settings › System › Files** and click **Open data folder**. The usual locations are:
 
-| Platform  | Path |
-| ------------- | ------------- |
-| Linux | `/home/<user>/.local/share/TauonMusicBox` |
-| Flatpak  | `/home/<user>/.var/app/com.github.taiko2k.tauonmb/data/TauonMusicBox`  |
-| Portable | `./user-data` |
-| Windows | `C:\Users\<user>\AppData\Local\Microsoft\Windows\INetCache\TauonMusicBox` |
+| Platform | Path |
+| --- | --- |
+| Linux | `~/.local/share/TauonMusicBox` |
+| Flatpak | `~/.var/app/com.github.taiko2k.tauonmb/data/TauonMusicBox` |
+| macOS | `~/.local/share/TauonMusicBox` |
+| Windows | `C:\Users\<user>\AppData\Local\TauonMusicBox` |
+| Portable | `user-data`, next to the program |
 
-## Data files
+## What's in it
 
-There are two important files in this directory:
+| File or folder | Contains |
+| --- | --- |
+| `state.p` | Your playlists, the track database and most settings |
+| `star.p` | Play counts, loves and track ratings, kept separately from the main database |
+| `album-star.p` | Album ratings |
+| `tauon.conf` | Settings, including advanced options not in the Settings window |
+| `input.txt` | [Keyboard shortcuts](/manual/keyboard-shortcuts/#customising-shortcuts) |
+| `custom_layouts.json` | Your [custom layouts](/manual/layouts/#custom-layouts) |
+| `theme/` | Your [themes](/manual/themes/) |
+| `artist-pictures/` | Artist pictures |
+| `presets/` | [MilkDrop](/manual/milkdrop/) presets |
 
-- `state.p` Contains playlists, track database information and settings.
-
-- `star.p` Contains track play time and love information independent of the main database.
+Files ending in `.backup` are automatic backup copies.
 
 :::tip
-If you want to backup or move installation, you can copy this user data folder. If you only care about keeping playcounts/loves/ratings, you only need to keep `star.p`.
+To back up Tauon or move it to a new computer, copy the whole data folder. If you only want to keep play counts, loves and ratings, copy `star.p` and `album-star.p`.
 :::
 
-## Resetting the application
+## Resetting Tauon
 
 ### Partial reset
 
-Delete both the files `state.p` and `state.p.backup` and optionally `tauon.conf` (while app is closed). This will delete all playlists and reset most settings, but keeps track loves, play-counts and ratings.
+With Tauon closed, delete `state.p` and `state.p.backup`, and optionally `tauon.conf`. This removes all playlists and resets most settings, but keeps play counts, loves and ratings.
 
 ### Full reset
 
-Delete all the files and folders in this folder (while app is closed). All related player data will be lost unless backed up.
+With Tauon closed, delete everything in the data folder. All your Tauon data is lost unless you've backed it up.
 
-## Keeping track of playcounts
+## How play counts are tracked
 
-Playtimes are kept in the `star.p` file, along with the rating and whether a track is marked as loved. Tracks are uniquely identified by a matching **filename**, **artist** and **track title**.
+Play counts, loves and ratings in `star.p` are matched to tracks by **file name**, **artist** and **title**.
 
-Therefore in order to keep track of these, you must not change the filename outside of functions provided by Tauon Music Box. (You can use the `Reload Metadata` function to update tag information provided the filename has not changed)
+So to keep them, don't rename files outside of Tauon. If you change tags with another program, right-click the tracks and choose **Meta… › Rescan Tags** (or **Rescan Tags** on an album heading). Tauon reads the new tags and carries the play counts over. Tags edited with Tauon's own [tag editor](/manual/tag-editor/) are handled automatically.
 
-:::tip
-If you're moving installation and jsut want to keep playtimes, just make sure to copy the `star.p` file from the old program data folder to the new one.
-:::
+## Recovering play counts for an album
 
-## Recovering playcounts of an album
-
-If you lose the playtimes of a particular album, you can try getting them back by using the `Vacuum Playtimes` feature available from the *folder title context menu* while holding <kbd>Shift</kbd>. This function will take playtimes of any matching track in the database while **ignoring** the filename.
+If an album has lost its play counts, for example after you renamed its files, hold `Shift`, right-click the album heading and choose **Vacuum Playtimes**. This collects play counts from any track in the database with the same artist and title, ignoring the file name.

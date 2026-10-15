@@ -3,17 +3,22 @@ title: Folder Navigator
 description: Navigate folders in the current playlist using a tree-style view
 ---
 
-![Screenshot of the folder navigator](../../../assets/t05.jpg)
+import { Image } from 'astro:assets';
+import folderNavigatorImg from '../../../assets/folder-navigator.png';
 
-Lists folders in the current playlist in a tree-style layout.
+<Image src={folderNavigatorImg} alt="The folder navigator in the left panel" width={410} densities={[1, 2]} />
 
-- **Double click** a folder to play it
-- **Single click** to locate that folder in the playlist
+The folder navigator shows the folders in the playlist you're viewing as a tree. To show it, right-click the side-panel button (the third button in the top-left corner) and choose **Folder Navigator**.
 
-:::tip[Organizing Your Collection]
-If you have a large music collection, consider keeping it divided into separate sub-folders (e.g., by genre). This allows for easier navigation using the folder navigator.
+- **Click** a folder to open or close it. Clicking a folder that contains tracks also jumps to it in the playlist.
+- **Double-click** a folder that contains tracks to play it.
+- Right-click a folder for **Open Folder**, **Filter to New Playlist**, **Rescan Folder** and **Collapse All**.
+- **Lock Panel** keeps the navigator showing the current playlist while you browse other playlists.
+
+:::tip[Organising your collection]
+With a large collection, consider keeping it in sub-folders, for example by genre. The folder navigator then becomes a quick way to browse.
 :::
 
-:::caution[Move Folder Feature]
-The context menu has a "Move playing folder here" option that performs a **physical** move of the folder on disk. The folder will be placed in a sub-folder named after the artist. Use with caution!
+:::caution[Moving folders]
+The folder menu also has **Move Playing Folder Here**, which physically moves the playing album's folder on disk. See [Folder Management](/manual/folder-management/#folder-relocate).
 :::

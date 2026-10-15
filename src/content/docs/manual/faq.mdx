@@ -6,17 +6,15 @@ description: Frequently Asked Questions about Tauon
 
 **What platforms is Tauon for?**
 
-Tauon is primarily designed for the Linux desktop. Builds also exist for Windows and macOS.
+Tauon's native platform is Linux with cross platform support Windows and macOS.
 
 ___
 
 **What is Tauon?**
 
-Tauon is a desktop music player application that plays your own music files. Its oriented around ***playlists*** and works best with local audio files, but also can work with a remote server such
-as [Jellyfin](https://jellyfin.org/). Tauon has a simple and streamlined dark themed interface with a nice big album art display,
-a gallery view and a cool milkdrop/projectm powered visualiser (coming soon).
+Tauon is a project started in 2015 with the goal of being the best music player for folder based music libraries.
 
-Its not just looks though, Tauon also has many features under the hood designed for semi-power users.
+Its not just features though, Tauon has lots of stylish UI options to make it look awesome.
 
 ___
 
@@ -28,7 +26,9 @@ ___
 
 **Does Tauon organise my music for me?**
 
-Not exactly. Basically you import all your music into one playlist. From there you can search and create filtered and sorted playlists.
+Not exactly. Basically you import all your music into one playlist. From there you can search and create filtered and sorted playlists, and group playlists into [folders](/manual/playlist-folders/).
+
+Tauon's [tag editor](/manual/tag-editor/) can fix your tags, including looking up correct tags on MusicBrainz.
 
 Tauon works best if your music library is structured and properly tagged. At minimum every album should be in its own folder.
 
@@ -71,36 +71,6 @@ This isn't necessarily the ideal way of doing this, however. It might be better 
 
 ___
 
-**Are HiDPI displays supported?**
-
-By default, Tauon will try to detect an appropriate UI scale automatically. 
-
-You can manually set the scaling Tauon uses by going `MENU` > `Settings...` > `View` and adjusting the slider.
-
-
-:::tip
-If album art tends to look too small, consider enabling the setting `Zoom album art to fit` under `Settings...` > `View`.
-
-If text in the tracklist seems vertically off-centre, consider tweaking the setting `Text baseline` under `Settings...` > `Tracklist` to whatever looks visually best to you.
-:::
-
-___
-
-**Is high-res 24bit audio supported?**
-
-Lossess codec support is as follows:
-
-| Codec | Preserve high resolution? | Preserve sample rate? |
-| --- | --- | --- |
-| FLAC, WavPack | Yes, 24bit supported | Yes with "Avoid Resampling" on |
-| WAV, ALAC, APE, TTA | Downscaled to 16bit | No, may use resampling |
-
-:::tip[Avoiding resampling on Linux]
-To get sample rates forwarded to your DAC, enable the setting "*Avoid resampling*" in Tauon under MENU > Settings > Audio. You will also need to enable dynamic samplerates in your Pipewire configuration, see [here](https://wiki.archlinux.org/title/PipeWire#Changing_the_allowed_sample_rate(s)) on how to do that.
-
-The downside of enabling *Avoid Resampling* is that fades will no longer occur between tracks of differing sample rates
-:::
-
 
 ## Troubleshooting FAQs
 
@@ -125,15 +95,15 @@ Try run: `sudo flatpak repair && flatpak repair --user && flatpak update`
 
 **I added new items to my home music folder, but they didn't then immediately show up in Tauon, why?**
 
-Tauon doesn't have background scanning. You need to either manually import items, or use the "Rescan Folders" function from a playlist tab context menu.
+Tauon doesn't have background scanning. Either import the new items yourself, right-click the playlist tab and choose **Rescan Folder**, or choose **Database… › Reload All Folders** from the main menu.
 
 ___
 **Some of my albums don't have album art!**
 
-It *should* be detected if you have them. If you don't have thee it's up to you to manage your library and provide them. For convenience, while playing a particular album you can right click the album art viewport in the right side panel and select "Quick fetch cover art".
+Album art is picked up from image files in the album's folder and from images embedded in the tracks. If an album has neither, you can add an image to its folder, embed one with the [tag editor](/manual/tag-editor/), or, while the album is playing, right-click the album art area in the side panel and choose **Quick-Fetch Cover Art**.
 ___
 **Some of the thumbnails in the gallery aren't showing the correct cover image, how to I change it?**
 
-Right click the thumbnail, choose "Image...", then choose "Next".
+Right-click the thumbnail and choose **Image… › Next**. If you've updated the artwork, choose **Database… › Reset Image Cache** from the main menu.
 
 
