@@ -1,0 +1,76 @@
+---
+title: Command-Line Options
+description: Arguments the Tauon executable accepts, for starting it, controlling it and opening files
+---
+
+## Running the command
+
+| Install | Command |
+| --- | --- |
+| Arch Linux and most Linux packages | `tauon` |
+| Flatpak | `flatpak run com.github.taiko2k.tauonmb` |
+| Linux portable archive | `./tauon` in the `TauonMusicBox` folder |
+| Windows installer | `"C:\Program Files\Tauon Music Box\Tauon Music Box.exe"` |
+| Windows portable archive | `"Tauon Music Box.exe"` in the `TauonMusicBox` folder |
+| macOS | `/Applications/Tauon.app/Contents/MacOS/Tauon` |
+
+The examples below use `tauon`; substitute the command for your install.
+
+## Options
+
+| Option | What it does |
+| --- | --- |
+| `--tray` | Start hidden in the system tray instead of showing the window. |
+| `--no-start` | Send the other arguments to the running Tauon and exit. Never starts a new Tauon. |
+| `-h`, `--help` | Print a summary of these options and exit. |
+
+:::note
+On Windows, Tauon is a windowed app, so `--help` and error messages don't appear in the console.
+:::
+
+## Controlling a running Tauon
+
+These commands go to the Tauon that's already running:
+
+| Command | Also accepted | Action |
+| --- | --- | --- |
+| `--play` | | Start playback |
+| `--pause` | | Pause |
+| `--playpause` | | Toggle play/pause |
+| `--stop` | | Stop |
+| `--next` | `advance` | Next track |
+| `--previous` | `prev`, `back` | Previous track |
+| `--shuffle` | | Toggle shuffle |
+| `--repeat` | | Toggle repeat |
+| `--raise` | | Bring the window to the front |
+| `--reloadtheme` | | Reload the current theme from its file, handy when editing a [`.ttheme` file](/manual/themes/#make-your-own-theme) by hand |
+
+The leading `--` is optional and hyphens inside a command are ignored, so `--playpause`, `--play-pause` and `playpause` all work.
+
+A command never starts Tauon. If Tauon isn't running, the command exits with an error instead.
+
+For example, to skip to the next track:
+
+```bash
+tauon --next
+```
+
+## Opening files
+
+Pass files, folders or `file://` URIs to add them to the **Default** playlist (Tauon creates it if it's missing). The first item starts playing.
+
+```bash
+tauon ~/Music/MyAlbum
+```
+
+- **If Tauon is running,** the files are sent to it and the command exits.
+- **If Tauon isn't running,** it starts and opens them.
+
+Running the command with no arguments while Tauon is running brings its window to the front.
+
+An existing file is always opened, even if its name matches a command. A file called `play` in the current folder is opened, not treated as `--play`.
+
+## See also
+
+- [Remote Control](/manual/remote-control/): media keys, MPRIS2 and control over the network
+- [App Data & Playcounts](/manual/app-data/): where Tauon keeps your library

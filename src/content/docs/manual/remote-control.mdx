@@ -35,36 +35,14 @@ Tauon doesn't implement the MPRIS *TrackList* or *Playlists* interfaces.
 
 ### Tauon commands
 
-You can control a running Tauon by launching it with a command:
-
-- If installed from the Arch repository, the command is `tauon`.
-- With Flatpak, use `flatpak run com.github.taiko2k.tauonmb`.
-
-| Command | Action |
-| --- | --- |
-| `--play` | Play |
-| `--pause` | Pause |
-| `--play-pause` | Toggle play/pause |
-| `--stop` | Stop |
-| `--next` | Next track |
-| `--previous` | Previous track |
-| `--shuffle` | Toggle shuffle |
-| `--repeat` | Toggle repeat |
-| `--raise` | Bring the Tauon window to the front |
-| `--tray` | Start Tauon hidden in the system tray |
-| `--no-start` | Only send the command to a running Tauon; don't start a new one |
-
-For example:
+On every platform, you can control a running Tauon by running its executable with a command such as `--pause`, `--next` or `--playpause`, or pass it files to open:
 
 ```bash
 tauon --pause
-```
-
-You can also open files with the command, for example:
-
-```bash
 tauon ~/Music/MyAlbum/song.mp3
 ```
+
+See [Command-Line Options](/manual/command-line/) for every command, the executable's path on each platform, and how opening files works.
 
 ## Over the network
 

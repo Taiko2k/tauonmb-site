@@ -104,6 +104,7 @@ export default defineConfig({
 						{ label: 'Menu Functions', slug: 'manual/menu-functions' },
 					    { label: 'Gamepad Mappings', slug: 'manual/gamepad-mappings' },
 						{ label: 'Remote Control', slug: 'manual/remote-control' },
+						{ label: 'Command-Line Options', slug: 'manual/command-line' },
 						{ label: 'Themes', slug: 'manual/themes' },
 						{ label: 'App Data & Playcounts', slug: 'manual/app-data' },
 					],
