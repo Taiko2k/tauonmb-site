@@ -10,6 +10,7 @@ template: splash
 import { Image } from 'astro:assets';
 import heroShot from '../../assets/blur.png';
 import layoutShot from '../../assets/vul.png';
+import milkShot from '../../assets/main-screen.jpg';
 import galleryShot from '../../assets/cgal.png';
 
 <div class="tauon-home not-content">
@@ -31,17 +32,25 @@ import galleryShot from '../../assets/cgal.png';
 
   <section class="tauon-wrap tauon-gallery">
     <figure>
+      <Image src={milkShot} alt="The MilkDrop visualiser beside the playlist and track details" />
+      <figcaption>
+        <span class="tauon-label">02 — MILKDROP</span>
+        <h3>Watch the music</h3>
+        <p>Classic MilkDrop visualiser presets, powered by projectM.</p>
+      </figcaption>
+    </figure>
+    <figure class="tauon-flip">
       <Image src={layoutShot} alt="A custom layout with a spectrogram and track details" />
       <figcaption>
-        <span class="tauon-label">02 — CUSTOM LAYOUT</span>
+        <span class="tauon-label">03 — CUSTOM LAYOUT</span>
         <h3>Make the window yours</h3>
         <p>Build the window from widgets, or pick a ready-made view.</p>
       </figcaption>
     </figure>
-    <figure class="tauon-flip">
+    <figure>
       <Image src={galleryShot} alt="The album gallery" />
       <figcaption>
-        <span class="tauon-label">03 — GALLERY</span>
+        <span class="tauon-label">04 — GALLERY</span>
         <h3>Browse by cover</h3>
         <p>See your albums as a grid of art, next to the playlist.</p>
       </figcaption>
