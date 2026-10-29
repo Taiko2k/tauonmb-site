@@ -34,6 +34,12 @@ export default defineConfig({
 						href: 'https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Martian+Mono:wght@300;400&display=swap',
 					},
 				},
+				// Link preview image; Starlight already sets twitter:card to summary_large_image.
+				{ tag: 'meta', attrs: { property: 'og:image', content: 'https://tauonmusicbox.rocks/images/og-image.png' } },
+				{ tag: 'meta', attrs: { property: 'og:image:width', content: '1200' } },
+				{ tag: 'meta', attrs: { property: 'og:image:height', content: '630' } },
+				{ tag: 'meta', attrs: { property: 'og:image:alt', content: 'The Tauon logo above the player window, showing a playlist and an album gallery' } },
+				{ tag: 'meta', attrs: { name: 'twitter:image', content: 'https://tauonmusicbox.rocks/images/og-image.png' } },
 			],
 			title: 'Tauon',
 			logo: {
