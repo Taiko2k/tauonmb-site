@@ -8,6 +8,7 @@ template: splash
 ---
 
 import { Image } from 'astro:assets';
+import HomeDownload from '../../components/HomeDownload.astro';
 import heroShot from '../../assets/blur.png';
 import layoutShot from '../../assets/vul.png';
 import milkShot from '../../assets/main-screen.jpg';
@@ -18,10 +19,7 @@ import galleryShot from '../../assets/cgal.png';
 
   <section class="tauon-hero">
     <h1 class="tauon-title">Your music player from another galaxy.</h1>
-    <div class="tauon-cta">
-      <a class="tauon-button" href="/manual/installing/">Download</a>
-      <span class="tauon-meta">LINUX · WINDOWS · MACOS · GPLv3</span>
-    </div>
+    <HomeDownload />
   </section>
 
   <section class="tauon-wrap tauon-shot">

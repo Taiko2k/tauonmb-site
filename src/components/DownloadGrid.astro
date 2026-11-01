@@ -1,10 +1,10 @@
 ---
 import { Code, Icon } from '@astrojs/starlight/components';
+import { downloads } from './downloads';
 
 /* Downloads list for the installing page.
    The version number and release date are fetched from GitHub at build time
-   and baked into the static page; download links use the stable
-   `releases/latest/download/` URLs so they never go stale between builds. */
+   and baked into the static page. */
 
 let version = 'latest';
 let released = '';
@@ -23,8 +23,6 @@ try {
 	/* Offline or rate-limited build — fall back to "latest" with no date. */
 }
 
-const latest = 'https://github.com/Taiko2k/Tauon/releases/latest/download/';
-
 const rows = [
 	{
 		os: 'windows',
@@ -32,16 +30,16 @@ const rows = [
 		icon: 'seti:windows',
 		desc: 'Installer for 64-bit Windows 10 and later.',
 		action: 'Download installer',
-		href: `${latest}TauonMusicBox-windows-installer.exe`,
-		extra: [{ label: 'Portable .7z', href: `${latest}TauonMusicBox-windows.7z` }],
+		href: downloads.windows,
+		extra: [{ label: 'Portable .7z', href: downloads.windowsPortable }],
 	},
 	{
 		os: 'mac',
 		name: 'macOS',
 		icon: 'apple',
-		desc: 'Signed disk image. Open it and drag Tauon to Applications.',
+		desc: 'Signed disk image for Apple Silicon Macs on macOS 15 (Sequoia) or later. Open it and drag Tauon to Applications.',
 		action: 'Download .dmg',
-		href: `${latest}Tauon-signed.dmg`,
+		href: downloads.mac,
 	},
 	{
 		os: 'linux',
@@ -50,7 +48,7 @@ const rows = [
 		desc: 'Flatpak for most distributions. Install it from Flathub, or run:',
 		command: 'flatpak install flathub com.github.taiko2k.tauonmb',
 		action: 'Get it on Flathub',
-		href: 'https://flathub.org/apps/com.github.taiko2k.tauonmb',
+		href: downloads.flathub,
 	},
 	{
 		os: 'arch',
@@ -104,14 +102,10 @@ const rows = [
 </div>
 
 <script>
-	// Put the visitor's platform first and highlight its download.
-	const ua = navigator.userAgent;
-	const touch = navigator.maxTouchPoints > 1;
-	let os: string | null = null;
-	if (/Windows/.test(ua)) os = 'windows';
-	else if (/Macintosh/.test(ua) && !touch) os = 'mac';
-	else if (/Linux|X11/.test(ua) && !/Android/.test(ua)) os = 'linux';
+	import { detectOs } from './downloads';
 
+	// Put the visitor's platform first and highlight its download.
+	const os = detectOs();
 	const row = os && document.querySelector<HTMLElement>(`.dl-row[data-os="${os}"]`);
 	if (row) {
 		row.classList.add('is-yours');

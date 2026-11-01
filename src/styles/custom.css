@@ -596,6 +596,16 @@ header.header {
 	background: #ffffff;
 	color: #0d0d0e;
 }
+.tauon-home .tauon-meta-link {
+	color: #b8b8bc;
+	text-decoration: none;
+	border-bottom: 1px solid #4a4a4e;
+	padding-bottom: 2px;
+}
+.tauon-home .tauon-meta-link:hover {
+	color: #ffffff;
+	border-bottom-color: #9a9a9e;
+}
 .tauon-meta,
 .tauon-formats,
 .tauon-label,

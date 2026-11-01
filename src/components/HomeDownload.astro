@@ -1,0 +1,33 @@
+---
+/* Homepage download button. Without JavaScript, or on a platform with no
+   build, it links to the installing page. */
+---
+
+<div class="tauon-cta">
+	<a class="tauon-button" href="/manual/installing/" data-home-dl>Download</a>
+	<span class="tauon-meta" data-home-dl-meta>LINUX · WINDOWS · MACOS · GPLv3</span>
+	<a class="tauon-meta tauon-meta-link" href="/manual/installing/" data-home-dl-all hidden>ALL DOWNLOADS →</a>
+</div>
+
+<script>
+	import { detectOs, downloads, type Os } from './downloads';
+
+	// Point the button at the visitor's own download and say what it needs.
+	const targets: Record<Os, { label: string; href: string; meta: string }> = {
+		windows: { label: 'Download for Windows', href: downloads.windows, meta: '64-BIT WINDOWS 10+ · GPLv3' },
+		mac: { label: 'Download for macOS', href: downloads.mac, meta: 'APPLE SILICON · MACOS 15+ · GPLv3' },
+		linux: { label: 'Get it on Flathub', href: downloads.flathub, meta: 'FLATPAK · GPLv3' },
+	};
+
+	const os = detectOs();
+	const button = document.querySelector<HTMLAnchorElement>('[data-home-dl]');
+	const meta = document.querySelector<HTMLElement>('[data-home-dl-meta]');
+	const all = document.querySelector<HTMLElement>('[data-home-dl-all]');
+	if (os && button && meta && all) {
+		const target = targets[os];
+		button.textContent = target.label;
+		button.href = target.href;
+		meta.textContent = target.meta;
+		all.hidden = false;
+	}
+</script>
